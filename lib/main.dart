@@ -1,0 +1,64 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'injector.dart';
+
+import 'view/page/page.dart';
+
+Future<void> main() async {
+  await injector.init();
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primaryColor: const Color(0xFF3456DD),
+        accentColor: const Color(0xFFF3EC00),
+        canvasColor: const Color(0xFFF5F5F5),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        textTheme: textTheme,
+        snackBarTheme: const SnackBarThemeData(
+          backgroundColor: Colors.white
+        )
+      ),
+      home: EntryPage(),
+    );
+  }
+}
+
+TextTheme textTheme = const TextTheme(
+  headline6: TextStyle(
+    color: Colors.white,
+    fontSize: 20,
+    fontWeight: FontWeight.bold
+  ),
+  subtitle2: TextStyle(
+    color: Color(0xFF464646),
+    fontSize: 14,
+    fontWeight: FontWeight.bold
+  ),
+  subtitle1: TextStyle(
+    color: Color(0xFF3456DD),
+    fontSize: 16,
+    fontWeight: FontWeight.bold
+  ),
+  button: TextStyle(
+    color: Colors.white,
+    fontWeight: FontWeight.bold
+  ),
+  headline4: TextStyle(
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+    fontSize: 32
+  ),
+);
