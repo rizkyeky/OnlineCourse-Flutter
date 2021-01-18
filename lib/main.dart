@@ -5,7 +5,9 @@ import 'injector.dart';
 import 'view/page/page.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await injector.init();
+  injector.setup();
   runApp(MyApp());
 }
 
@@ -31,8 +33,9 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.white
         )
       ),
-      initialRoute: '/login',
-      onGenerateRoute: onGenerateRoute
+      home: EntryPage(),
+      // initialRoute: '/login',
+      // onGenerateRoute: onGenerateRoute
     );
   }
 }
@@ -49,9 +52,9 @@ Route onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => EntryPage());
       break;
     default:
-      return MaterialPageRoute(builder: (_) => Scaffold(body: Center(
+      return MaterialPageRoute(builder: (_) => Center(
         child: Text('No Route Name ${settings.name}'),
-      ),));
+      ));
   }
 }
 

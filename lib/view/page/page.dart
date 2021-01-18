@@ -16,11 +16,11 @@ abstract class Page<T extends Bloc> extends StatefulWidget {
 
   Page({
     Key key,
+    this.hasNetworkSnack = false
   }) : super(key: key);
 
   final T bloc = injector.getBloc<T>();
-  
-  bool hasNetworkInfo() => true;
+  final bool hasNetworkSnack; 
 
   @override
   _PageState createState() => _PageState();
@@ -58,15 +58,15 @@ class _PageState extends State<Page> {
     return ValueListenableBuilder<ConnectionStatus>(
       valueListenable: injector.getService<ConnectionService>().networkStatusNotifier,
       builder: (context, value, child) {
-        if (widget.hasNetworkInfo()) {
+        if (widget.hasNetworkSnack) {
           if (value == ConnectionStatus.offline && !hasOnline) {
             Future.delayed(const Duration(milliseconds: 500))
               .whenComplete(() => showFlash(
                 context: context,
-                duration: const Duration(seconds: 1),
+                duration: const Duration(seconds: 3),
                 builder: (context, controller) => SnackFlashBar(
                   controller: controller,
-                  contentMessage: 'ONLINE',
+                  contentMessage: 'OFFLINE',
                   actionMessage: 'DISMISS',
                 )
               ));
@@ -75,10 +75,10 @@ class _PageState extends State<Page> {
             Future.delayed(const Duration(milliseconds: 500))
               .whenComplete(() => showFlash(
                 context: context,
-                duration: const Duration(seconds: 3),
+                duration: const Duration(seconds: 1),
                 builder: (context, controller) => SnackFlashBar(
                   controller: controller,
-                  contentMessage: 'OFFLINE',
+                  contentMessage: 'ONLINE',
                   actionMessage: 'DISMISS',
                 )
               ));

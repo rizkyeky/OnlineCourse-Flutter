@@ -10,9 +10,6 @@ class EntryPage extends Page<EntryBloc> {
   void init() {
     // TODO: implement init
   }
-
-  @override
-  bool hasNetworkInfo() => false;
   
   @override
   Widget build(BuildContext context) {
@@ -60,19 +57,11 @@ class EntryPage extends Page<EntryBloc> {
                   ),
                 ),
                 const SizedBox(height: 24,),
-                RaisedButton(
-                  color: theme.accentColor,
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 14, horizontal: 32 
+                MainButton(
+                  text: 'LOGIN',
+                  onPressed: () => Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (_) => LoginPage())
                   ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)
-                  ),
-                  onPressed: () {},
-                  child: Text('LOGIN', style: theme.textTheme.button.copyWith(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold
-                  )),
                 )
               ],
             ),
