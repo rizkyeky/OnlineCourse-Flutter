@@ -31,8 +31,27 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.white
         )
       ),
-      home: EntryPage(),
+      initialRoute: '/login',
+      onGenerateRoute: onGenerateRoute
     );
+  }
+}
+
+Route onGenerateRoute(RouteSettings settings) {
+  switch (settings.name) {
+    case '/':
+      return MaterialPageRoute(builder: (_) => HomePage());
+      break;
+    case '/login':
+      return MaterialPageRoute(builder: (_) => LoginPage());
+      break;
+    case '/entry':
+      return MaterialPageRoute(builder: (_) => EntryPage());
+      break;
+    default:
+      return MaterialPageRoute(builder: (_) => Scaffold(body: Center(
+        child: Text('No Route Name ${settings.name}'),
+      ),));
   }
 }
 
