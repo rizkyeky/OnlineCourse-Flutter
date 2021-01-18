@@ -11,6 +11,7 @@ import '../component/component.dart';
 part 'home.dart';
 part 'entry.dart';
 part 'login.dart';
+part 'tab.dart';
 
 abstract class Page<T extends Bloc> extends StatefulWidget {
 

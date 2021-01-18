@@ -50,11 +50,19 @@ class LoginPage extends Page<EntryBloc> {
                   obscureText: true,
                   onChanged: (val) {},
                 ),
+                const SizedBox(height: 12,),
+                TextButton(
+                  onPressed: () {}, 
+                  child: Text('FORGET PASSWORD', style: theme.textTheme.subtitle1.copyWith(
+                    fontSize: 16,
+                    color: Colors.white.withOpacity(0.57)
+                  ),)
+                ),
                 const SizedBox(height: 24,),
                 MainButton(
                   text: 'MASUK',
                   onPressed: () => Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (_) => HomePage())
+                    MaterialPageRoute(builder: (_) => TabPage())
                   ),
                 ),
               ],
