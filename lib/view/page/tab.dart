@@ -4,22 +4,22 @@ class TabPage extends StatelessWidget {
 
   final Widget homePage = HomePage();
   final Widget kategoriPage = const Center(child: Icon(Icons.apps),);
-  final Widget mainPage = const Center(child: Icon(Icons.apps),);
-  final Widget keranjangPage = const Center(child: Icon(Icons.shopping_cart_outlined),);
+  final Widget settingPage = const Center(child: Icon(Icons.settings),);
+  final Widget purchasePage = const Center(child: Icon(Icons.shopping_cart_outlined),);
   final Widget profilePage = const Center(child: Icon(Icons.person),);
 
   final List<Widget> pages = [];
-  final ValueNotifier<int> setTab = ValueNotifier(0);
+  final ValueNotifier<int> setTab = ValueNotifier(2);
 
   TabPage({
     Key key,
   }) : super(key: key) {
     pages.addAll([
-      homePage, 
       kategoriPage, 
-      mainPage,
-      keranjangPage, 
-      profilePage
+      settingPage,
+      homePage, 
+      profilePage,
+      purchasePage, 
     ]);
   }
   
@@ -35,10 +35,10 @@ class TabPage extends StatelessWidget {
         builder: (context, value, _) => 
         PageTransitionSwitcher(
           reverse: value > prevTab,
-          transitionBuilder: (child, primaryAnimation, secondaryAnimation) => 
+          transitionBuilder: (child, primary, secondary) => 
             SharedAxisTransition(
-              animation: primaryAnimation,
-              secondaryAnimation: secondaryAnimation,
+              animation: primary,
+              secondaryAnimation: secondary,
               transitionType: SharedAxisTransitionType.horizontal,
               child: child,
             ),
@@ -50,22 +50,24 @@ class TabPage extends StatelessWidget {
         builder: (context, value, child) => BottomNavigationBar(
           currentIndex: value,
           type: BottomNavigationBarType.fixed,
+          elevation: 0,
           showSelectedLabels: false,
           showUnselectedLabels: false,
-          selectedItemColor: theme.primaryColor,
-          unselectedItemColor: const Color(0xFF22B9FC),
+          backgroundColor: const Color(0xFFEAF2F9),
           items: [
             BottomNavigationBarItem(
-              icon: Image.asset('assets/logo/gem.png',
+              icon: SvgPicture.asset('assets/logo/gem.svg',
                 height: 32,
                 width: 32,
+                color: value == 0 ? theme.primaryColor : const Color(0xFF22B9FC).withOpacity(0.64),
               ),
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Image.asset('assets/logo/setting.png',
+              icon: SvgPicture.asset('assets/logo/setting.svg',
                 height: 32,
                 width: 32,
+                color: value == 1 ? theme.primaryColor : const Color(0xFF22B9FC).withOpacity(0.64),
               ), 
               label: 'Setting',
             ),
@@ -73,20 +75,25 @@ class TabPage extends StatelessWidget {
               icon: Image.asset('assets/logo/bee.png',
                 height: 40,
                 width: 40,
+                isAntiAlias: true,
+                colorBlendMode: value == 2 ? null : BlendMode.lighten,
+                color: value == 2 ? null : const Color(0xFF22B9FC).withOpacity(0.64),
               ), 
               label: 'App',
             ),
             BottomNavigationBarItem(
-              icon: Image.asset('assets/logo/profile.png',
+              icon: SvgPicture.asset('assets/logo/profile.svg',
                 height: 32,
                 width: 32,
+                color: value == 3 ? theme.primaryColor : const Color(0xFF22B9FC).withOpacity(0.64),
               ),
               label: 'Profile',
             ),
             BottomNavigationBarItem(
-              icon: Image.asset('assets/logo/dollar.png',
+              icon: SvgPicture.asset('assets/logo/dollar.svg',
                 height: 35,
                 width: 32,
+                color: value == 4 ? theme.primaryColor : const Color(0xFF22B9FC).withOpacity(0.64),
               ),
               label: 'Dollar',
             ),
