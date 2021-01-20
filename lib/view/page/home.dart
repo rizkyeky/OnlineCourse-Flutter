@@ -90,43 +90,27 @@ class HomePage extends Page<HomeBloc> {
             ),
           ),
           const SizedBox(height: 50,),
-          Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Ide Bisnis', style: theme.textTheme.subtitle1),
-                      Text('Wujudkan Ide Bisnis Anda', style: theme.textTheme.subtitle2,),
-                    ],
-                  ),
-                  TextButton(
-                    onPressed: () {}, 
-                    child: Text('semua', style: theme.textTheme.subtitle1)
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 275,
-                child: ListView.separated(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 3,
-                  separatorBuilder: (_, index) => SizedBox(width: index != 2 ? 12 : 0),
-                  itemBuilder: (context, index) => ContainerImage(
-                    width: 225,
-                    child: SizedBox(),
-                  )
-                ),
-              )
-            ],
-          )
+          ContainerList(
+            title: 'Ide Bisnis',
+            subtitle: 'Wujudkan Ide Bisnis Anda',
+          ),
+          ContainerRow(),
+          ContainerRow(),
+          const SizedBox(height: 24),
+          MainButton(
+            text: 'LIHAT SEMUA',
+            color: theme.accentColor,
+          ),
+          const SizedBox(height: 24),
+          ContainerList(
+            title: 'Pelatihan',
+            subtitle: 'Tambahkan Kemampuan Anda',
+          ),
         ],
       ),
     );
   }
 }
+
+
 

@@ -50,7 +50,6 @@ class TabPage extends StatelessWidget {
         builder: (context, value, child) => BottomNavigationBar(
           currentIndex: value,
           type: BottomNavigationBarType.fixed,
-          elevation: 0,
           showSelectedLabels: false,
           showUnselectedLabels: false,
           backgroundColor: const Color(0xFFEAF2F9),
