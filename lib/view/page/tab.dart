@@ -4,6 +4,7 @@ class TabPage extends StatelessWidget {
 
   final Widget homePage = HomePage();
   final Widget kategoriPage = const Center(child: Icon(Icons.apps),);
+  final Widget mainPage = const Center(child: Icon(Icons.apps),);
   final Widget keranjangPage = const Center(child: Icon(Icons.shopping_cart_outlined),);
   final Widget profilePage = const Center(child: Icon(Icons.person),);
 
@@ -16,6 +17,7 @@ class TabPage extends StatelessWidget {
     pages.addAll([
       homePage, 
       kategoriPage, 
+      mainPage,
       keranjangPage, 
       profilePage
     ]);
@@ -23,6 +25,9 @@ class TabPage extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
+
+    final theme = Theme.of(context);
+
     var prevTab = setTab.value;
     return Scaffold(
       body: ValueListenableBuilder<int>(
@@ -44,20 +49,46 @@ class TabPage extends StatelessWidget {
         valueListenable: setTab,
         builder: (context, value, child) => BottomNavigationBar(
           currentIndex: value,
-          selectedItemColor: Colors.purple,
-          unselectedItemColor: Colors.purple,
-          items: const [
+          type: BottomNavigationBarType.fixed,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          selectedItemColor: theme.primaryColor,
+          unselectedItemColor: const Color(0xFF22B9FC),
+          items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined), label: 'Home', 
+              icon: Image.asset('assets/logo/gem.png',
+                height: 32,
+                width: 32,
+              ),
+              label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.apps), label: 'Kategori',
+              icon: Image.asset('assets/logo/setting.png',
+                height: 32,
+                width: 32,
+              ), 
+              label: 'Setting',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart_outlined), label: 'Keranjang',
+              icon: Image.asset('assets/logo/bee.png',
+                height: 40,
+                width: 40,
+              ), 
+              label: 'App',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle_outlined), label: 'Akun',
+              icon: Image.asset('assets/logo/profile.png',
+                height: 32,
+                width: 32,
+              ),
+              label: 'Profile',
+            ),
+            BottomNavigationBarItem(
+              icon: Image.asset('assets/logo/dollar.png',
+                height: 35,
+                width: 32,
+              ),
+              label: 'Dollar',
             ),
           ],
           onTap: (index) {

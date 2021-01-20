@@ -25,6 +25,7 @@ class EntryPage extends Page<EntryBloc> {
           Image.asset('assets/background/back.png',
             fit: BoxFit.cover,
             colorBlendMode: BlendMode.multiply,
+            color: theme.primaryColor.withOpacity(0.67),
           ),
           Padding(
             padding: const EdgeInsets.all(24),

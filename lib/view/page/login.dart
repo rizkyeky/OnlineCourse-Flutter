@@ -27,7 +27,10 @@ class LoginPage extends Page<EntryBloc> {
         fit: StackFit.expand,
         children: [
           CustomPaint(
-            painter: LoginPainter(),
+            painter: LoginPainter1(),
+          ),
+          CustomPaint(
+            painter: LoginPainter2(),
           ),
           Padding(
             padding: const EdgeInsets.all(24),
@@ -74,7 +77,7 @@ class LoginPage extends Page<EntryBloc> {
   }
 }
 
-class LoginPainter extends CustomPainter {
+class LoginPainter1 extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -97,6 +100,27 @@ class LoginPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+}
 
+class LoginPainter2 extends CustomPainter {
 
+  @override
+  void paint(Canvas canvas, Size size) {
+        
+    final Rect rectShape = Rect.fromLTWH(100, size.height-(320+160), 320, 640);
+    final Gradient gradient = LinearGradient(
+      colors: [Colors.transparent, const Color(0xFF22B9FC).withOpacity(0.34), const Color(0xFF22B9FC)], 
+      stops: const [0, 0.5 ,1],
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter
+    );  
+        
+    final Paint paint = Paint()
+      ..shader = gradient.createShader(rectShape);
+
+    canvas.drawPaint(paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

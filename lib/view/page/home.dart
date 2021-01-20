@@ -2,6 +2,8 @@ part of 'page.dart';
 
 class HomePage extends Page<HomeBloc> {
 
+  HomePage() : super(hasNetworkSnack: true);
+
   @override
   void dispose() {
     // TODO: implement dispose
