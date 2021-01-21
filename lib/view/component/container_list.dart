@@ -4,10 +4,14 @@ class ContainerList extends StatelessWidget {
 
   final String title;
   final String subtitle;
+  final List<Map> list;
+  final int type;
 
-  ContainerList({
+  const ContainerList({
     this.title,
     this.subtitle,
+    this.list,
+    this.type = 0,
   });
 
   @override
@@ -38,9 +42,9 @@ class ContainerList extends StatelessWidget {
           height: 275,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
-            itemCount: 3,
+            itemCount: list.length,
             separatorBuilder: (_, index) => SizedBox(width: index != 2 ? 24 : 0),
-            itemBuilder: (context, index) => ContainerImage(
+            itemBuilder: (context, indexList) => ContainerImage(
               width: 225,
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(18, 12, 18, 18),
@@ -55,12 +59,12 @@ class ContainerList extends StatelessWidget {
                         const Spacer(),
                         Chip(
                           backgroundColor: Colors.white,
-                          label: Text('< 10 JUTA', style: theme.textTheme.subtitle2)
+                          label: Text(list[indexList]['chip'] as String, style: theme.textTheme.subtitle2)
                         )
                       ],
                     ),
                     const Spacer(),
-                    Column(
+                    if (type == 0) Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
