@@ -24,7 +24,9 @@ class Injector {
 
   T getBloc<T extends Bloc>() => _getIt.get<T>();
   T getService<T extends Service>() => _getIt.get<T>();
-  
+
+  double screenHeight;
+  double screenWidth;
 } 
 
 Injector injector = Injector();

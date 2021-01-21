@@ -20,6 +20,9 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
 
+    injector.screenHeight = MediaQuery.of(context).size.height;
+    injector.screenWidth = MediaQuery.of(context).size.width;
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
