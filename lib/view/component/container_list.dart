@@ -72,7 +72,7 @@ class ContainerList extends StatelessWidget {
                 SizedBox(
                   width: 160,
                   child: Text(list[indexList]['title'] as String, style: theme.textTheme.subtitle1)),
-                Text(list[indexList]['subtitle'] as String ?? '', style: theme.textTheme.subtitle2)
+                Text(list[indexList]['subtitle'] as String, style: theme.textTheme.subtitle2)
               ],
             ) : null,
           )

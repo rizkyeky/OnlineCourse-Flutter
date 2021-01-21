@@ -27,10 +27,13 @@ class ContainerTile extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Ink.image(
-                  image: const AssetImage('assets/background/content.jpg'),
-                  width: 150,
-                  height: 150,
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Ink.image(
+                    image: const AssetImage('assets/background/content.jpg'),
+                    width: 150,
+                    height: 150,
+                  ),
                 ),
                 const Spacer(),
                 Column(
@@ -44,11 +47,16 @@ class ContainerTile extends StatelessWidget {
                         color: Colors.white
                       )), 
                     ),
-                    SizedBox(
-                      width: 160,
-                      child: Text('Pelatihan Untuk Membuat Furniture', style: theme.textTheme.bodyText1),
+                    ConstrainedBox(
+                      constraints: const BoxConstraints(
+                        minWidth: 150,
+                        maxWidth: 170,
+                      ),
+                      child: Text('Pelatihan Untuk Membuat Furniture', 
+                        style: theme.textTheme.bodyText1,
+                      ),
                     ),
-                    Text('Member', style: theme.textTheme.subtitle2),
+                    Text('Member', style: theme.textTheme.bodyText2),
                   ],
                 ),
                 const Spacer(),

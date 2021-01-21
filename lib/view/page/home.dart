@@ -34,7 +34,7 @@ class HomePage extends Page<HomeBloc> {
                   children: [
                     Image.asset('assets/logo/logo.png', height: 36, width: 47),
                     TextButton(
-                      onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => ProfilePage())),
+                      onPressed: () {},
                       child: Row(
                         children: [
                           Text('Hello, ', style: theme.textTheme.headline6.copyWith(
@@ -96,7 +96,7 @@ class HomePage extends Page<HomeBloc> {
             list: bloc.listOfContainer1,
           ),
           ...List.generate(2, (index) => const ContainerRow()),
-          const SizedBox(height: 24),
+          const SizedBox(height: 12),
           MainButton(
             text: 'LIHAT SEMUA',
             color: theme.accentColor,
@@ -114,9 +114,7 @@ class HomePage extends Page<HomeBloc> {
               color: theme.primaryColor
             )),
           ),
-          ...List.generate(3, (index) => const ContainerTile(
-            padding: EdgeInsets.only(bottom: 12)
-          )),
+          ...List.generate(3, (index) => const ContainerTile()),
           const SizedBox(height: 12),
           MainButton(
             text: 'LIHAT SEMUA',

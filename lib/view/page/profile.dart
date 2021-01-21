@@ -65,42 +65,39 @@ class ProfilePage extends Page<ProfileBloc> {
               ],
             ),
             const SizedBox(height: 12),
-            SizedBox(
-              height: 180,
-              child: Material(
-                color: theme.primaryColor,
-                borderRadius: BorderRadius.circular(12),
-                clipBehavior: Clip.antiAlias,
-                child: InkWell(
-                  onTap: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text('anda memiliki', style: theme.textTheme.bodyText1.copyWith(
-                          color: Colors.white,
-                          fontWeight: FontWeight.normal,
-                        )),
-                        Text('Rp 200.000', style: theme.textTheme.headline4),
-                        Text('hanya dari program referral code', style: theme.textTheme.bodyText1.copyWith(
-                          color: Colors.white,
-                          fontWeight: FontWeight.normal,
-                        )),
-                        const Divider(
-                          thickness: 1,
-                          color: Color(0xFFBCE0FD)
-                        ),
-                        Row(
-                          children: [
-                            Text('USRENS123', style: theme.textTheme.bodyText1.copyWith(
-                              color: const Color(0xFF4BD6F3),
-                              fontWeight: FontWeight.normal,
-                            ))
-                          ],
-                        )
-                      ],
-                    ),
+            Material(
+              color: theme.primaryColor,
+              borderRadius: BorderRadius.circular(12),
+              clipBehavior: Clip.antiAlias,
+              child: InkWell(
+                onTap: () {},
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('anda memiliki', style: theme.textTheme.bodyText1.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.normal,
+                      )),
+                      Text('Rp 200.000', style: theme.textTheme.headline4),
+                      Text('hanya dari program referral code', style: theme.textTheme.bodyText1.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.normal,
+                      )),
+                      const Divider(
+                        thickness: 1,
+                        color: Color(0xFFBCE0FD)
+                      ),
+                      Row(
+                        children: [
+                          Text('USRENS123', style: theme.textTheme.bodyText1.copyWith(
+                            color: const Color(0xFF4BD6F3),
+                            fontWeight: FontWeight.normal,
+                          ))
+                        ],
+                      )
+                    ],
                   ),
                 ),
               ),
@@ -121,12 +118,8 @@ class ProfilePage extends Page<ProfileBloc> {
                 contentPadding: const EdgeInsets.symmetric(horizontal: 12),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(6),
-                  borderSide: const BorderSide(color: Color(0xFFBCE0FD), width: 2)
+                  borderSide: BorderSide.none
                 ),
-                // disabledBorder: OutlineInputBorder(
-                //   borderRadius: BorderRadius.circular(12),
-                //   borderSide: const BorderSide(color: Color(0xFFBCE0FD))
-                // ),
               ),
             ),
             const SizedBox(height: 24),

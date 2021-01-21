@@ -20,9 +20,6 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
 
-    injector.screenHeight = MediaQuery.of(context).size.height;
-    injector.screenWidth = MediaQuery.of(context).size.width;
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
@@ -63,7 +60,8 @@ const TextTheme textTheme = TextTheme(
   headline4: TextStyle(
     color: Colors.white,
     fontWeight: FontWeight.bold,
-    fontSize: 32
+    fontSize: 32,
+    height: 1.2,
   ),
   headline6: TextStyle(
     color: Colors.white,
@@ -73,7 +71,8 @@ const TextTheme textTheme = TextTheme(
   subtitle1: TextStyle(
     color: Color(0xFF3456DD),
     fontSize: 16,
-    fontWeight: FontWeight.bold
+    fontWeight: FontWeight.bold,
+    height: 1.2,
   ),
   subtitle2: TextStyle(
     color: Color(0xFF464646),
@@ -82,8 +81,9 @@ const TextTheme textTheme = TextTheme(
   ),
   bodyText1: TextStyle(
     color: Color(0xFF202020),
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: FontWeight.bold,
+    height: 1.2,
   ),
   bodyText2: TextStyle(
     color: Color(0xFF464646),
