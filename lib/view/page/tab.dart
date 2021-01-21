@@ -49,12 +49,15 @@ class TabPage extends StatelessWidget {
           currentIndex: value,
           showUnselectedLabels: false,
           selectedItemColor: theme.primaryColor,
+          selectedLabelStyle: const TextStyle(
+            fontWeight: FontWeight.bold
+          ),
           backgroundColor: const Color(0xFFEAF2F9),
           items: [
             BottomNavigationBarItem(
               icon: Image.asset('assets/logo/bee.png',
-                height: 40,
-                width: 40,
+                height: 30,
+                width: 30,
                 colorBlendMode: value == 0 ? null : BlendMode.lighten,
                 color: value == 0 ? null : const Color(0xFF22B9FC).withOpacity(0.64),
               ), 
@@ -62,24 +65,24 @@ class TabPage extends StatelessWidget {
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset('assets/logo/gem.svg',
-                height: 32,
-                width: 32,
+                height: 30,
+                width: 30,
                 color: value == 1 ? theme.primaryColor : const Color(0xFF22B9FC).withOpacity(0.64),
               ),
               label: 'Ide Bisnis',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset('assets/logo/setting.svg',
-                height: 32,
-                width: 32,
+                height: 30,
+                width: 30,
                 color: value == 2 ? theme.primaryColor : const Color(0xFF22B9FC).withOpacity(0.64),
               ), 
               label: 'Pelatihan',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset('assets/logo/profile.svg',
-                height: 32,
-                width: 32,
+                height: 30,
+                width: 30,
                 color: value == 3 ? theme.primaryColor : const Color(0xFF22B9FC).withOpacity(0.64),
               ),
               label: 'Profile',

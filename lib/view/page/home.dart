@@ -108,9 +108,11 @@ class HomePage extends Page<HomeBloc> {
             list: bloc.listOfContainer2,
             type: 1,
           ),
-          const ListTile(
+          ListTile(
             contentPadding: EdgeInsets.zero,
-            title: Text('TERPOPULER'),
+            title: Text('TERPOPULER', style: theme.textTheme.headline6.copyWith(
+              color: theme.primaryColor
+            )),
           ),
           ...List.generate(3, (index) => const ContainerTile(
             padding: EdgeInsets.only(bottom: 12)

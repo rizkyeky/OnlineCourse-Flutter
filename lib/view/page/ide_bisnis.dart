@@ -43,7 +43,9 @@ class IdeBisnisPage extends Page<IdeBisnisBloc> {
           const SizedBox(height: 24,),
           ListTile(
             contentPadding: EdgeInsets.zero,
-            title: const Text('Kategori Ide'),
+            title: Text('Kategori Ide', style: theme.textTheme.headline6.copyWith(
+              color: theme.primaryColor
+            )),
             subtitle: Text('Mimpi dan Usaha adalah Kunci', style: theme.textTheme.bodyText2,),
             trailing: TextButton(
               onPressed: () {},
@@ -60,12 +62,12 @@ class IdeBisnisPage extends Page<IdeBisnisBloc> {
                     itemCount: bloc.listOfKategori.length,
                     separatorBuilder: (_, index) => const SizedBox(width: 12,),
                     itemBuilder: (_, index) => ActionChip(
-                      elevation: 1,
+                      elevation: 0,
                       pressElevation: 2,
                       padding: const EdgeInsets.symmetric(horizontal: 6),
-                      backgroundColor: index == indexOfKategori ? theme.colorScheme.primaryVariant : null,
+                      backgroundColor: index == indexOfKategori ? theme.primaryColor : theme.colorScheme.primaryVariant.withOpacity(0.6),
                       label: Text(bloc.listOfKategori[index], style: theme.textTheme.subtitle2.copyWith(
-                        color: Colors.white
+                        color: index == indexOfKategori ? Colors.white : const Color(0xFF464646)
                       )),
                       onPressed: () => setState(() {
                         if (indexOfKategori != index) {
@@ -80,9 +82,11 @@ class IdeBisnisPage extends Page<IdeBisnisBloc> {
               ],
             )
           ),
-          const ListTile(
+          ListTile(
             contentPadding: EdgeInsets.zero,
-            title: Text('Usaha Bidang Makanan'),
+            title: Text('Usaha Bidang Makanan', style: theme.textTheme.headline6.copyWith(
+              color: theme.primaryColor
+            ))
           ),
           ... List.generate(2, (index) => const ContainerRow())
         ],

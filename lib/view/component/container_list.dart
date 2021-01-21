@@ -87,7 +87,9 @@ class ContainerList extends StatelessWidget {
       children: [
         ListTile(
           contentPadding: EdgeInsets.zero,
-          title: Text(title),
+          title: Text(title, style: theme.textTheme.headline6.copyWith(
+              color: theme.primaryColor
+            )),
           subtitle: Text(subtitle, style: theme.textTheme.bodyText2,),
           trailing: TextButton(
             onPressed: () {},

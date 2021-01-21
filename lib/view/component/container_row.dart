@@ -9,46 +9,48 @@ class ContainerRow extends StatelessWidget {
 
     final theme = Theme.of(context);
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: List.generate(2, (index) => 
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.baseline,
-          textBaseline: TextBaseline.alphabetic,
-          children: [
-            const SizedBox(height: 24,),
-            ContainerImage(
-              height: 150,
-              width: 150,
-              child: Padding(
-                padding: const EdgeInsets.all(12),
-                child: SizedBox.expand(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      InkWell(
-                        borderRadius: BorderRadius.circular(12),
-                        onTap: () {},
-                        child: const Icon(Icons.more_vert, color: Colors.white,)),
-                    ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: List.generate(2, (index) => 
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.baseline,
+            textBaseline: TextBaseline.alphabetic,
+            children: [
+              ContainerImage(
+                height: 150,
+                width: 150,
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: SizedBox.expand(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        InkWell(
+                          borderRadius: BorderRadius.circular(12),
+                          onTap: () {},
+                          child: const Icon(Icons.more_vert, color: Colors.white,)),
+                      ],
+                    ),
                   ),
-                ),
-              )
-            ),
-            SizedBox(
-              height: 50,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('Ide Usaha Furnitur', style: theme.textTheme.subtitle1),
-                  Text('< 10 JUTA', style: theme.textTheme.subtitle2)
-                ],
+                )
               ),
-            )
-          ],
+              SizedBox(
+                height: 50,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Ide Usaha Furnitur', style: theme.textTheme.subtitle1),
+                    Text('< 10 JUTA', style: theme.textTheme.subtitle2)
+                  ],
+                ),
+              ),
+            ],
+          )
         )
-      )
+      ),
     );
   }
 }
