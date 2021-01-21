@@ -74,6 +74,11 @@ TextTheme textTheme = const TextTheme(
     fontSize: 16,
     fontWeight: FontWeight.bold
   ),
+  bodyText1: TextStyle(
+    color: Color(0xFF202020),
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+  ),
   button: TextStyle(
     color: Colors.white,
     fontWeight: FontWeight.bold

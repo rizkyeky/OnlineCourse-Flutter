@@ -93,6 +93,7 @@ class HomePage extends Page<HomeBloc> {
           ContainerList(
             title: 'Ide Bisnis',
             subtitle: 'Wujudkan Ide Bisnis Anda',
+            list: bloc.listOfContainer1,
           ),
           ContainerRow(),
           ContainerRow(),
@@ -105,6 +106,55 @@ class HomePage extends Page<HomeBloc> {
           ContainerList(
             title: 'Pelatihan',
             subtitle: 'Tambahkan Kemampuan Anda',
+            list: bloc.listOfContainer2,
+            type: 1,
+          ),
+          const SizedBox(height: 24),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('TERPOPULER', style: theme.textTheme.subtitle1),
+              const SizedBox(height: 12),
+              Container(
+                clipBehavior: Clip.antiAlias,
+                decoration: BoxDecoration(
+                  color: const Color(0xFFEAF2F9),
+                  borderRadius: BorderRadius.circular(12)
+                ),
+                child: SizedBox(
+                  height: 150,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Image.asset('assets/background/content.jpg',
+                        width: 150,
+                        height: 150,
+                      ),
+                      const Spacer(),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.baseline,
+                        textBaseline: TextBaseline.alphabetic,
+                        children: [
+                          Chip(
+                            backgroundColor: theme.primaryColor,
+                            label: Text('Rp. 150.000',style: theme.textTheme.subtitle2.copyWith(
+                              color: Colors.white
+                            )), 
+                          ),
+                          SizedBox(
+                            width: 160,
+                            child: Text('Pelatihan Untuk Membuat Furniture', style: theme.textTheme.bodyText1),
+                          ),
+                          Text('Member', style: theme.textTheme.subtitle2),
+                        ],
+                      ),
+                      const Spacer(),
+                    ],
+                  ),
+                ),
+              )
+            ],
           ),
         ],
       ),

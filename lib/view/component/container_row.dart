@@ -25,8 +25,11 @@ class ContainerRow extends StatelessWidget {
                 child: SizedBox.expand(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
-                    children: const [
-                      Icon(Icons.more_vert, color: Colors.white,),
+                    children: [
+                      InkWell(
+                        borderRadius: BorderRadius.circular(12),
+                        onTap: () {},
+                        child: const Icon(Icons.more_vert, color: Colors.white,)),
                     ],
                   ),
                 ),

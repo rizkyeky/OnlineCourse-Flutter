@@ -39,47 +39,65 @@ class ContainerList extends StatelessWidget {
           ],
         ),
         SizedBox(
-          height: 275,
+          height: (type == 1) ? 360 : 300,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemCount: list.length,
             separatorBuilder: (_, index) => SizedBox(width: index != 2 ? 24 : 0),
-            itemBuilder: (context, indexList) => ContainerImage(
-              width: 225,
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(18, 12, 18, 18),
-                child:  Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.baseline,
-                      children:  [
-                        const Spacer(),
-                        Chip(
-                          backgroundColor: Colors.white,
-                          label: Text(list[indexList]['chip'] as String, style: theme.textTheme.subtitle2)
-                        )
-                      ],
-                    ),
-                    const Spacer(),
-                    if (type == 0) Column(
+            itemBuilder: (context, indexList) => Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ContainerImage(
+                  width: 225,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(18, 12, 18, 18),
+                    child:  Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Bidang Jasa', style: theme.textTheme.headline4.copyWith(
-                          fontSize: 18
-                        ),),
-                        Text('Mencoba Usaha\nFurnitur', style: theme.textTheme.headline4.copyWith(
-                          fontSize: 20,
-                          fontWeight: FontWeight.normal
-                        )),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          children:  [
+                            const Spacer(),
+                            Chip(
+                              backgroundColor: Colors.white,
+                              label: Text(list[indexList]['chip'] as String, style: theme.textTheme.subtitle2)
+                            )
+                          ],
+                        ),
+                        const Spacer(),
+                        if (type == 0) Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(list[indexList]['overline'] as String ?? '', style: theme.textTheme.headline4.copyWith(
+                              fontSize: 18
+                            ),),
+                            Text(list[indexList]['title'] as String, style: theme.textTheme.headline4.copyWith(
+                              fontSize: 20,
+                              fontWeight: FontWeight.normal
+                            )),
+                          ],
+                        )
                       ],
-                    )
-                  ],
+                    ),
+                  ),
                 ),
-              ),
+                SizedBox(
+                  height: (type == 1) ? 60 : null,
+                  child: (type == 1) ? Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: 160,
+                        child: Text(list[indexList]['title'] as String, style: theme.textTheme.subtitle1)),
+                      Text(list[indexList]['subtitle'] as String ?? '', style: theme.textTheme.subtitle2)
+                    ],
+                  ) : null,
+                )
+              ],
             )
           ),
         ),

@@ -25,7 +25,6 @@ class HomeBloc implements Bloc {
     {
       'overline': 'Bidang Jasa',
       'title': 'Mencoba Usaha Keramik',
-      'subtite': null,
       'chip': '< 5 JUTA'
     }
   ];
@@ -33,18 +32,18 @@ class HomeBloc implements Bloc {
   List<Map<String, dynamic>> listOfContainer2 = [
     {
       'title': 'Pelatihan Untuk Membuat Furniture',
-      'subtite': 'Gratis',
+      'subtitle': 'Gratis',
       'chip': 'GRATIS'
     },
     {
       'title': 'Pelatihan Untuk Membuat Furniture',
-      'subtite': 'Gratis',
-      'chip': 'GRATIS'
+      'subtitle': 'Member',
+      'chip': 'MEMBER'
     },
     {
       'title': 'Pelatihan Untuk Membuat Furniture',
-      'subtite': 'Gratis',
-      'chip': 'GRATIS'
+      'subtitle': 'Member',
+      'chip': 'MEMBER'
     },
   ];
   
