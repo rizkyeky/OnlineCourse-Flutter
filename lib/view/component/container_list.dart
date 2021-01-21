@@ -17,7 +17,7 @@ class ContainerList extends StatelessWidget {
   });
 
   Widget containers(ThemeData theme) => SizedBox(
-    height: (type == 1) ? 360 : 300,
+    height: (type == 1) ? 380 : 300,
     child: ListView.separated(
       scrollDirection: Axis.horizontal,
       itemCount: list.length,
@@ -63,7 +63,7 @@ class ContainerList extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: (type == 1) ? 60 : null,
+            height: (type == 1) ? 70 : null,
             child: (type == 1) ? Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -85,24 +85,14 @@ class ContainerList extends StatelessWidget {
     final theme = Theme.of(context);
     return haveTile ? Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(title, style: theme.textTheme.subtitle1.copyWith(
-                  fontSize: 20,
-                )),
-                Text(subtitle, style: theme.textTheme.subtitle2,),
-              ],
-            ),
-            TextButton(
-              onPressed: () {}, 
-              child: Text('semua', style: theme.textTheme.subtitle1)
-            )
-          ],
+        ListTile(
+          contentPadding: EdgeInsets.zero,
+          title: Text(title),
+          subtitle: Text(subtitle, style: theme.textTheme.bodyText2,),
+          trailing: TextButton(
+            onPressed: () {},
+            child: const Text('semua'),
+          ),
         ),
         containers(theme),
       ],

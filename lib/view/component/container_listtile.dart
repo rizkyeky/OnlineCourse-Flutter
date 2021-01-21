@@ -1,11 +1,18 @@
 part of 'component.dart';
 
 class ContainerTile extends StatelessWidget {
+
+  final EdgeInsetsGeometry padding;
+
+  const ContainerTile({
+    this.padding
+  });
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12),
+      padding: padding ?? const EdgeInsets.symmetric(vertical: 12),
       child: Material(
         clipBehavior: Clip.antiAlias,
         color: const Color(0xFFEAF2F9),

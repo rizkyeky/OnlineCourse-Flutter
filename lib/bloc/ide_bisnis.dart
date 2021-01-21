@@ -11,6 +11,13 @@ class IdeBisnisBloc implements Bloc {
     // TODO: implement init
   }
 
+  List<String> listOfKategori = [
+    'SEMUA',
+    '< 10 JUTA',
+    '< 20 JUTA',
+    '< 30 JUTA',
+  ];
+
   List<Map<String, dynamic>> listOfContainer1 = [
     {
       'overline': 'Bidang Jasa',

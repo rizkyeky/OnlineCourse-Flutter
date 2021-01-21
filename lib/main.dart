@@ -26,7 +26,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: const Color(0xFF3456DD),
         accentColor: const Color(0xFFF3EC00),
-        canvasColor: const Color(0xFFF5F5F5),
+        scaffoldBackgroundColor: const Color(0xFFF5F5F5),
+        colorScheme: colorScheme,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: textTheme,
         snackBarTheme: const SnackBarThemeData(
@@ -34,31 +35,27 @@ class MyApp extends StatelessWidget {
         )
       ),
       home: EntryPage(),
-      // initialRoute: '/login',
-      // onGenerateRoute: onGenerateRoute
     );
   }
 }
 
-Route onGenerateRoute(RouteSettings settings) {
-  switch (settings.name) {
-    case '/':
-      return MaterialPageRoute(builder: (_) => HomePage());
-      break;
-    case '/login':
-      return MaterialPageRoute(builder: (_) => LoginPage());
-      break;
-    case '/entry':
-      return MaterialPageRoute(builder: (_) => EntryPage());
-      break;
-    default:
-      return MaterialPageRoute(builder: (_) => Center(
-        child: Text('No Route Name ${settings.name}'),
-      ));
-  }
-}
+const ColorScheme colorScheme = ColorScheme(
+  surface: Colors.white,
+  primary: Color(0xFF3456DD),
+  primaryVariant: Color(0xFF4BD6F3),
+  secondary: Color(0xFFF3EC00),
+  secondaryVariant: Color(0xFFF3EC00),
+  error: Colors.red,
+  background: Colors.white,
+  brightness: Brightness.light,
+  onSurface: Colors.white,
+  onError: Colors.red,
+  onBackground: Colors.white,
+  onPrimary: Color(0xFF3456DD),
+  onSecondary: Color(0xFFF3EC00),
+);
 
-TextTheme textTheme = const TextTheme(
+const TextTheme textTheme = TextTheme(
   headline4: TextStyle(
     fontFamily: 'Poppins',
     color: Colors.white,
@@ -89,10 +86,15 @@ TextTheme textTheme = const TextTheme(
     fontSize: 18,
     fontWeight: FontWeight.bold,
   ),
+  bodyText2: TextStyle(
+    fontFamily: 'Poppins',
+    color: Color(0xFF464646),
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+  ),
   button: TextStyle(
     fontFamily: 'Poppins',
     color: Colors.white,
     fontWeight: FontWeight.bold,
-    
   ),
 );

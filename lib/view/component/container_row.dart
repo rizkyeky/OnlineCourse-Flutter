@@ -36,7 +36,7 @@ class ContainerRow extends StatelessWidget {
               )
             ),
             SizedBox(
-              height: 40,
+              height: 50,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,

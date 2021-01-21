@@ -61,11 +61,11 @@ class HomePage extends Page<HomeBloc> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               textBaseline: TextBaseline.alphabetic,
               children: [
-                ContainerImage(
+                const ContainerImage(
 
                 ),
                 SizedBox(
-                  height: 59,
+                  height: 70,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -89,7 +89,7 @@ class HomePage extends Page<HomeBloc> {
               ],
             ),
           ),
-          const SizedBox(height: 50,),
+          const SizedBox(height: 24,),
           ContainerList(
             title: 'Ide Bisnis',
             subtitle: 'Wujudkan Ide Bisnis Anda',
@@ -108,15 +108,13 @@ class HomePage extends Page<HomeBloc> {
             list: bloc.listOfContainer2,
             type: 1,
           ),
-          const SizedBox(height: 24),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('TERPOPULER', style: theme.textTheme.subtitle1),
-              const SizedBox(height: 12),
-              ...List.generate(3, (index) => ContainerTile()),
-            ],
+          const ListTile(
+            contentPadding: EdgeInsets.zero,
+            title: Text('TERPOPULER'),
           ),
+          ...List.generate(3, (index) => const ContainerTile(
+            padding: EdgeInsets.only(bottom: 12)
+          )),
           const SizedBox(height: 12),
           MainButton(
             text: 'LIHAT SEMUA',
