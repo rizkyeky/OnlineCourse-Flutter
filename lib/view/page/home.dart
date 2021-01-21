@@ -34,7 +34,7 @@ class HomePage extends Page<HomeBloc> {
                   children: [
                     Image.asset('assets/logo/logo.png', height: 36, width: 47),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => ProfilePage())),
                       child: Row(
                         children: [
                           Text('Hello, ', style: theme.textTheme.headline6.copyWith(

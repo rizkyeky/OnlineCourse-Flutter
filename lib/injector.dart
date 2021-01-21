@@ -11,6 +11,7 @@ class Injector {
 
     _getIt.registerFactory(() => HomeBloc());
     _getIt.registerFactory(() => EntryBloc());
+    _getIt.registerFactory(() => ProfileBloc());
 
     await _getIt.allReady();
   }
