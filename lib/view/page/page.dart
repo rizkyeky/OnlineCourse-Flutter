@@ -14,6 +14,7 @@ part 'entry.dart';
 part 'login.dart';
 part 'tab.dart';
 part 'profile.dart';
+part 'ide_bisnis.dart';
 
 abstract class Page<T extends Bloc> extends StatefulWidget {
 

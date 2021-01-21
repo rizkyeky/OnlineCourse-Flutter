@@ -3,7 +3,7 @@ part of 'page.dart';
 class TabPage extends StatelessWidget {
 
   final Widget homePage = HomePage();
-  final Widget ideBisnisPage = const Center(child: Icon(Icons.shopping_cart_outlined),);
+  final Widget ideBisnisPage = IdeBisnisPage();
   final Widget pelatihanPage = const Center(child: Icon(Icons.settings),);
   final Widget profilePage = const Center(child: Icon(Icons.person),);
 
@@ -47,16 +47,14 @@ class TabPage extends StatelessWidget {
         valueListenable: setTab,
         builder: (context, value, child) => BottomNavigationBar(
           currentIndex: value,
-          type: BottomNavigationBarType.fixed,
-          showSelectedLabels: false,
           showUnselectedLabels: false,
+          selectedItemColor: theme.primaryColor,
           backgroundColor: const Color(0xFFEAF2F9),
           items: [
             BottomNavigationBarItem(
               icon: Image.asset('assets/logo/bee.png',
                 height: 40,
                 width: 40,
-                isAntiAlias: true,
                 colorBlendMode: value == 0 ? null : BlendMode.lighten,
                 color: value == 0 ? null : const Color(0xFF22B9FC).withOpacity(0.64),
               ), 
@@ -74,7 +72,7 @@ class TabPage extends StatelessWidget {
               icon: SvgPicture.asset('assets/logo/setting.svg',
                 height: 32,
                 width: 32,
-                color: value == 1 ? theme.primaryColor : const Color(0xFF22B9FC).withOpacity(0.64),
+                color: value == 2 ? theme.primaryColor : const Color(0xFF22B9FC).withOpacity(0.64),
               ), 
               label: 'Pelatihan',
             ),
