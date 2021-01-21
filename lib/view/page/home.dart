@@ -95,8 +95,7 @@ class HomePage extends Page<HomeBloc> {
             subtitle: 'Wujudkan Ide Bisnis Anda',
             list: bloc.listOfContainer1,
           ),
-          const ContainerRow(),
-          const ContainerRow(),
+          ...List.generate(2, (index) => const ContainerRow()),
           const SizedBox(height: 24),
           MainButton(
             text: 'LIHAT SEMUA',
@@ -118,6 +117,7 @@ class HomePage extends Page<HomeBloc> {
               ...List.generate(3, (index) => ContainerTile()),
             ],
           ),
+          const SizedBox(height: 12),
           MainButton(
             text: 'LIHAT SEMUA',
             color: theme.accentColor,
