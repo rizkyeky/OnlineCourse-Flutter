@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        fontFamily: 'Poppins',
         primaryColor: const Color(0xFF3456DD),
         accentColor: const Color(0xFFF3EC00),
         scaffoldBackgroundColor: const Color(0xFFF5F5F5),
@@ -57,43 +58,36 @@ const ColorScheme colorScheme = ColorScheme(
 
 const TextTheme textTheme = TextTheme(
   headline4: TextStyle(
-    fontFamily: 'Poppins',
     color: Colors.white,
     fontWeight: FontWeight.bold,
     fontSize: 32
   ),
   headline6: TextStyle(
-    fontFamily: 'Poppins',
     color: Colors.white,
     fontSize: 20,
     fontWeight: FontWeight.bold
   ),
   subtitle1: TextStyle(
-    fontFamily: 'Poppins',
     color: Color(0xFF3456DD),
     fontSize: 16,
     fontWeight: FontWeight.bold
   ),
   subtitle2: TextStyle(
-    fontFamily: 'Poppins',
     color: Color(0xFF464646),
     fontSize: 14,
     fontWeight: FontWeight.bold
   ),
   bodyText1: TextStyle(
-    fontFamily: 'Poppins',
     color: Color(0xFF202020),
     fontSize: 18,
     fontWeight: FontWeight.bold,
   ),
   bodyText2: TextStyle(
-    fontFamily: 'Poppins',
     color: Color(0xFF464646),
     fontSize: 14,
     fontWeight: FontWeight.normal,
   ),
   button: TextStyle(
-    fontFamily: 'Poppins',
     color: Colors.white,
     fontWeight: FontWeight.bold,
   ),

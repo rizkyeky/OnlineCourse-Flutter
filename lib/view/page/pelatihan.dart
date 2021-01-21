@@ -26,12 +26,6 @@ class PelatihanPage extends Page<PelatihanBloc> {
           color: Colors.white
         )),
         elevation: 0,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.person_outline), 
-            onPressed: () {}
-          )
-        ],
       ),
       body: ListView(
         padding: const EdgeInsets.all(24),
@@ -41,17 +35,6 @@ class PelatihanPage extends Page<PelatihanBloc> {
             list: bloc.listOfContainer1,
           ),
           const SizedBox(height: 24,),
-          ListTile(
-            contentPadding: EdgeInsets.zero,
-            title: Text('Kategori Ide', style: theme.textTheme.headline6.copyWith(
-              color: theme.primaryColor
-            )),
-            subtitle: Text('Mimpi dan Usaha adalah Kunci', style: theme.textTheme.bodyText2,),
-            trailing: TextButton(
-              onPressed: () {},
-              child: const Text('semua'),
-            ),
-          ),
           StatefulBuilder(
             builder: (context, setState) => Column(
               children: [
@@ -74,21 +57,13 @@ class PelatihanPage extends Page<PelatihanBloc> {
                           indexOfKategori = index;
                         }
                       }),
-                      materialTapTargetSize: MaterialTapTargetSize.padded,
                     )
                   ),
                 ),
-                ... List.generate(2, (index) => const ContainerRow())
+                ... List.generate(4, (index) => const ContainerTile())
               ],
             )
           ),
-          ListTile(
-            contentPadding: EdgeInsets.zero,
-            title: Text('Usaha Bidang Makanan', style: theme.textTheme.headline6.copyWith(
-              color: theme.primaryColor
-            ))
-          ),
-          ... List.generate(2, (index) => const ContainerRow())
         ],
       ),
     );

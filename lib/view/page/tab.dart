@@ -5,7 +5,7 @@ class TabPage extends StatelessWidget {
   final Widget homePage = HomePage();
   final Widget ideBisnisPage = IdeBisnisPage();
   final Widget pelatihanPage = PelatihanPage();
-  final Widget profilePage = const Center(child: Icon(Icons.person),);
+  final Widget profilePage = ProfilePage();
 
   final List<Widget> pages = [];
   final ValueNotifier<int> setTab = ValueNotifier(1);
@@ -58,8 +58,6 @@ class TabPage extends StatelessWidget {
               icon: Image.asset('assets/logo/bee.png',
                 height: 30,
                 width: 30,
-                colorBlendMode: value == 0 ? null : BlendMode.lighten,
-                color: value == 0 ? null : const Color(0xFF22B9FC).withOpacity(0.64),
               ), 
               label: 'Home',
             ),

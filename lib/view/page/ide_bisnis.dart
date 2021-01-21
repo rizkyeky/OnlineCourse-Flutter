@@ -26,12 +26,6 @@ class IdeBisnisPage extends Page<IdeBisnisBloc> {
           color: Colors.white
         )),
         elevation: 0,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.person_outline), 
-            onPressed: () {}
-          )
-        ],
       ),
       body: ListView(
         padding: const EdgeInsets.all(24),

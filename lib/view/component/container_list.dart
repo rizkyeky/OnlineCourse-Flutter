@@ -17,8 +17,9 @@ class ContainerList extends StatelessWidget {
   });
 
   Widget containers(ThemeData theme) => SizedBox(
-    height: (type == 1) ? 380 : 300,
+    height: (type == 1) ? 404 : 324,
     child: ListView.separated(
+      padding: const EdgeInsets.symmetric(vertical: 12),
       scrollDirection: Axis.horizontal,
       itemCount: list.length,
       separatorBuilder: (_, index) => SizedBox(width: index != 2 ? 24 : 0),
