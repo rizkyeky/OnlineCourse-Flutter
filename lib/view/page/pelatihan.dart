@@ -66,66 +66,66 @@ class PelatihanPage extends Page<PelatihanBloc> {
           ),
           Row(
             children: [
-              Expanded(
-                child: Material(
-                  color: theme.colorScheme.primaryVariant,
-                  borderRadius: BorderRadius.circular(12),
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(12),
-                    splashColor: theme.primaryColor.withOpacity(0.48),
-                    highlightColor: theme.primaryColor.withOpacity(0.24),
-                    onTap: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 18),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SvgPicture.asset('assets/logo/musik.svg',
-                            color: Colors.white,
-                            width: 24,
-                          ),
-                          const SizedBox(width: 12,),
-                          Text('MUSIK', style: theme.textTheme.bodyText1.copyWith(
-                            color: Colors.white,
-                          )),
-                        ],
-                      ),
-                    ),
-                  ),
+              OptionButton(
+                label: 'MUSIK',
+                icon: SvgPicture.asset('assets/logo/musik.svg',
+                  color: Colors.white,
+                  width: 24,
+                ),
+              ),
+              OptionButton(
+                label: 'JASA',
+                icon: SvgPicture.asset('assets/logo/gem.svg',
+                  color: Colors.white,
+                  width: 24,
                 ),
               ),
               const SizedBox(width: 12,),
-              Expanded(
-                child: Material(
-                  color: theme.colorScheme.primaryVariant,
-                  borderRadius: BorderRadius.circular(12),
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(12),
-                    splashColor: theme.primaryColor.withOpacity(0.48),
-                    highlightColor: theme.primaryColor.withOpacity(0.24),
-                    onTap: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 18),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SvgPicture.asset('assets/logo/musik.svg',
-                            color: Colors.white,
-                            width: 24,
-                          ),
-                          const SizedBox(width: 12,),
-                          Text('MUSIK', style: theme.textTheme.bodyText1.copyWith(
-                            color: Colors.white,
-                          )),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              )
             ],
           )
         ],
+      ),
+    );
+  }
+}
+
+class OptionButton extends StatelessWidget {
+
+  final String label;
+  final Widget icon;
+
+  const OptionButton({
+    this.label,
+    this.icon
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Expanded(
+      child: Material(
+        color: theme.colorScheme.primaryVariant,
+        borderRadius: BorderRadius.circular(12),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(12),
+          splashColor: theme.primaryColor.withOpacity(0.48),
+          highlightColor: theme.primaryColor.withOpacity(0.24),
+          onTap: () {},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 18),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                
+                icon,
+                const SizedBox(width: 12,),
+                Text('MUSIK', style: theme.textTheme.bodyText1.copyWith(
+                  color: Colors.white,
+                )),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
