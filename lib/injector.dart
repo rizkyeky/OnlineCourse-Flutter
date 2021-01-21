@@ -13,6 +13,7 @@ class Injector {
     _getIt.registerFactory(() => EntryBloc());
     _getIt.registerFactory(() => ProfileBloc());
     _getIt.registerFactory(() => IdeBisnisBloc());
+    _getIt.registerFactory(() => PelatihanBloc());
 
     await _getIt.allReady();
   }

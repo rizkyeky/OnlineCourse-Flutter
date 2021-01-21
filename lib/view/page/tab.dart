@@ -4,7 +4,7 @@ class TabPage extends StatelessWidget {
 
   final Widget homePage = HomePage();
   final Widget ideBisnisPage = IdeBisnisPage();
-  final Widget pelatihanPage = const Center(child: Icon(Icons.settings),);
+  final Widget pelatihanPage = PelatihanPage();
   final Widget profilePage = const Center(child: Icon(Icons.person),);
 
   final List<Widget> pages = [];
