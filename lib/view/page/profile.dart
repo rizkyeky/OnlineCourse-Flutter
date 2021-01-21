@@ -68,6 +68,7 @@ class ProfilePage extends Page<ProfileBloc> {
               ),
             ],
           ),
+          const SizedBox(height: 12),
           SizedBox(
             height: 180,
             child: Material(
@@ -108,23 +109,32 @@ class ProfilePage extends Page<ProfileBloc> {
               ),
             ),
           ),
+          const SizedBox(height: 24),
           TextField(
             decoration: InputDecoration(
               hintText: 'Masukan kode promo',
               hintStyle: const TextStyle(
                 fontWeight: FontWeight.normal
               ),
+              filled: true,
+              fillColor: const Color(0xFFE5F3FF),
               suffixIcon: const Icon(Icons.arrow_forward),
               contentPadding: const EdgeInsets.symmetric(horizontal: 12),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: const BorderSide(color: Color(0xFFBCE0FD))
+                borderRadius: BorderRadius.circular(6),
+                borderSide: const BorderSide(color: Color(0xFFBCE0FD), width: 2)
               ),
+              // disabledBorder: OutlineInputBorder(
+              //   borderRadius: BorderRadius.circular(12),
+              //   borderSide: const BorderSide(color: Color(0xFFBCE0FD))
+              // ),
             ),
           ),
+          const SizedBox(height: 24),
           Text('Pelatihan yang diikuti', style: theme.textTheme.bodyText1.copyWith(
             color: theme.primaryColor
           )),
+          const SizedBox(height: 12),
           SizedBox(
             height: 120,
             child: ListView.separated(
@@ -154,8 +164,13 @@ class ProfilePage extends Page<ProfileBloc> {
               ), 
             )
           ),
+          const SizedBox(height: 24),
           FlatButton(
             onPressed: () {},
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(6),
+              side: BorderSide(color: theme.primaryColor)
+            ),
             color: const Color(0xFFE5F3FF),
             child: Text('KELUAR', style: theme.textTheme.button.copyWith(
               color: theme.primaryColor

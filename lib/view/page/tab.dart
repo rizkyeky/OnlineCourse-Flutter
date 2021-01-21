@@ -8,7 +8,7 @@ class TabPage extends StatelessWidget {
   final Widget profilePage = ProfilePage();
 
   final List<Widget> pages = [];
-  final ValueNotifier<int> setTab = ValueNotifier(1);
+  final ValueNotifier<int> setTab = ValueNotifier(3);
 
   TabPage({
     Key key,
