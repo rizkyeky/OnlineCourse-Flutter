@@ -1,6 +1,17 @@
 part of 'page.dart';
 
-class IdeBisnisPage extends StatelessWidget {
+class IdeBisnisPage extends Page<IdeBisnisBloc> {
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+  }
+
+  @override
+  void init() {
+    // TODO: implement init
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -16,6 +27,14 @@ class IdeBisnisPage extends StatelessWidget {
             icon: const Icon(Icons.account_box_outlined), 
             onPressed: () {}
           )
+        ],
+      ),
+      body: ListView(
+        children: [
+          ContainerList(
+            haveTile: false,
+            list: bloc.listOfContainer1,
+          ),
         ],
       ),
     );

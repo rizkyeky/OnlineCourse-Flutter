@@ -59,33 +59,40 @@ Route onGenerateRoute(RouteSettings settings) {
 }
 
 TextTheme textTheme = const TextTheme(
+  headline4: TextStyle(
+    fontFamily: 'Poppins',
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+    fontSize: 32
+  ),
   headline6: TextStyle(
+    fontFamily: 'Poppins',
     color: Colors.white,
     fontSize: 20,
     fontWeight: FontWeight.bold
   ),
-  subtitle2: TextStyle(
-    color: Color(0xFF464646),
-    fontSize: 14,
-    fontWeight: FontWeight.bold
-  ),
   subtitle1: TextStyle(
+    fontFamily: 'Poppins',
     color: Color(0xFF3456DD),
     fontSize: 16,
     fontWeight: FontWeight.bold
   ),
+  subtitle2: TextStyle(
+    fontFamily: 'Poppins',
+    color: Color(0xFF464646),
+    fontSize: 14,
+    fontWeight: FontWeight.bold
+  ),
   bodyText1: TextStyle(
+    fontFamily: 'Poppins',
     color: Color(0xFF202020),
     fontSize: 18,
     fontWeight: FontWeight.bold,
   ),
   button: TextStyle(
-    color: Colors.white,
-    fontWeight: FontWeight.bold
-  ),
-  headline4: TextStyle(
+    fontFamily: 'Poppins',
     color: Colors.white,
     fontWeight: FontWeight.bold,
-    fontSize: 32
+    
   ),
 );
