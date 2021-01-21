@@ -67,21 +67,28 @@ class PelatihanPage extends Page<PelatihanBloc> {
           Row(
             children: [
               OptionButton(
-                label: 'MUSIK',
-                icon: SvgPicture.asset('assets/logo/musik.svg',
-                  color: Colors.white,
-                  width: 24,
-                ),
-              ),
-              OptionButton(
                 label: 'JASA',
-                icon: SvgPicture.asset('assets/logo/gem.svg',
-                  color: Colors.white,
-                  width: 24,
-                ),
+                icon: SvgPicture.asset('assets/logo/gem.svg')
               ),
-              const SizedBox(width: 12,),
-            ],
+              const SizedBox(width: 12),
+              OptionButton(
+                label: 'MAKANAN',
+                icon: SvgPicture.asset('assets/logo/makanan.svg')
+              )
+            ]
+          ),
+          Row(
+            children: [
+              OptionButton(
+                label: 'MUSIK',
+                icon: SvgPicture.asset('assets/logo/musik.svg')
+              ),
+              const SizedBox(width: 12),
+              OptionButton(
+                label: 'OLEHOLEH',
+                icon: SvgPicture.asset('assets/logo/oleh.svg')
+              )
+            ]
           )
         ],
       ),
@@ -96,7 +103,7 @@ class OptionButton extends StatelessWidget {
 
   const OptionButton({
     this.label,
-    this.icon
+    this.icon,
   });
 
   @override
@@ -116,10 +123,9 @@ class OptionButton extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                
                 icon,
                 const SizedBox(width: 12,),
-                Text('MUSIK', style: theme.textTheme.bodyText1.copyWith(
+                Text(label, style: theme.textTheme.bodyText1.copyWith(
                   color: Colors.white,
                 )),
               ],
