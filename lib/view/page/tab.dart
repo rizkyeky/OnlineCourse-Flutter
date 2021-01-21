@@ -3,23 +3,21 @@ part of 'page.dart';
 class TabPage extends StatelessWidget {
 
   final Widget homePage = HomePage();
-  final Widget kategoriPage = const Center(child: Icon(Icons.apps),);
-  final Widget settingPage = const Center(child: Icon(Icons.settings),);
-  final Widget purchasePage = const Center(child: Icon(Icons.shopping_cart_outlined),);
+  final Widget ideBisnisPage = const Center(child: Icon(Icons.shopping_cart_outlined),);
+  final Widget pelatihanPage = const Center(child: Icon(Icons.settings),);
   final Widget profilePage = const Center(child: Icon(Icons.person),);
 
   final List<Widget> pages = [];
-  final ValueNotifier<int> setTab = ValueNotifier(2);
+  final ValueNotifier<int> setTab = ValueNotifier(0);
 
   TabPage({
     Key key,
   }) : super(key: key) {
     pages.addAll([
-      kategoriPage, 
-      settingPage,
       homePage, 
+      ideBisnisPage,
+      pelatihanPage, 
       profilePage,
-      purchasePage, 
     ]);
   }
   
@@ -55,12 +53,22 @@ class TabPage extends StatelessWidget {
           backgroundColor: const Color(0xFFEAF2F9),
           items: [
             BottomNavigationBarItem(
+              icon: Image.asset('assets/logo/bee.png',
+                height: 40,
+                width: 40,
+                isAntiAlias: true,
+                colorBlendMode: value == 0 ? null : BlendMode.lighten,
+                color: value == 0 ? null : const Color(0xFF22B9FC).withOpacity(0.64),
+              ), 
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
               icon: SvgPicture.asset('assets/logo/gem.svg',
                 height: 32,
                 width: 32,
-                color: value == 0 ? theme.primaryColor : const Color(0xFF22B9FC).withOpacity(0.64),
+                color: value == 1 ? theme.primaryColor : const Color(0xFF22B9FC).withOpacity(0.64),
               ),
-              label: 'Home',
+              label: 'Ide Bisnis',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset('assets/logo/setting.svg',
@@ -68,17 +76,7 @@ class TabPage extends StatelessWidget {
                 width: 32,
                 color: value == 1 ? theme.primaryColor : const Color(0xFF22B9FC).withOpacity(0.64),
               ), 
-              label: 'Setting',
-            ),
-            BottomNavigationBarItem(
-              icon: Image.asset('assets/logo/bee.png',
-                height: 40,
-                width: 40,
-                isAntiAlias: true,
-                colorBlendMode: value == 2 ? null : BlendMode.lighten,
-                color: value == 2 ? null : const Color(0xFF22B9FC).withOpacity(0.64),
-              ), 
-              label: 'App',
+              label: 'Pelatihan',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset('assets/logo/profile.svg',
@@ -87,14 +85,6 @@ class TabPage extends StatelessWidget {
                 color: value == 3 ? theme.primaryColor : const Color(0xFF22B9FC).withOpacity(0.64),
               ),
               label: 'Profile',
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/logo/dollar.svg',
-                height: 35,
-                width: 32,
-                color: value == 4 ? theme.primaryColor : const Color(0xFF22B9FC).withOpacity(0.64),
-              ),
-              label: 'Dollar',
             ),
           ],
           onTap: (index) {
