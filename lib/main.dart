@@ -40,22 +40,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-const ColorScheme colorScheme = ColorScheme(
-  surface: Colors.white,
-  primary: Color(0xFF3456DD),
-  primaryVariant: Color(0xFF4BD6F3),
-  secondary: Color(0xFFF3EC00),
-  secondaryVariant: Color(0xFFF3EC00),
-  error: Colors.red,
-  background: Colors.white,
-  brightness: Brightness.light,
-  onSurface: Colors.white,
-  onError: Colors.red,
-  onBackground: Colors.white,
-  onPrimary: Color(0xFF3456DD),
-  onSecondary: Color(0xFFF3EC00),
-);
-
 const TextTheme textTheme = TextTheme(
   headline4: TextStyle(
     color: Colors.white,
@@ -101,4 +85,20 @@ const TextTheme textTheme = TextTheme(
     color: Colors.white,
     fontWeight: FontWeight.bold,
   ),
+);
+
+const ColorScheme colorScheme = ColorScheme(
+  surface: Colors.white,
+  primary: Color(0xFF3456DD),
+  primaryVariant: Color(0xFF4BD6F3),
+  secondary: Color(0xFFF3EC00),
+  secondaryVariant: Color(0xFFF3EC00),
+  error: Colors.red,
+  background: Colors.white,
+  brightness: Brightness.light,
+  onSurface: Colors.white,
+  onError: Colors.red,
+  onBackground: Colors.white,
+  onPrimary: Color(0xFF3456DD),
+  onSecondary: Color(0xFFF3EC00),
 );

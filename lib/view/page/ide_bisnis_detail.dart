@@ -39,7 +39,7 @@ class IdeBisnisDetailPage extends Page<IdeBisnisDetailBloc> {
               ),
             ),
             expandedHeight: 400,
-            collapsedHeight: 150,
+            collapsedHeight: 180,
           ),
           SliverList(
             delegate: SliverChildListDelegate([

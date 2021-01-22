@@ -103,23 +103,11 @@ class ProfilePage extends Page<ProfileBloc> {
               ),
             ),
             const SizedBox(height: 24),
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Masukan kode promo',
-                hintStyle: const TextStyle(
-                  fontWeight: FontWeight.normal
-                ),
-                filled: true,
-                fillColor: const Color(0xFFE5F3FF),
-                suffixIcon: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.arrow_forward)
-                ),
-                contentPadding: const EdgeInsets.symmetric(horizontal: 12),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(6),
-                  borderSide: BorderSide.none
-                ),
+            MainTextField(
+              hint: 'Masukan kode promo',
+              suffixIcon: IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.arrow_forward)
               ),
             ),
             const SizedBox(height: 24),
