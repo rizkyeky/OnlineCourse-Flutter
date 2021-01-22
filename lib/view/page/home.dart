@@ -85,75 +85,7 @@ class HomePage extends Page<HomeBloc> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)
                   ),
-                  onPressed: () => showModalBottomSheet(
-                    context: context,
-                    clipBehavior: Clip.antiAlias,
-                    backgroundColor: Colors.white,
-                    isScrollControlled: true,
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.vertical(top: Radius.circular(24))
-                    ),
-                    builder: (ctx) => SizedBox(
-                      height: 600,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        textBaseline: TextBaseline.alphabetic,
-                        children: [
-                          Container(
-                            height: 60,
-                            color: theme.primaryColor,
-                            alignment: Alignment.center,
-                            child: Text('PENGAJUAN KREDIT', style: theme.textTheme.subtitle1.copyWith(
-                              color: Colors.white,
-                            )),
-                          ),
-                          SingleChildScrollView(
-                            padding: const EdgeInsets.all(24),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              textBaseline: TextBaseline.alphabetic,
-                              children: [
-                                MainTextField(
-                                  onChanged: (val) {},
-                                  hint: 'Pilih Ide bisnis Anda',
-                                ),
-                                const SizedBox(height: 24,),
-                                MainTextField(
-                                  onChanged: (val) {},
-                                  hint: 'Alasan Kenapa Memilih ide Bisnis ini',
-                                  maxLines: 6,
-                                ),
-                                const SizedBox(height: 24,),
-                                Row(
-                                  children: [
-                                    Container(
-                                      alignment: Alignment.center,
-                                      decoration: BoxDecoration(
-                                        color: const Color(0xFFE5F3FF),
-                                        borderRadius: BorderRadius.circular(12)
-                                      ),
-                                      child: const Text('Proposal. max 3MB')
-                                    ),
-                                    Expanded(
-                                      child: FlatButton(
-                                        color: theme.primaryColor,
-                                        onPressed: () {},
-                                        child: Text('Upload', style: theme.textTheme.button)
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                const SizedBox(height: 24,),
-                                MainButton(
-                                  text: 'SUBMIT PINJAMAN',
-                                )
-                              ]
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  ),
+                  onPressed: () => 
                   child: Text('AJUKAN', style: theme.textTheme.button),
                 )
               ],
