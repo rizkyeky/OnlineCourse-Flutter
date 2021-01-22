@@ -3,6 +3,7 @@ part of 'component.dart';
 class ContainerList extends StatelessWidget {
 
   final bool haveTile;
+  final bool haveTrailing;
   final String title;
   final String subtitle;
   final List<Map> list;
@@ -13,6 +14,7 @@ class ContainerList extends StatelessWidget {
     this.subtitle,
     this.list,
     this.haveTile = true,
+    this.haveTrailing = false,
     this.type = 0,
   });
 
@@ -88,14 +90,14 @@ class ContainerList extends StatelessWidget {
       children: [
         ListTile(
           contentPadding: EdgeInsets.zero,
-          title: Text(title, style: theme.textTheme.headline6.copyWith(
+          title: title != null ? Text(title, style: theme.textTheme.headline6.copyWith(
               color: theme.primaryColor
-            )),
-          subtitle: Text(subtitle, style: theme.textTheme.bodyText2,),
-          trailing: TextButton(
+            )) : null,
+          subtitle: subtitle != null ? Text(subtitle, style: theme.textTheme.bodyText2,) : null,
+          trailing: haveTrailing ? TextButton(
             onPressed: () {},
             child: const Text('semua'),
-          ),
+          ) : null,
         ),
         containers(theme),
       ],
