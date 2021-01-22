@@ -54,7 +54,40 @@ class IdeBisnisDetailPage extends Page<IdeBisnisDetailBloc> {
                     ),
                   ))
                 ),
-              )
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                child: Column(
+                  children: [
+                    Text(bloc.str1),
+                    const SizedBox(height: 24,),
+                    Text(bloc.str2),
+                    const SizedBox(height: 24,),
+                    Text(bloc.str3),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                child: Text('Ide Baru', style: theme.textTheme.bodyText1.copyWith(
+                  color: theme.primaryColor
+                )),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: SizedBox(
+                  height: 120,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 3,
+                    separatorBuilder: (_, i) => const SizedBox(width: 12),
+                    itemBuilder: (_, i) => const ContainerImage(
+                      width: 120,
+                      child: SizedBox()
+                    )
+                  )
+                ),
+              ),
             ])
           )
         ],
