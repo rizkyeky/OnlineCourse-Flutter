@@ -14,9 +14,6 @@ class EntryPage extends Page<EntryBloc> {
   @override
   Widget build(BuildContext context) {
 
-    injector.screenHeight = MediaQuery.of(context).size.height;
-    injector.screenWidth = MediaQuery.of(context).size.width;
-
     final theme = Theme.of(context);
 
     return Material(

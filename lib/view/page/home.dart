@@ -63,8 +63,17 @@ class HomePage extends Page<HomeBloc> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               textBaseline: TextBaseline.alphabetic,
               children: [
-                const ContainerImage(
-
+                CarouselSlider.builder(
+                  itemCount: 4, 
+                  options: CarouselOptions(
+                    aspectRatio: 1,
+                    viewportFraction: 1,
+                    autoPlay: true,
+                    height: 300,
+                  ),
+                  itemBuilder: (ctx, index) => ContainerImage(
+                    width: injector.screenWidth-(24*3),
+                  )
                 ),
                 SizedBox(
                   height: 70,
@@ -85,7 +94,7 @@ class HomePage extends Page<HomeBloc> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)
                   ),
-                  onPressed: () => 
+                  onPressed: () => showPengajuanSheet(context, theme),
                   child: Text('AJUKAN', style: theme.textTheme.button),
                 )
               ],

@@ -3,6 +3,7 @@ library page;
 import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 import '../../bloc/bloc.dart';
 import '../../injector.dart';
@@ -17,6 +18,7 @@ part 'profile.dart';
 part 'ide_bisnis.dart';
 part 'pelatihan.dart';
 part 'ide_bisnis_detail.dart';
+part 'pelatihan_detail.dart';
 part 'test.dart';
 
 abstract class Page<T extends Bloc> extends StatefulWidget {
@@ -62,6 +64,10 @@ class _PageState extends State<Page> {
 
   @override
   Widget build(BuildContext context) {
+
+    injector.screenHeight = MediaQuery.of(context).size.height;
+    injector.screenWidth = MediaQuery.of(context).size.width;
+
     return ValueListenableBuilder<ConnectionStatus>(
       valueListenable: injector.getService<ConnectionService>().networkStatusNotifier,
       builder: (context, value, child) {

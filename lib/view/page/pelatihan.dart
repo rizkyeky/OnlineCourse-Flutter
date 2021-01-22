@@ -49,7 +49,7 @@ class PelatihanPage extends Page<PelatihanBloc> {
                       elevation: 0,
                       pressElevation: 2,
                       padding: const EdgeInsets.symmetric(horizontal: 6),
-                      backgroundColor: index == indexOfKategori1 ? theme.primaryColor : theme.colorScheme.primaryVariant.withOpacity(0.6),
+                      backgroundColor: index == indexOfKategori1 ? theme.primaryColor : const Color(0xFFBCE0FD),
                       label: Text(bloc.listOfKategori[index], style: theme.textTheme.subtitle2.copyWith(
                         color: index == indexOfKategori1 ? Colors.white : const Color(0xFF464646)
                       )),
@@ -159,7 +159,7 @@ class OptionButton extends StatelessWidget {
     final theme = Theme.of(context);
     return Expanded(
       child: Material(
-        color: color ?? theme.colorScheme.primaryVariant,
+        color: color ?? const Color(0xFFBCE0FD),
         borderRadius: BorderRadius.circular(12),
         child: InkWell(
           borderRadius: BorderRadius.circular(12),

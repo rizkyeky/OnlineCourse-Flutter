@@ -11,6 +11,7 @@ part 'profile.dart';
 part 'ide_bisnis.dart';
 part 'ide_bisnis_detail.dart';
 part 'pelatihan.dart';
+part 'pelatihan_detail.dart';
 
 abstract class Bloc {
   void init();
