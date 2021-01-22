@@ -17,7 +17,8 @@ class PelatihanPage extends Page<PelatihanBloc> {
     
     final theme = Theme.of(context);
 
-    int indexOfKategori = 0;
+    int indexOfKategori1 = 0;
+    int indexOfKategori2 = 0;
 
     return Scaffold(
       appBar: AppBar(
@@ -48,13 +49,13 @@ class PelatihanPage extends Page<PelatihanBloc> {
                       elevation: 0,
                       pressElevation: 2,
                       padding: const EdgeInsets.symmetric(horizontal: 6),
-                      backgroundColor: index == indexOfKategori ? theme.primaryColor : theme.colorScheme.primaryVariant.withOpacity(0.6),
+                      backgroundColor: index == indexOfKategori1 ? theme.primaryColor : theme.colorScheme.primaryVariant.withOpacity(0.6),
                       label: Text(bloc.listOfKategori[index], style: theme.textTheme.subtitle2.copyWith(
-                        color: index == indexOfKategori ? Colors.white : const Color(0xFF464646)
+                        color: index == indexOfKategori1 ? Colors.white : const Color(0xFF464646)
                       )),
                       onPressed: () => setState(() {
-                        if (indexOfKategori != index) {
-                          indexOfKategori = index;
+                        if (indexOfKategori1 != index) {
+                          indexOfKategori1 = index;
                         }
                       }),
                     )
@@ -64,31 +65,58 @@ class PelatihanPage extends Page<PelatihanBloc> {
               ],
             )
           ),
-          Row(
-            children: [
-              OptionButton(
-                label: 'JASA',
-                icon: SvgPicture.asset('assets/logo/gem.svg')
-              ),
-              const SizedBox(width: 12),
-              OptionButton(
-                label: 'MAKANAN',
-                icon: SvgPicture.asset('assets/logo/makanan.svg')
-              )
-            ]
-          ),
-          Row(
-            children: [
-              OptionButton(
-                label: 'MUSIK',
-                icon: SvgPicture.asset('assets/logo/musik.svg')
-              ),
-              const SizedBox(width: 12),
-              OptionButton(
-                label: 'OLEHOLEH',
-                icon: SvgPicture.asset('assets/logo/oleh.svg')
-              )
-            ]
+          const SizedBox(height: 12),
+          StatefulBuilder(
+            builder: (context, setState) => Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: Row(
+                    children: [
+                      OptionButton(
+                        label: 'JASA',
+                        icon: SvgPicture.asset('assets/logo/gem.svg',
+                          color: Colors.white,
+                          height: 24,
+                        )
+                      ),
+                      const SizedBox(width: 12),
+                      OptionButton(
+                        label: 'MAKANAN',
+                        icon: SvgPicture.asset('assets/logo/makanan.svg',
+                          color: Colors.white,
+                          height: 24,
+                        )
+                      )
+                    ]
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: Row(
+                    children: [
+                      OptionButton(
+                        label: 'MUSIK',
+                        icon: SvgPicture.asset('assets/logo/musik.svg',
+                          color: Colors.white,
+                          height: 24,
+                        )
+                      ),
+                      const SizedBox(width: 12),
+                      OptionButton(
+                        label: 'OLEHOLEH',
+                        icon: SvgPicture.asset('assets/logo/oleh.svg', 
+                          color: Colors.white,
+                          height: 24,
+                        )
+                      )
+                    ]
+                  ),
+                ),
+                const SizedBox(height: 12),
+                ... List.generate(4, (index) => const ContainerTile())
+              ],
+            )
           )
         ],
       ),
@@ -100,10 +128,12 @@ class OptionButton extends StatelessWidget {
 
   final String label;
   final Widget icon;
+  final void Function() onTap;
 
   const OptionButton({
     this.label,
     this.icon,
+    this.onTap
   });
 
   @override
@@ -117,9 +147,9 @@ class OptionButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           splashColor: theme.primaryColor.withOpacity(0.48),
           highlightColor: theme.primaryColor.withOpacity(0.24),
-          onTap: () {},
+          onTap: onTap ?? () {},
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 18),
+            padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 18),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

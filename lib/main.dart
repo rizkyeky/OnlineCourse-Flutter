@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Poppins',
         primaryColor: const Color(0xFF3456DD),
         accentColor: const Color(0xFFF3EC00),
-        scaffoldBackgroundColor: const Color(0xFFF5F5F5),
+        scaffoldBackgroundColor: const Color(0xFFFAFAFA),
         colorScheme: colorScheme,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: textTheme,
