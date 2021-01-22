@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.white
         )
       ),
-      home: EntryPage(),
+      home: IdeBisnisDetailPage(),
     );
   }
 }
@@ -61,6 +61,12 @@ const TextTheme textTheme = TextTheme(
     color: Colors.white,
     fontWeight: FontWeight.bold,
     fontSize: 32,
+    height: 1.2,
+  ),
+  headline5: TextStyle(
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+    fontSize: 24,
     height: 1.2,
   ),
   headline6: TextStyle(

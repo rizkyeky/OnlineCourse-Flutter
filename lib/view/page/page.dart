@@ -16,6 +16,7 @@ part 'tab.dart';
 part 'profile.dart';
 part 'ide_bisnis.dart';
 part 'pelatihan.dart';
+part 'ide_bisnis_detail.dart';
 
 abstract class Page<T extends Bloc> extends StatefulWidget {
 

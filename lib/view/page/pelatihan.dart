@@ -78,7 +78,11 @@ class PelatihanPage extends Page<PelatihanBloc> {
                         icon: SvgPicture.asset('assets/logo/gem.svg',
                           color: Colors.white,
                           height: 24,
-                        )
+                        ),
+                        color: (indexOfKategori2 == 0) ? theme.primaryColor : null,
+                        onTap: () => setState(() {
+                          indexOfKategori2 = 0;
+                        }),
                       ),
                       const SizedBox(width: 12),
                       OptionButton(
@@ -86,7 +90,11 @@ class PelatihanPage extends Page<PelatihanBloc> {
                         icon: SvgPicture.asset('assets/logo/makanan.svg',
                           color: Colors.white,
                           height: 24,
-                        )
+                        ),
+                        color: (indexOfKategori2 == 1) ? theme.primaryColor : null,
+                        onTap: () => setState(() {
+                          indexOfKategori2 = 1;
+                        }),
                       )
                     ]
                   ),
@@ -100,7 +108,11 @@ class PelatihanPage extends Page<PelatihanBloc> {
                         icon: SvgPicture.asset('assets/logo/musik.svg',
                           color: Colors.white,
                           height: 24,
-                        )
+                        ),
+                        color: (indexOfKategori2 == 2) ? theme.primaryColor : null,
+                        onTap: () => setState(() {
+                          indexOfKategori2 = 2;
+                        }),
                       ),
                       const SizedBox(width: 12),
                       OptionButton(
@@ -108,7 +120,11 @@ class PelatihanPage extends Page<PelatihanBloc> {
                         icon: SvgPicture.asset('assets/logo/oleh.svg', 
                           color: Colors.white,
                           height: 24,
-                        )
+                        ),
+                        color: (indexOfKategori2 == 3) ? theme.primaryColor : null,
+                        onTap: () => setState(() {
+                          indexOfKategori2 = 3;
+                        }),
                       )
                     ]
                   ),
@@ -129,11 +145,13 @@ class OptionButton extends StatelessWidget {
   final String label;
   final Widget icon;
   final void Function() onTap;
+  final Color color;
 
   const OptionButton({
     this.label,
     this.icon,
-    this.onTap
+    this.onTap,
+    this.color,
   });
 
   @override
@@ -141,7 +159,7 @@ class OptionButton extends StatelessWidget {
     final theme = Theme.of(context);
     return Expanded(
       child: Material(
-        color: theme.colorScheme.primaryVariant,
+        color: color ?? theme.colorScheme.primaryVariant,
         borderRadius: BorderRadius.circular(12),
         child: InkWell(
           borderRadius: BorderRadius.circular(12),

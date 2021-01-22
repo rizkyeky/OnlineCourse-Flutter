@@ -14,6 +14,7 @@ class Injector {
     _getIt.registerFactory(() => ProfileBloc());
     _getIt.registerFactory(() => IdeBisnisBloc());
     _getIt.registerFactory(() => PelatihanBloc());
+    _getIt.registerFactory(() => IdeBisnisDetailBloc());
 
     await _getIt.allReady();
   }

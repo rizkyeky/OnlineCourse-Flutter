@@ -9,6 +9,7 @@ part 'home.dart';
 part 'entry.dart';
 part 'profile.dart';
 part 'ide_bisnis.dart';
+part 'ide_bisnis_detail.dart';
 part 'pelatihan.dart';
 
 abstract class Bloc {
