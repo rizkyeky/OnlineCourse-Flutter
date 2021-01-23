@@ -31,8 +31,7 @@ class IdeBisnisPage extends Page<IdeBisnisBloc> {
         padding: const EdgeInsets.all(24),
         children: [
           ContainerList(
-            haveTile: false,
-            list: bloc.listOfContainer1,
+            containerCount: 4,
           ),
           const SizedBox(height: 24,),
           ListTile(

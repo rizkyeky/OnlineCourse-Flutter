@@ -14,20 +14,16 @@ class HomePage extends Page<HomeBloc> {
     // TODO: implement init
   }
 
+  final Size heightAppBar = const Size.fromHeight(84);
+
   @override
-  Widget build(BuildContext context) {
-
-    final theme = Theme.of(context);
-
-    return Scaffold(
-      resizeToAvoidBottomPadding: true,
-      resizeToAvoidBottomInset: true,
+  Widget build(BuildContext context) => Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(84),
+        preferredSize: heightAppBar,
         child: Material(
-          color: theme.primaryColor,
+          color: colorScheme['primary'],
           child: SizedBox.fromSize(
-            size: const Size.fromHeight(84),
+            size: heightAppBar,
             child: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -35,17 +31,17 @@ class HomePage extends Page<HomeBloc> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Image.asset('assets/logo/logo.png', height: 36, width: 47),
-                    TextButton(
-                      onPressed: () {},
-                      child: Row(
-                        children: [
-                          Text('Hello, ', style: textTheme.headline6.copyWith(
-                            fontWeight: FontWeight.normal
-                          ),),
-                          Text('Username', style: textTheme.headline6,),
-                        ],
-                      ),
-                    )
+                    Row(
+                      children: [
+                        Text('Hello, ', style: textTheme.headline6.copyWith(
+                          fontWeight: FontWeight.normal,
+                          color: Colors.white
+                        ),),
+                        Text('Username', style: textTheme.headline6.copyWith(
+                          color: Colors.white
+                        ),),
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -56,73 +52,151 @@ class HomePage extends Page<HomeBloc> {
       body: ListView(
         padding: const EdgeInsets.all(24),
         children: [
+          CarouselSlider.builder(
+            itemCount: 4, 
+            options: CarouselOptions(
+              aspectRatio: 1,
+              viewportFraction: 1,
+              autoPlay: true,
+              height: 300,
+            ),
+            itemBuilder: (ctx, index) => ContainerImage(
+              width: injector.screenWidth-(24*3),
+              child: Padding(
+                padding: const EdgeInsets.all(24),
+                child:  Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Spacer(),
+                    Text('Belajar', style: textTheme.headline4.copyWith(
+                      fontWeight: FontWeight.normal
+                    ),),
+                    Text('Ide Bisnis', style: textTheme.headline4,),
+                  ],
+                ),
+              ),
+            )
+          ),
+          const SizedBox(height: 24,),
           SizedBox(
-            height: 500,
+            height: 60,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              textBaseline: TextBaseline.alphabetic,
               children: [
-                CarouselSlider.builder(
-                  itemCount: 4, 
-                  options: CarouselOptions(
-                    aspectRatio: 1,
-                    viewportFraction: 1,
-                    autoPlay: true,
-                    height: 300,
-                  ),
-                  itemBuilder: (ctx, index) => ContainerImage(
-                    width: injector.screenWidth-(24*3),
-                  )
-                ),
-                SizedBox(
-                  height: 70,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Selamat Datang di', style: textTheme.subtitle2,),
-                      Text('APLIKASI PERKREDITAN RAKYAT', style: textTheme.subtitle1,),
-                      Text('Sebuah Aplikasi Kredit Untuk Produktif', style: textTheme.subtitle2),
-                    ],
-                  ),
-                ),
-                RaisedButton(
-                  color: theme.primaryColor,
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 14, horizontal: 32 
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)
-                  ),
-                  onPressed: () => showPengajuanSheet(context, theme),
-                  child: Text('AJUKAN', style: textTheme.button),
-                )
+                Text('Selamat Datang di', style: textTheme.subtitle2,),
+                Text('APLIKASI PERKREDITAN RAKYAT', style: textTheme.subtitle1.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: colorScheme['primary']
+                ),),
+                Text('Sebuah Aplikasi Kredit Untuk Produktif', style: textTheme.subtitle2),
               ],
             ),
           ),
           const SizedBox(height: 24,),
+          MainButton(
+            color: colorScheme['primary'],
+            onPressed: () => showPengajuanSheet(context, Theme.of(context)),
+            label: 'AJUKAN',
+            labelStyle: textTheme.button.copyWith(color: Colors.white),
+          ),
+          const SizedBox(height: 24,),
+          ListTile(
+            contentPadding: EdgeInsets.zero,
+            title: Text('Ide Bisnis', style: textTheme.headline6.copyWith(
+              color: colorScheme['primary'],
+            ),),
+            subtitle: Text('Wujudkan Ide Bisnis Anda', style: textTheme.subtitle1,),
+            trailing: FlatButton(
+              onPressed: () => Navigator.push(context, 
+                MaterialPageRoute(builder: (_) => IdeBisnisPage())),
+              child: Text('semua', style: textTheme.button.copyWith(
+                color: colorScheme['primary'],
+              )),
+            ),
+          ),
           ContainerList(
-            title: 'Ide Bisnis',
-            subtitle: 'Wujudkan Ide Bisnis Anda',
-            list: bloc.listOfContainer1,
+            containerCount: 3,
+            insideBuilder: (context, index) => Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    children:  [
+                      const Spacer(),
+                      Chip(
+                        backgroundColor: Colors.white,
+                        label: Text(bloc.listOfContainer1[index]['chip'], style: textTheme.subtitle2)
+                      )
+                    ],
+                  ),
+                  const Spacer(),
+                  Text(bloc.listOfContainer1[index]['overline'], style: textTheme.headline5.copyWith(
+                    color: Colors.white
+                  )),
+                  Text(bloc.listOfContainer1[index]['title'], style: textTheme.headline6.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.normal,
+                  )),
+                ],
+              ),
+            ),
           ),
           ...List.generate(2, (index) => const ContainerRow()),
           const SizedBox(height: 12),
           MainButton(
             label: 'LIHAT SEMUA',
-            color: theme.accentColor,
+            color: colorScheme['accent2'],
           ),
           const SizedBox(height: 24),
           ContainerList(
-            title: 'Pelatihan',
-            subtitle: 'Tambahkan Kemampuan Anda',
-            list: bloc.listOfContainer2,
-            type: 1,
+            containerCount: 3,
+            bottomBuilder: (context, index) => Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 12),
+                SizedBox(
+                  width: 200,
+                  child: Text(bloc.listOfContainer2[index]['title'], style: textTheme.subtitle1.copyWith(
+                    height: 1.2,
+                    color: colorScheme['primary'],
+                    fontWeight: FontWeight.bold,
+                  ))
+                ),
+                const SizedBox(height: 6),
+                Text(bloc.listOfContainer2[index]['subtitle'], style: textTheme.subtitle2)
+              ],
+            ),
+            insideBuilder: (context, index) => Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    children:  [
+                      const Spacer(),
+                      Chip(
+                        backgroundColor: Colors.white,
+                        label: Text(bloc.listOfContainer1[index]['chip'], style: textTheme.subtitle2)
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ),
-          ListTile(
-            contentPadding: EdgeInsets.zero,
-            title: Text('TERPOPULER', style: textTheme.headline6.copyWith(
-              color: theme.primaryColor
+          const SizedBox(height: 12),
+          Padding(
+            padding: EdgeInsets.zero,
+            child: Text('TERPOPULER', style: textTheme.headline6.copyWith(
+              color: colorScheme['primary']
             )),
           ),
           ...List.generate(3, (index) => ContainerTile(
@@ -131,12 +205,11 @@ class HomePage extends Page<HomeBloc> {
           const SizedBox(height: 12),
           MainButton(
             label: 'LIHAT SEMUA',
-            color: theme.accentColor,
+            color: colorScheme['accent2'],
           ),
         ],
       ),
     );
-  }
 }
 
 

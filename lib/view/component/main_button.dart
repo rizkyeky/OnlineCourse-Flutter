@@ -3,12 +3,14 @@ part of 'component.dart';
 class MainButton extends StatelessWidget {
 
   final String label;
+  final TextStyle labelStyle;
   final Color color;
   final void Function() onPressed;
   final Widget icon;
 
   const MainButton({
     this.label,
+    this.labelStyle,
     this.color,
     this.icon,
     this.onPressed,
@@ -24,14 +26,14 @@ class MainButton extends StatelessWidget {
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(10)
     ),
-    child: (icon == null) ? Text(label, style: textTheme.button.copyWith(
+    child: (icon == null) ? Text(label, style: labelStyle ?? textTheme.button.copyWith(
       color: colorScheme['primary']
     )) : Wrap(
       spacing: 24,
       crossAxisAlignment: WrapCrossAlignment.center,
       alignment: WrapAlignment.center,
       children: [
-        Text(label, style: textTheme.button.copyWith(
+        Text(label, style: labelStyle ?? textTheme.button.copyWith(
           color: colorScheme['primary']
         )),
         icon,

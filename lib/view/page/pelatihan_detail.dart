@@ -111,8 +111,7 @@ class PelatihanDetailPage extends Page<PelatihanDetailBloc> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: ContainerList(
-                  title: 'Kembangkan Dirimu',
-                  list: bloc.listOfContainer1,
+                  containerCount: 4,
                 ),
               ),
               const SizedBox(height: 24),

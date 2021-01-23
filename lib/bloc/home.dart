@@ -11,7 +11,7 @@ class HomeBloc implements Bloc {
     // TODO: implement init
   }
 
-  List<Map<String, dynamic>> listOfContainer1 = [
+  List<Map<String, String>> listOfContainer1 = [
     {
       'overline': 'Bidang Jasa',
       'title': 'Mencoba Usaha Furnitur',
@@ -29,7 +29,7 @@ class HomeBloc implements Bloc {
     }
   ];
 
-  List<Map<String, dynamic>> listOfContainer2 = [
+  List<Map<String, String>> listOfContainer2 = [
     {
       'title': 'Pelatihan Untuk Membuat Furniture',
       'subtitle': 'Gratis',

@@ -36,20 +36,7 @@ class ContainerImage extends StatelessWidget {
           child: Ink.image(
             fit: BoxFit.cover,
             image: image ?? const AssetImage('assets/background/content.jpg'),
-            child: child ?? Padding(
-              padding: const EdgeInsets.all(24),
-              child:  Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Spacer(),
-                  Text('Belajar', style: textTheme.headline4.copyWith(
-                    fontWeight: FontWeight.normal
-                  ),),
-                  Text('Ide Bisnis', style: textTheme.headline4,),
-                ],
-              ),
-            ),
+            child: child
           ),
         ),
       ),
