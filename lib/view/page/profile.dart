@@ -13,7 +13,6 @@ class ProfilePage extends Page<ProfileBloc> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Scaffold(
       body: SafeArea(
         child: ListView(
@@ -22,12 +21,14 @@ class ProfilePage extends Page<ProfileBloc> {
             const CircleAvatar(
               radius: 50,
             ),
+            const SizedBox(height: 12,),
             Text('USER NAME',
               textAlign: TextAlign.center,
               style: textTheme.headline6.copyWith(
-                color: theme.primaryColor
+                color: colorScheme['primary']
               )
             ),
+            const SizedBox(height: 12,),
             Text('08524575556, Email@gmail.com', 
               textAlign: TextAlign.center,
               style: textTheme.subtitle2
@@ -38,7 +39,7 @@ class ProfilePage extends Page<ProfileBloc> {
               children: [
                 Expanded(
                   child: FlatButton(
-                    color: theme.primaryColor,
+                    color: colorScheme['primary'],
                     onPressed: () {},
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6),
@@ -51,14 +52,14 @@ class ProfilePage extends Page<ProfileBloc> {
                 const SizedBox(width: 24,),
                 Expanded(
                   child: FlatButton(
-                    color: const Color(0xFFE5F3FF),
+                    color: colorScheme['background3'],
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6),
-                      side: BorderSide(color: theme.primaryColor)
+                      side: BorderSide(color: colorScheme['primary'])
                     ),
                     onPressed: () {},
                     child: Text('TABUNGAN', style: textTheme.button.copyWith(
-                      color: theme.primaryColor
+                      color: colorScheme['primary']
                     )),
                   ),
                 ),
@@ -66,35 +67,42 @@ class ProfilePage extends Page<ProfileBloc> {
             ),
             const SizedBox(height: 12),
             Material(
-              color: theme.primaryColor,
+              color: colorScheme['primary'],
               borderRadius: BorderRadius.circular(12),
               clipBehavior: Clip.antiAlias,
               child: InkWell(
                 onTap: () {},
                 child: Padding(
-                  padding: const EdgeInsets.all(12),
+                  padding: const EdgeInsets.all(24),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('anda memiliki', style: textTheme.bodyText1.copyWith(
+                      Text('anda memiliki', style: textTheme.subtitle1.copyWith(
                         color: Colors.white,
-                        fontWeight: FontWeight.normal,
                       )),
-                      Text('Rp 200.000', style: textTheme.headline4),
-                      Text('hanya dari program referral code', style: textTheme.bodyText1.copyWith(
+                      const SizedBox(height: 6),
+                      Text('Rp 200.000', style: textTheme.headline4.copyWith(
+                        color: Colors.white
+                      )),
+                      const SizedBox(height: 6),
+                      Text('hanya dari program referral code', style: textTheme.subtitle2.copyWith(
                         color: Colors.white,
-                        fontWeight: FontWeight.normal,
                       )),
-                      const Divider(
+                      Divider(
                         thickness: 1,
-                        color: Color(0xFFBCE0FD)
+                        height: 24,
+                        color: colorScheme['background2']
                       ),
+                      const SizedBox(height: 12),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('USRENS123', style: textTheme.bodyText1.copyWith(
-                            color: const Color(0xFF4BD6F3),
-                            fontWeight: FontWeight.normal,
-                          ))
+                          Text('USRENS123', style: textTheme.subtitle1.copyWith(
+                            color: colorScheme['accent1'],
+                          )),
+                          SvgPicture.asset('assets/logo/more.svg',
+                            color: Colors.white,
+                            width: 24,
+                          )
                         ],
                       )
                     ],
@@ -111,14 +119,55 @@ class ProfilePage extends Page<ProfileBloc> {
               ),
             ),
             const SizedBox(height: 24),
-            Text('Pelatihan yang diikuti', style: textTheme.bodyText1.copyWith(
-              color: theme.primaryColor
+            Text('Pelatihan yang diikuti', style: textTheme.subtitle1.copyWith(
+              color: colorScheme['primary']
             )),
-            const SizedBox(height: 12),
             SizedBox(
-              height: 120,
+              height: 160+24.0,
               child: ListView.separated(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                scrollDirection: Axis.horizontal,
+                itemCount: 3,
+                separatorBuilder: (_, i) => const SizedBox(width: 12),
+                itemBuilder: (_, i) => (i != 2) ? Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const ContainerImage(
+                      width: 120,
+                      height: 120,
+                    ),
+                    SizedBox(
+                      width: 120,
+                      child: Text('Bingkisan Daerah', style: textTheme.subtitle2)
+                    ),
+                  ],
+                ) : SizedBox(
+                  width: 120,
+                  child: Material(
+                    clipBehavior: Clip.antiAlias,
+                    color: const Color(0xFF4BD6F3),
+                    borderRadius: BorderRadius.circular(12),
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(12),
+                      splashColor: colorScheme['primary'].withOpacity(0.48),
+                      highlightColor: colorScheme['primary'].withOpacity(0.24),
+                      onTap: () {},
+                      child: Center(
+                        child: Icon(Icons.add, color: colorScheme['primary'], size: 32)
+                      ),
+                    ),
+                  ),
+                ), 
+              )
+            ),
+            const SizedBox(height: 24),
+            Text('Ide Bisnis Favorit', style: textTheme.subtitle1.copyWith(
+              color: colorScheme['primary']
+            )),
+            SizedBox(
+              height: 120+24.0,
+              child: ListView.separated(
+                padding: const EdgeInsets.symmetric(vertical: 12),
                 scrollDirection: Axis.horizontal,
                 itemCount: 3,
                 separatorBuilder: (_, i) => const SizedBox(width: 12),
@@ -133,11 +182,11 @@ class ProfilePage extends Page<ProfileBloc> {
                     borderRadius: BorderRadius.circular(12),
                     child: InkWell(
                       borderRadius: BorderRadius.circular(12),
-                      splashColor: theme.primaryColor.withOpacity(0.48),
-                      highlightColor: theme.primaryColor.withOpacity(0.24),
+                      splashColor: colorScheme['primary'].withOpacity(0.48),
+                      highlightColor: colorScheme['primary'].withOpacity(0.24),
                       onTap: () {},
                       child: Center(
-                        child: Icon(Icons.add, color: theme.primaryColor, size: 32)
+                        child: Icon(Icons.add, color: colorScheme['primary'], size: 32)
                       ),
                     ),
                   ),
@@ -149,11 +198,11 @@ class ProfilePage extends Page<ProfileBloc> {
               onPressed: () {},
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(6),
-                side: BorderSide(color: theme.primaryColor)
+                side: BorderSide(color: colorScheme['primary'])
               ),
-              color: const Color(0xFFE5F3FF),
+              color: colorScheme['background2'],
               child: Text('KELUAR', style: textTheme.button.copyWith(
-                color: theme.primaryColor
+                color: colorScheme['primary']
               )),
             )
           ],

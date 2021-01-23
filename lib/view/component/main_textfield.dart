@@ -34,7 +34,7 @@ class MainTextField extends StatelessWidget {
           fontWeight: FontWeight.normal
         ),
         filled: true,
-        fillColor: const Color(0xFFE5F3FF),
+        fillColor: colorScheme['background2'],
         suffixIcon: suffixIcon,
         contentPadding: contentPadding,
         border: OutlineInputBorder(
