@@ -23,9 +23,6 @@ class TabPage extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-
-    final theme = Theme.of(context);
-
     var prevTab = setTab.value;
     return Scaffold(
       body: ValueListenableBuilder<int>(
@@ -48,7 +45,7 @@ class TabPage extends StatelessWidget {
         builder: (context, value, child) => BottomNavigationBar(
           currentIndex: value,
           showUnselectedLabels: false,
-          selectedItemColor: theme.primaryColor,
+          selectedItemColor: colorScheme['primary'],
           selectedLabelStyle: const TextStyle(
             fontWeight: FontWeight.bold
           ),
@@ -65,7 +62,7 @@ class TabPage extends StatelessWidget {
               icon: SvgPicture.asset('assets/logo/gem.svg',
                 height: 30,
                 width: 30,
-                color: value == 1 ? theme.primaryColor : const Color(0xFF22B9FC).withOpacity(0.64),
+                color: value == 1 ? colorScheme['primary'] : colorScheme['accent1'].withOpacity(0.64),
               ),
               label: 'Ide Bisnis',
             ),
@@ -73,7 +70,7 @@ class TabPage extends StatelessWidget {
               icon: SvgPicture.asset('assets/logo/setting.svg',
                 height: 30,
                 width: 30,
-                color: value == 2 ? theme.primaryColor : const Color(0xFF22B9FC).withOpacity(0.64),
+                color: value == 2 ? colorScheme['primary'] : colorScheme['accent1'].withOpacity(0.64),
               ), 
               label: 'Pelatihan',
             ),
@@ -81,7 +78,7 @@ class TabPage extends StatelessWidget {
               icon: SvgPicture.asset('assets/logo/profile.svg',
                 height: 30,
                 width: 30,
-                color: value == 3 ? theme.primaryColor : const Color(0xFF22B9FC).withOpacity(0.64),
+                color: value == 3 ? colorScheme['primary'] : colorScheme['accent1'].withOpacity(0.64),
               ),
               label: 'Profile',
             ),
