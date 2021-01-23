@@ -10,6 +10,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await injector.init();
   injector.setup();
+  injector.setStatusBarColor(colorScheme['primary']);
   runApp(MyApp());
 }
 

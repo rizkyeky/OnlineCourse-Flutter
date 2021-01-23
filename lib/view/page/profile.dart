@@ -3,12 +3,10 @@ part of 'page.dart';
 class ProfilePage extends Page<ProfileBloc> {
   @override
   void dispose() {
-    // TODO: implement dispose
   }
 
   @override
   void init() {
-    // TODO: implement init
   }
 
   @override
@@ -123,29 +121,30 @@ class ProfilePage extends Page<ProfileBloc> {
               color: colorScheme['primary']
             )),
             SizedBox(
-              height: 160+24.0,
+              height: 120+24.0,
               child: ListView.separated(
                 padding: const EdgeInsets.symmetric(vertical: 12),
                 scrollDirection: Axis.horizontal,
                 itemCount: 3,
                 separatorBuilder: (_, i) => const SizedBox(width: 12),
-                itemBuilder: (_, i) => (i != 2) ? Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const ContainerImage(
-                      width: 120,
-                      height: 120,
+                itemBuilder: (_, i) => (i != 2) ? ContainerImage(
+                  width: 120,
+                  child: Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text('Bingkisan Daerah', style: textTheme.subtitle2.copyWith(
+                          color: Colors.white
+                        )),
+                      ],
                     ),
-                    SizedBox(
-                      width: 120,
-                      child: Text('Bingkisan Daerah', style: textTheme.subtitle2)
-                    ),
-                  ],
+                  )
                 ) : SizedBox(
                   width: 120,
                   child: Material(
                     clipBehavior: Clip.antiAlias,
-                    color: const Color(0xFF4BD6F3),
+                    color: colorScheme['accent1'],
                     borderRadius: BorderRadius.circular(12),
                     child: InkWell(
                       borderRadius: BorderRadius.circular(12),
@@ -171,9 +170,19 @@ class ProfilePage extends Page<ProfileBloc> {
                 scrollDirection: Axis.horizontal,
                 itemCount: 3,
                 separatorBuilder: (_, i) => const SizedBox(width: 12),
-                itemBuilder: (_, i) => (i != 2) ? const ContainerImage(
+                itemBuilder: (_, i) => (i != 2) ? ContainerImage(
                   width: 120,
-                  child: SizedBox()
+                  child: Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text('Bingkisan Daerah', style: textTheme.subtitle2.copyWith(
+                          color: Colors.white
+                        )),
+                      ],
+                    ),
+                  )
                 ) : SizedBox(
                   width: 120,
                   child: Material(

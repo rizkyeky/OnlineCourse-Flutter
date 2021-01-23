@@ -1,5 +1,8 @@
 
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
+import 'dart:ui';
+
+import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
 import 'bloc/bloc.dart';
 import 'service/service.dart';
@@ -30,6 +33,12 @@ class Injector {
 
   double screenHeight;
   double screenWidth;
+
+  void setStatusBarColor(Color color) => SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      statusBarColor: color
+    )
+  );
 } 
 
 Injector injector = Injector();
