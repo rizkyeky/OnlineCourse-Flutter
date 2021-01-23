@@ -2,15 +2,18 @@ part of 'component.dart';
 
 class ContainerRow extends StatelessWidget {
 
-  const ContainerRow();
+  final EdgeInsetsGeometry padding;
+  final Widget openWidget;
+
+  const ContainerRow({
+    this.padding,
+    this.openWidget
+  });
 
   @override
   Widget build(BuildContext context) {
-
-    final theme = Theme.of(context);
-
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12),
+      padding: padding ?? const EdgeInsets.symmetric(vertical: 12),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: List.generate(2, (index) => 
@@ -18,23 +21,31 @@ class ContainerRow extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.baseline,
             textBaseline: TextBaseline.alphabetic,
             children: [
-              ContainerImage(
-                height: 150,
-                width: 150,
-                child: Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: SizedBox.expand(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        InkWell(
-                          borderRadius: BorderRadius.circular(12),
-                          onTap: () {},
-                          child: const Icon(Icons.more_vert, color: Colors.white,)),
-                      ],
+              OpenContainer(
+                closedColor: Colors.transparent,
+                closedShape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12)
+                ),
+                openBuilder: (context, action) => openWidget,
+                closedBuilder: (context, action) => Ink.image(
+                  image: const AssetImage('assets/background/content.jpg'),
+                  height: 150,
+                  width: 150,
+                  child: Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: SizedBox.expand(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          InkWell(
+                            borderRadius: BorderRadius.circular(12),
+                            onTap: () {},
+                            child: const Icon(Icons.more_vert, color: Colors.white,)),
+                        ],
+                      ),
                     ),
-                  ),
-                )
+                  )
+                ),
               ),
               SizedBox(
                 height: 50,
@@ -42,8 +53,13 @@ class ContainerRow extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Ide Usaha Furnitur', style: textTheme.subtitle1),
-                    Text('< 10 JUTA', style: textTheme.subtitle2)
+                    Text('Ide Usaha Furnitur', style: textTheme.subtitle1.copyWith(
+                      color: colorScheme['primary'],
+                      fontWeight: FontWeight.bold
+                    )),
+                    Text('< 10 JUTA', style: textTheme.subtitle2.copyWith(
+                      fontWeight: FontWeight.normal
+                    ))
                   ],
                 ),
               ),

@@ -70,9 +70,12 @@ class HomePage extends Page<HomeBloc> {
                   children: [
                     const Spacer(),
                     Text('Belajar', style: textTheme.headline4.copyWith(
-                      fontWeight: FontWeight.normal
+                      fontWeight: FontWeight.normal,
+                      color: Colors.white
                     ),),
-                    Text('Ide Bisnis', style: textTheme.headline4,),
+                    Text('Ide Bisnis', style: textTheme.headline4.copyWith(
+                      color: Colors.white
+                    )),
                   ],
                 ),
               ),
@@ -107,16 +110,10 @@ class HomePage extends Page<HomeBloc> {
               color: colorScheme['primary'],
             ),),
             subtitle: Text('Wujudkan Ide Bisnis Anda', style: textTheme.subtitle1,),
-            trailing: FlatButton(
-              onPressed: () => Navigator.push(context, 
-                MaterialPageRoute(builder: (_) => IdeBisnisPage())),
-              child: Text('semua', style: textTheme.button.copyWith(
-                color: colorScheme['primary'],
-              )),
-            ),
           ),
           ContainerList(
             containerCount: 3,
+            padding: EdgeInsets.zero,
             insideBuilder: (context, index) => Padding(
               padding: const EdgeInsets.all(12),
               child: Column(
@@ -146,19 +143,29 @@ class HomePage extends Page<HomeBloc> {
               ),
             ),
           ),
-          ...List.generate(2, (index) => const ContainerRow()),
-          const SizedBox(height: 12),
+          ...List.generate(2, (index) => ContainerRow(
+            padding: const EdgeInsets.only(top: 24),
+            openWidget: IdeBisnisDetailPage()
+          )),
+          const SizedBox(height: 24),
           MainButton(
             label: 'LIHAT SEMUA',
             color: colorScheme['accent2'],
           ),
           const SizedBox(height: 24),
+          ListTile(
+            contentPadding: EdgeInsets.zero,
+            title: Text('Pelatihan', style: textTheme.headline6.copyWith(
+              color: colorScheme['primary'],
+            ),),
+            subtitle: Text('Tambahkan Kemampuan Anda', style: textTheme.subtitle1,),
+          ),
           ContainerList(
             containerCount: 3,
+            padding: EdgeInsets.zero,
             bottomBuilder: (context, index) => Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 12),
                 SizedBox(
                   width: 200,
                   child: Text(bloc.listOfContainer2[index]['title'], style: textTheme.subtitle1.copyWith(
@@ -192,13 +199,10 @@ class HomePage extends Page<HomeBloc> {
               ),
             ),
           ),
-          const SizedBox(height: 12),
-          Padding(
-            padding: EdgeInsets.zero,
-            child: Text('TERPOPULER', style: textTheme.headline6.copyWith(
-              color: colorScheme['primary']
-            )),
-          ),
+          const SizedBox(height: 24),
+          Text('TERPOPULER', style: textTheme.headline6.copyWith(
+            color: colorScheme['primary']
+          )),
           ...List.generate(3, (index) => ContainerTile(
             openWidget: IdeBisnisDetailPage(),
           )),

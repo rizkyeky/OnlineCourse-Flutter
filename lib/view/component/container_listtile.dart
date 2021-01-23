@@ -7,14 +7,13 @@ class ContainerTile extends StatelessWidget {
 
   const ContainerTile({
     this.openWidget,
-    this.padding
+    this.padding = const EdgeInsets.symmetric(vertical: 12)
   });
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Padding(
-      padding: padding ?? const EdgeInsets.symmetric(vertical: 12),
+      padding: padding,
       child: OpenContainer(
         openColor: Colors.white,
         closedColor: const Color(0xFFEAF2F9),
@@ -40,7 +39,7 @@ class ContainerTile extends StatelessWidget {
                 textBaseline: TextBaseline.alphabetic,
                 children: [
                   Chip(
-                    backgroundColor: theme.primaryColor,
+                    backgroundColor: colorScheme['primary'],
                     label: Text('Rp. 150.000',style: textTheme.subtitle2.copyWith(
                       color: Colors.white
                     )), 
@@ -51,7 +50,9 @@ class ContainerTile extends StatelessWidget {
                       maxWidth: 170,
                     ),
                     child: Text('Pelatihan Untuk Membuat Furniture', 
-                      style: textTheme.bodyText1,
+                      style: textTheme.bodyText1.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   Text('Member', style: textTheme.bodyText2),

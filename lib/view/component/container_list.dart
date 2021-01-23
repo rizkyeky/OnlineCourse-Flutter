@@ -16,12 +16,13 @@ class ContainerList extends StatelessWidget {
 
   Widget buildContainer(BuildContext context, int index) => ContainerImage(
     width: 220,
+    height: 280,
     child: (insideBuilder != null) ? insideBuilder(context, index) : null
   );
 
   @override
   Widget build(BuildContext context) => SizedBox(
-    height: (bottomBuilder != null) ? 280+120.0 : 280,
+    height: (bottomBuilder != null) ? 280+80.0 : 280,
     child: ListView.separated(
       padding: padding,
       scrollDirection: Axis.horizontal,
@@ -29,6 +30,7 @@ class ContainerList extends StatelessWidget {
       separatorBuilder: (_, i) => SizedBox(width: i != containerCount-1 ? 24 : 0),
       itemBuilder: (context, index) => (bottomBuilder != null) ? Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           buildContainer(context, index),
           bottomBuilder(context, index),
