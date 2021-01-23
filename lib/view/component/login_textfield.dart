@@ -20,8 +20,8 @@ class LoginTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       clipBehavior: Clip.antiAlias,
-      elevation: 3,
-      borderRadius: BorderRadius.circular(10),
+      elevation: 2,
+      borderRadius: BorderRadius.circular(12),
       child: TextField(
         controller: controller,
         onChanged: onChanged,
@@ -36,9 +36,7 @@ class LoginTextField extends StatelessWidget {
           fillColor: Colors.white,
           filled: true,
           contentPadding: const EdgeInsets.symmetric(horizontal: 12),
-          border: const OutlineInputBorder(
-            borderSide: BorderSide.none
-          ),
+          border: InputBorder.none,
         ),
       ),
     );

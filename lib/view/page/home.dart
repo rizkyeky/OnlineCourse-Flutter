@@ -109,7 +109,7 @@ class HomePage extends Page<HomeBloc> {
           ...List.generate(2, (index) => const ContainerRow()),
           const SizedBox(height: 12),
           MainButton(
-            text: 'LIHAT SEMUA',
+            label: 'LIHAT SEMUA',
             color: theme.accentColor,
           ),
           const SizedBox(height: 24),
@@ -130,7 +130,7 @@ class HomePage extends Page<HomeBloc> {
           )),
           const SizedBox(height: 12),
           MainButton(
-            text: 'LIHAT SEMUA',
+            label: 'LIHAT SEMUA',
             color: theme.accentColor,
           ),
         ],

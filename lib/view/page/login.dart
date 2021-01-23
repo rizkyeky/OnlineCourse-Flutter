@@ -15,12 +15,8 @@ class LoginPage extends Page<EntryBloc> {
   }
   
   @override
-  Widget build(BuildContext context) {
-
-    final theme = Theme.of(context);
-
-    return Scaffold(
-      backgroundColor: theme.primaryColor,
+  Widget build(BuildContext context) => Scaffold(
+      backgroundColor: colorScheme['primary'],
       resizeToAvoidBottomPadding: true,
       body: Stack(
         alignment: Alignment.center,
@@ -53,17 +49,17 @@ class LoginPage extends Page<EntryBloc> {
                   obscureText: true,
                   onChanged: (val) {},
                 ),
-                const SizedBox(height: 12,),
+                const SizedBox(height: 24,),
                 TextButton(
                   onPressed: () {}, 
                   child: Text('FORGET PASSWORD', style: textTheme.subtitle1.copyWith(
-                    fontSize: 16,
-                    color: Colors.white.withOpacity(0.57)
-                  ),)
+                    fontWeight: FontWeight.bold,
+                    color: colorScheme['background2']
+                  ))
                 ),
                 const SizedBox(height: 24,),
                 MainButton(
-                  text: 'MASUK',
+                  label: 'MASUK',
                   onPressed: () => Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (_) => TabPage())
                   ),
@@ -74,7 +70,6 @@ class LoginPage extends Page<EntryBloc> {
         ],
       ),
     );
-  }
 }
 
 class LoginPainter1 extends CustomPainter {

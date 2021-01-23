@@ -2,32 +2,40 @@ part of 'component.dart';
 
 class MainButton extends StatelessWidget {
 
-  final String text;
+  final String label;
   final Color color;
   final void Function() onPressed;
+  final Widget icon;
 
   const MainButton({
-    this.text,
+    this.label,
     this.color,
-    this.onPressed
+    this.icon,
+    this.onPressed,
   });
 
   @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return RaisedButton(
-      color: color ?? theme.accentColor,
-      padding: const EdgeInsets.symmetric(
-        vertical: 14, horizontal: 32 
-      ),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10)
-      ),
-      onPressed: onPressed ?? () {},
-      child: Text(text, style: textTheme.button.copyWith(
-        color: Colors.black,
-        fontWeight: FontWeight.bold
-      )),
-    );
-  }
+  Widget build(BuildContext context) => RaisedButton(
+    color: color ?? colorScheme['accent2'],
+    padding: const EdgeInsets.symmetric(
+      vertical: 14, horizontal: 32 
+    ),
+    onPressed: onPressed ?? () {},
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10)
+    ),
+    child: (icon == null) ? Text(label, style: textTheme.button.copyWith(
+      color: colorScheme['primary']
+    )) : Wrap(
+      spacing: 24,
+      crossAxisAlignment: WrapCrossAlignment.center,
+      alignment: WrapAlignment.center,
+      children: [
+        Text(label, style: textTheme.button.copyWith(
+          color: colorScheme['primary']
+        )),
+        icon,
+      ],
+    ),
+  );
 }

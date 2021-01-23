@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         hintColor: colorScheme['text2'],
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: TabPage(),
+      home: EntryPage(),
     );
   }
 }

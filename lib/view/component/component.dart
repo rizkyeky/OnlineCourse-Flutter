@@ -89,7 +89,8 @@ void showPengajuanSheet(BuildContext context, ThemeData theme) {
                 ),
                 const SizedBox(height: 24,),
                 MainButton(
-                  text: 'SUBMIT PINJAMAN',
+                  label: 'SUBMIT PINJAMAN',
+                  onPressed: () {},
                 )
               ]
             ),
