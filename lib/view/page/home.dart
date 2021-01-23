@@ -99,7 +99,7 @@ class HomePage extends Page<HomeBloc> {
           const SizedBox(height: 24,),
           MainButton(
             color: colorScheme['primary'],
-            onPressed: () => showPengajuanSheet(context, Theme.of(context)),
+            onPressed: () => showPengajuanSheet(context),
             label: 'AJUKAN',
             labelStyle: textTheme.button.copyWith(color: Colors.white),
           ),

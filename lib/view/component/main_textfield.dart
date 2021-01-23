@@ -7,13 +7,17 @@ class MainTextField extends StatelessWidget {
   final int maxLines;
   final EdgeInsetsGeometry contentPadding;
   final void Function(String) onChanged;
+  final void Function() onTap;
   final bool enabled;
+  final FocusNode focusNode;
 
   const MainTextField({
     this.hint,
     this.suffixIcon,
     this.contentPadding,
     this.onChanged,
+    this.onTap,
+    this.focusNode,
     this.maxLines = 1,
     this.enabled = true,
   });
@@ -23,6 +27,8 @@ class MainTextField extends StatelessWidget {
     return TextField(
       maxLines: maxLines,
       onChanged: onChanged,
+      onTap: onTap,
+      focusNode: focusNode,
       style: const TextStyle(
         color: Color(0xFF464646),
         fontWeight: FontWeight.normal,
