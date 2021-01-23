@@ -15,7 +15,7 @@ class IdeBisnisDetailBloc implements Bloc {
   String str2 = "People who have a creative side and do not live it out are most disagreeable clients. They make a mountain out of a molehill, fuss about unnecessary things, are too passionately in love with somebody who is not worth so much attention, and so on.";
   String str3 = "There is a kind of floating charge of energy in them which is not attached to its right object and therefore tends to apply exaggerated dynamism to the wrong situation.";
   
-  List<Map<String, dynamic>> listOfContainer1 = [
+  List<Map<String, String>> listOfContainer1 = [
     {
       'overline': 'Bidang Jasa',
       'title': 'Mencoba Usaha Furnitur',
