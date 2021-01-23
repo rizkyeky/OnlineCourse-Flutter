@@ -60,11 +60,11 @@ class IdeBisnisDetailPage extends Page<IdeBisnisDetailBloc> {
                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 child: Column(
                   children: [
-                    Text(bloc.str1, style: textTheme.bodyText2),
+                    Text(bloc.str1, style: textTheme.bodyText1),
                     const SizedBox(height: 24,),
-                    Text(bloc.str2, style: textTheme.bodyText2),
+                    Text(bloc.str2, style: textTheme.bodyText1),
                     const SizedBox(height: 24,),
-                    Text(bloc.str3, style: textTheme.bodyText2),
+                    Text(bloc.str3, style: textTheme.bodyText1),
                   ],
                 ),
               ),
@@ -81,7 +81,7 @@ class IdeBisnisDetailPage extends Page<IdeBisnisDetailBloc> {
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     itemCount: 3,
-                    separatorBuilder: (_, i) => const SizedBox(width: 12),
+                    separatorBuilder: (_, i) => const SizedBox(width: 24),
                     itemBuilder: (_, i) => Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -102,35 +102,38 @@ class IdeBisnisDetailPage extends Page<IdeBisnisDetailBloc> {
                 ),
               ),
               const SizedBox(height: 24),
-              ContainerList(
-                containerCount: 3,
-                padding: EdgeInsets.zero,
-                insideBuilder: (context, index) => Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.baseline,
-                        children:  [
-                          const Spacer(),
-                          Chip(
-                            backgroundColor: Colors.white,
-                            label: Text(bloc.listOfContainer1[index]['chip'], style: textTheme.subtitle2)
-                          )
-                        ],
-                      ),
-                      const Spacer(),
-                      Text(bloc.listOfContainer1[index]['overline'], style: textTheme.headline5.copyWith(
-                        color: Colors.white
-                      )),
-                      Text(bloc.listOfContainer1[index]['title'], style: textTheme.headline6.copyWith(
-                        color: Colors.white,
-                        fontWeight: FontWeight.normal,
-                      )),
-                    ],
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: ContainerList(
+                  containerCount: 3,
+                  padding: EdgeInsets.zero,
+                  insideBuilder: (context, index) => Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          children:  [
+                            const Spacer(),
+                            Chip(
+                              backgroundColor: Colors.white,
+                              label: Text(bloc.listOfContainer1[index]['chip'], style: textTheme.subtitle2)
+                            )
+                          ],
+                        ),
+                        const Spacer(),
+                        Text(bloc.listOfContainer1[index]['overline'], style: textTheme.headline5.copyWith(
+                          color: Colors.white
+                        )),
+                        Text(bloc.listOfContainer1[index]['title'], style: textTheme.headline6.copyWith(
+                          color: Colors.white,
+                          fontWeight: FontWeight.normal,
+                        )),
+                      ],
+                    ),
                   ),
                 ),
               ),
