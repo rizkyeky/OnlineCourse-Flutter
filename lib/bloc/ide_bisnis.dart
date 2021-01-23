@@ -18,7 +18,7 @@ class IdeBisnisBloc implements Bloc {
     '< 30 JUTA',
   ];
 
-  List<Map<String, dynamic>> listOfContainer1 = [
+  List<Map<String, String>> listOfContainer1 = [
     {
       'overline': 'Bidang Jasa',
       'title': 'Mencoba Usaha Furnitur',

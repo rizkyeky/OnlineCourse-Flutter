@@ -6,14 +6,14 @@ class ContainerRow extends StatelessWidget {
   final Widget openWidget;
 
   const ContainerRow({
-    this.padding,
-    this.openWidget
+    this.openWidget,
+    this.padding = const EdgeInsets.symmetric(vertical: 12),
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: padding ?? const EdgeInsets.symmetric(vertical: 12),
+      padding: padding,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: List.generate(2, (index) => 

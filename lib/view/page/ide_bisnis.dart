@@ -15,8 +15,6 @@ class IdeBisnisPage extends Page<IdeBisnisBloc> {
   @override
   Widget build(BuildContext context) {
     
-    final theme = Theme.of(context);
-
     int indexOfKategori = 0;
 
     return Scaffold(
@@ -31,19 +29,44 @@ class IdeBisnisPage extends Page<IdeBisnisBloc> {
         padding: const EdgeInsets.all(24),
         children: [
           ContainerList(
-            containerCount: 4,
+            containerCount: 3,
+            padding: EdgeInsets.zero,
+            insideBuilder: (context, index) => Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    children:  [
+                      const Spacer(),
+                      Chip(
+                        backgroundColor: Colors.white,
+                        label: Text(bloc.listOfContainer1[index]['chip'], style: textTheme.subtitle2)
+                      )
+                    ],
+                  ),
+                  const Spacer(),
+                  Text(bloc.listOfContainer1[index]['overline'], style: textTheme.headline5.copyWith(
+                    color: Colors.white
+                  )),
+                  Text(bloc.listOfContainer1[index]['title'], style: textTheme.headline6.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.normal,
+                  )),
+                ],
+              ),
+            ),
           ),
           const SizedBox(height: 24,),
           ListTile(
             contentPadding: EdgeInsets.zero,
             title: Text('Kategori Ide', style: textTheme.headline6.copyWith(
-              color: theme.primaryColor
+              color: colorScheme['primary']
             )),
             subtitle: Text('Mimpi dan Usaha adalah Kunci', style: textTheme.bodyText2,),
-            trailing: TextButton(
-              onPressed: () {},
-              child: const Text('semua'),
-            ),
           ),
           StatefulBuilder(
             builder: (context, setState) => Column(
@@ -58,7 +81,7 @@ class IdeBisnisPage extends Page<IdeBisnisBloc> {
                       elevation: 0,
                       pressElevation: 2,
                       padding: const EdgeInsets.symmetric(horizontal: 6),
-                      backgroundColor: index == indexOfKategori ? theme.primaryColor : theme.colorScheme.primaryVariant.withOpacity(0.6),
+                      backgroundColor: index == indexOfKategori ? colorScheme['primary'] : colorScheme['background3'],
                       label: Text(bloc.listOfKategori[index], style: textTheme.subtitle2.copyWith(
                         color: index == indexOfKategori ? Colors.white : const Color(0xFF464646)
                       )),
@@ -71,17 +94,23 @@ class IdeBisnisPage extends Page<IdeBisnisBloc> {
                     )
                   ),
                 ),
-                ... List.generate(2, (index) => const ContainerRow())
+                ... List.generate(2, (index) => ContainerRow(
+                  openWidget: IdeBisnisDetailPage(),
+                  padding: const EdgeInsets.only(top: 12)
+                ))
               ],
             )
           ),
           ListTile(
             contentPadding: EdgeInsets.zero,
             title: Text('Usaha Bidang Makanan', style: textTheme.headline6.copyWith(
-              color: theme.primaryColor
+              color: colorScheme['primary']
             ))
           ),
-          ... List.generate(2, (index) => const ContainerRow())
+          ... List.generate(2, (index) => ContainerRow(
+            openWidget: IdeBisnisDetailPage(),
+            padding: const EdgeInsets.only(bottom: 12)
+          ))
         ],
       ),
     );
