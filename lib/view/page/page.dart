@@ -8,6 +8,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import '../../bloc/bloc.dart';
 import '../../injector.dart';
 import '../../service/service.dart';
+
+import '../../theme.dart';
 import '../component/component.dart';
 
 part 'home.dart';

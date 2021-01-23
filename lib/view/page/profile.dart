@@ -24,13 +24,13 @@ class ProfilePage extends Page<ProfileBloc> {
             ),
             Text('USER NAME',
               textAlign: TextAlign.center,
-              style: theme.textTheme.headline6.copyWith(
+              style: textTheme.headline6.copyWith(
                 color: theme.primaryColor
               )
             ),
             Text('08524575556, Email@gmail.com', 
               textAlign: TextAlign.center,
-              style: theme.textTheme.subtitle2
+              style: textTheme.subtitle2
             ),
             const SizedBox(height: 12,),
             Row(
@@ -43,7 +43,7 @@ class ProfilePage extends Page<ProfileBloc> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6),
                     ),
-                    child: Text('PINJAMAN', style: theme.textTheme.button.copyWith(
+                    child: Text('PINJAMAN', style: textTheme.button.copyWith(
                       color: Colors.white
                     )),
                   ),
@@ -57,7 +57,7 @@ class ProfilePage extends Page<ProfileBloc> {
                       side: BorderSide(color: theme.primaryColor)
                     ),
                     onPressed: () {},
-                    child: Text('TABUNGAN', style: theme.textTheme.button.copyWith(
+                    child: Text('TABUNGAN', style: textTheme.button.copyWith(
                       color: theme.primaryColor
                     )),
                   ),
@@ -76,12 +76,12 @@ class ProfilePage extends Page<ProfileBloc> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('anda memiliki', style: theme.textTheme.bodyText1.copyWith(
+                      Text('anda memiliki', style: textTheme.bodyText1.copyWith(
                         color: Colors.white,
                         fontWeight: FontWeight.normal,
                       )),
-                      Text('Rp 200.000', style: theme.textTheme.headline4),
-                      Text('hanya dari program referral code', style: theme.textTheme.bodyText1.copyWith(
+                      Text('Rp 200.000', style: textTheme.headline4),
+                      Text('hanya dari program referral code', style: textTheme.bodyText1.copyWith(
                         color: Colors.white,
                         fontWeight: FontWeight.normal,
                       )),
@@ -91,7 +91,7 @@ class ProfilePage extends Page<ProfileBloc> {
                       ),
                       Row(
                         children: [
-                          Text('USRENS123', style: theme.textTheme.bodyText1.copyWith(
+                          Text('USRENS123', style: textTheme.bodyText1.copyWith(
                             color: const Color(0xFF4BD6F3),
                             fontWeight: FontWeight.normal,
                           ))
@@ -111,7 +111,7 @@ class ProfilePage extends Page<ProfileBloc> {
               ),
             ),
             const SizedBox(height: 24),
-            Text('Pelatihan yang diikuti', style: theme.textTheme.bodyText1.copyWith(
+            Text('Pelatihan yang diikuti', style: textTheme.bodyText1.copyWith(
               color: theme.primaryColor
             )),
             const SizedBox(height: 12),
@@ -152,7 +152,7 @@ class ProfilePage extends Page<ProfileBloc> {
                 side: BorderSide(color: theme.primaryColor)
               ),
               color: const Color(0xFFE5F3FF),
-              child: Text('KELUAR', style: theme.textTheme.button.copyWith(
+              child: Text('KELUAR', style: textTheme.button.copyWith(
                 color: theme.primaryColor
               )),
             )

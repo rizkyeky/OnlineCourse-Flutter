@@ -1,7 +1,9 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flash/flash.dart';
-import 'package:flutter/rendering.dart';
+// import 'package:flutter/rendering.dart';
+
+import '../../theme.dart';
 
 export 'package:flash/flash.dart' show showFlash;
 
@@ -33,7 +35,7 @@ void showPengajuanSheet(BuildContext context, ThemeData theme) {
             height: 60,
             color: theme.primaryColor,
             alignment: Alignment.center,
-            child: Text('PENGAJUAN KREDIT', style: theme.textTheme.subtitle1.copyWith(
+            child: Text('PENGAJUAN KREDIT', style: textTheme.subtitle1.copyWith(
               color: Colors.white,
             )),
           ),
@@ -77,7 +79,9 @@ void showPengajuanSheet(BuildContext context, ThemeData theme) {
                           ),
                           color: theme.primaryColor,
                           onPressed: () {},
-                          child: Text('Upload', style: theme.textTheme.button)
+                          child: Text('Upload', style: textTheme.button.copyWith(
+                            color: Colors.white
+                          ))
                         ),
                       )
                     ],

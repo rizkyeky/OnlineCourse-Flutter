@@ -23,7 +23,7 @@ class PelatihanPage extends Page<PelatihanBloc> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Pelatihan Usaha', style: theme.textTheme.headline6.copyWith(
+        title: Text('Pelatihan Usaha', style: textTheme.headline6.copyWith(
           color: Colors.white
         )),
         elevation: 0,
@@ -50,7 +50,7 @@ class PelatihanPage extends Page<PelatihanBloc> {
                       pressElevation: 2,
                       padding: const EdgeInsets.symmetric(horizontal: 6),
                       backgroundColor: index == indexOfKategori1 ? theme.primaryColor : const Color(0xFFBCE0FD),
-                      label: Text(bloc.listOfKategori[index], style: theme.textTheme.subtitle2.copyWith(
+                      label: Text(bloc.listOfKategori[index], style: textTheme.subtitle2.copyWith(
                         color: index == indexOfKategori1 ? Colors.white : const Color(0xFF464646)
                       )),
                       onPressed: () => setState(() {
@@ -61,7 +61,9 @@ class PelatihanPage extends Page<PelatihanBloc> {
                     )
                   ),
                 ),
-                ... List.generate(4, (index) => const ContainerTile())
+                ... List.generate(4, (index) => ContainerTile(
+                  openWidget: PelatihanDetailPage(),
+                ))
               ],
             )
           ),
@@ -173,7 +175,7 @@ class OptionButton extends StatelessWidget {
               children: [
                 icon,
                 const SizedBox(width: 12,),
-                Text(label, style: theme.textTheme.bodyText1.copyWith(
+                Text(label, style: textTheme.bodyText1.copyWith(
                   color: Colors.white,
                 )),
               ],

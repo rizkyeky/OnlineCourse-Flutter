@@ -41,7 +41,7 @@ class ContainerTile extends StatelessWidget {
                 children: [
                   Chip(
                     backgroundColor: theme.primaryColor,
-                    label: Text('Rp. 150.000',style: theme.textTheme.subtitle2.copyWith(
+                    label: Text('Rp. 150.000',style: textTheme.subtitle2.copyWith(
                       color: Colors.white
                     )), 
                   ),
@@ -51,10 +51,10 @@ class ContainerTile extends StatelessWidget {
                       maxWidth: 170,
                     ),
                     child: Text('Pelatihan Untuk Membuat Furniture', 
-                      style: theme.textTheme.bodyText1,
+                      style: textTheme.bodyText1,
                     ),
                   ),
-                  Text('Member', style: theme.textTheme.bodyText2),
+                  Text('Member', style: textTheme.bodyText2),
                 ],
               ),
               const Spacer(),

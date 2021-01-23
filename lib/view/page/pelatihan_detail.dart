@@ -16,7 +16,6 @@ class PelatihanDetailPage extends Page<PelatihanDetailBloc> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      // appBar: AppBar(),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -30,48 +29,54 @@ class PelatihanDetailPage extends Page<PelatihanDetailBloc> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('20 Desember 2020', style: theme.textTheme.headline6.copyWith(
-                      fontWeight: FontWeight.normal,
-                    )),
-                    Text('Mencoba Usaha Furnitur wilayah Jogya', style: theme.textTheme.headline5),
+                    Text('Pelatihan Memasak Makanan Khas Surabaya', style: textTheme.headline5),
                   ],
                 ),
               ),
             ),
             expandedHeight: 400,
-            collapsedHeight: 180,
+            collapsedHeight: 150,
           ),
           SliverList(
             delegate: SliverChildListDelegate([
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                child: Row(
-                  children: List.generate(2, (index) => Padding(
-                    padding: const EdgeInsets.only(left: 12),
-                    child: Chip(
-                      backgroundColor: const Color(0xFFBCE0FD),
-                      label: Text('JASA', style: theme.textTheme.subtitle2.copyWith(
-                        color: theme.primaryColor,
-                      ))
-                    ),
-                  ))
+                child: Wrap(
+                  spacing: 12,
+                  children: ['JASA', 'SERTIFIKAT', '123 MENIT', 'KONSULTASI', 'EXCLUSIVE'].map((label) => Chip(
+                    backgroundColor: const Color(0xFFBCE0FD),
+                    label: Text(label, style: textTheme.subtitle2.copyWith(
+                      color: theme.primaryColor,
+                    ))
+                  )).toList()
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 child: Column(
                   children: [
-                    Text(bloc.str1, style: theme.textTheme.bodyText2),
-                    const SizedBox(height: 24,),
-                    Text(bloc.str2, style: theme.textTheme.bodyText2),
-                    const SizedBox(height: 24,),
-                    Text(bloc.str3, style: theme.textTheme.bodyText2),
+                    Text(bloc.str1, style: textTheme.bodyText2),
                   ],
                 ),
               ),
+              ExpansionTile(
+                tilePadding: const EdgeInsets.symmetric(horizontal: 24),
+                title: Text('Tahapan Pertama', style: textTheme.subtitle1),
+                childrenPadding: const EdgeInsets.all(24),
+                children: [
+                  Container(
+                    height: 160,
+                    width: double.infinity,
+                    color: Colors.grey,
+                    child: Icon(Icons.play_circle_outline, color: theme.primaryColor, size: 50),
+                  ),
+                  const SizedBox(height: 24),
+                  Text(bloc.str1, style: textTheme.bodyText2),
+                ],
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                child: Text('Ide Baru', style: theme.textTheme.bodyText1.copyWith(
+                child: Text('Ide Baru', style: textTheme.bodyText1.copyWith(
                   color: theme.primaryColor
                 )),
               ),
@@ -93,7 +98,7 @@ class PelatihanDetailPage extends Page<PelatihanDetailBloc> {
                         ),
                         SizedBox(
                           width: 120,
-                          child: Text('Ide Bisnis Usaha furniture', style: theme.textTheme.subtitle2.copyWith(
+                          child: Text('Ide Bisnis Usaha furniture', style: textTheme.subtitle2.copyWith(
                             color: theme.primaryColor
                           ))
                         )

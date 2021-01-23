@@ -22,7 +22,7 @@ class IdeBisnisPage extends Page<IdeBisnisBloc> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Ide Bisnis', style: theme.textTheme.headline6.copyWith(
+        title: Text('Ide Bisnis', style: textTheme.headline6.copyWith(
           color: Colors.white
         )),
         elevation: 0,
@@ -37,10 +37,10 @@ class IdeBisnisPage extends Page<IdeBisnisBloc> {
           const SizedBox(height: 24,),
           ListTile(
             contentPadding: EdgeInsets.zero,
-            title: Text('Kategori Ide', style: theme.textTheme.headline6.copyWith(
+            title: Text('Kategori Ide', style: textTheme.headline6.copyWith(
               color: theme.primaryColor
             )),
-            subtitle: Text('Mimpi dan Usaha adalah Kunci', style: theme.textTheme.bodyText2,),
+            subtitle: Text('Mimpi dan Usaha adalah Kunci', style: textTheme.bodyText2,),
             trailing: TextButton(
               onPressed: () {},
               child: const Text('semua'),
@@ -60,7 +60,7 @@ class IdeBisnisPage extends Page<IdeBisnisBloc> {
                       pressElevation: 2,
                       padding: const EdgeInsets.symmetric(horizontal: 6),
                       backgroundColor: index == indexOfKategori ? theme.primaryColor : theme.colorScheme.primaryVariant.withOpacity(0.6),
-                      label: Text(bloc.listOfKategori[index], style: theme.textTheme.subtitle2.copyWith(
+                      label: Text(bloc.listOfKategori[index], style: textTheme.subtitle2.copyWith(
                         color: index == indexOfKategori ? Colors.white : const Color(0xFF464646)
                       )),
                       onPressed: () => setState(() {
@@ -78,7 +78,7 @@ class IdeBisnisPage extends Page<IdeBisnisBloc> {
           ),
           ListTile(
             contentPadding: EdgeInsets.zero,
-            title: Text('Usaha Bidang Makanan', style: theme.textTheme.headline6.copyWith(
+            title: Text('Usaha Bidang Makanan', style: textTheme.headline6.copyWith(
               color: theme.primaryColor
             ))
           ),

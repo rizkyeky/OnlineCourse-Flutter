@@ -42,8 +42,8 @@ class ContainerRow extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Ide Usaha Furnitur', style: theme.textTheme.subtitle1),
-                    Text('< 10 JUTA', style: theme.textTheme.subtitle2)
+                    Text('Ide Usaha Furnitur', style: textTheme.subtitle1),
+                    Text('< 10 JUTA', style: textTheme.subtitle2)
                   ],
                 ),
               ),

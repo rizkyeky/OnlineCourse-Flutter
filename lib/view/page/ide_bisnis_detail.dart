@@ -30,10 +30,10 @@ class IdeBisnisDetailPage extends Page<IdeBisnisDetailBloc> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('20 Desember 2020', style: theme.textTheme.headline6.copyWith(
+                    Text('20 Desember 2020', style: textTheme.headline6.copyWith(
                       fontWeight: FontWeight.normal,
                     )),
-                    Text('Mencoba Usaha Furnitur wilayah Jogya', style: theme.textTheme.headline5),
+                    Text('Mencoba Usaha Furnitur wilayah Jogya', style: textTheme.headline5),
                   ],
                 ),
               ),
@@ -50,7 +50,7 @@ class IdeBisnisDetailPage extends Page<IdeBisnisDetailBloc> {
                     padding: const EdgeInsets.only(left: 12),
                     child: Chip(
                       backgroundColor: const Color(0xFFBCE0FD),
-                      label: Text('JASA', style: theme.textTheme.subtitle2.copyWith(
+                      label: Text('JASA', style: textTheme.subtitle2.copyWith(
                         color: theme.primaryColor,
                       ))
                     ),
@@ -61,17 +61,17 @@ class IdeBisnisDetailPage extends Page<IdeBisnisDetailBloc> {
                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 child: Column(
                   children: [
-                    Text(bloc.str1, style: theme.textTheme.bodyText2),
+                    Text(bloc.str1, style: textTheme.bodyText2),
                     const SizedBox(height: 24,),
-                    Text(bloc.str2, style: theme.textTheme.bodyText2),
+                    Text(bloc.str2, style: textTheme.bodyText2),
                     const SizedBox(height: 24,),
-                    Text(bloc.str3, style: theme.textTheme.bodyText2),
+                    Text(bloc.str3, style: textTheme.bodyText2),
                   ],
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                child: Text('Ide Baru', style: theme.textTheme.bodyText1.copyWith(
+                child: Text('Ide Baru', style: textTheme.bodyText1.copyWith(
                   color: theme.primaryColor
                 )),
               ),
@@ -93,7 +93,7 @@ class IdeBisnisDetailPage extends Page<IdeBisnisDetailBloc> {
                         ),
                         SizedBox(
                           width: 120,
-                          child: Text('Ide Bisnis Usaha furniture', style: theme.textTheme.subtitle2.copyWith(
+                          child: Text('Ide Bisnis Usaha furniture', style: textTheme.subtitle2.copyWith(
                             color: theme.primaryColor
                           ))
                         )

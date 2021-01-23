@@ -42,15 +42,15 @@ class EntryPage extends Page<EntryBloc> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Text('Aplikasi', style: theme.textTheme.subtitle1.copyWith(
+                      Text('Aplikasi', style: textTheme.subtitle1.copyWith(
                         fontSize: 18,
                         color: Colors.white
                       ),),
-                      Text('yang dapat mewujudkan impian', style: theme.textTheme.subtitle2.copyWith(
+                      Text('yang dapat mewujudkan impian', style: textTheme.subtitle2.copyWith(
                         fontSize: 18,
                         color: Colors.white
                       ),),
-                      Text('dan cita-citamu', style: theme.textTheme.subtitle2.copyWith(
+                      Text('dan cita-citamu', style: textTheme.subtitle2.copyWith(
                         fontSize: 18,
                         color: Colors.white
                       )),

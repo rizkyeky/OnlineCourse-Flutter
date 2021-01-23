@@ -56,7 +56,7 @@ class LoginPage extends Page<EntryBloc> {
                 const SizedBox(height: 12,),
                 TextButton(
                   onPressed: () {}, 
-                  child: Text('FORGET PASSWORD', style: theme.textTheme.subtitle1.copyWith(
+                  child: Text('FORGET PASSWORD', style: textTheme.subtitle1.copyWith(
                     fontSize: 16,
                     color: Colors.white.withOpacity(0.57)
                   ),)

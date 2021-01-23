@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'injector.dart';
+import 'theme.dart';
 
 import 'view/page/page.dart';
 
@@ -22,83 +24,20 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'APR',
       theme: ThemeData(
         fontFamily: 'Poppins',
-        primaryColor: const Color(0xFF3456DD),
-        accentColor: const Color(0xFFF3EC00),
-        scaffoldBackgroundColor: const Color(0xFFFAFAFA),
-        colorScheme: colorScheme,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: textTheme,
-        snackBarTheme: const SnackBarThemeData(
-          backgroundColor: Colors.white
-        )
+        primaryColor: colorScheme['primary'],
+        accentColor: colorScheme['accent1'],
+        scaffoldBackgroundColor: colorScheme['background1'],
+        canvasColor: colorScheme['background2'],
+        buttonColor: colorScheme['primary'],
+        hintColor: colorScheme['text2'],
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: TabPage(),
     );
   }
 }
 
-const TextTheme textTheme = TextTheme(
-  headline4: TextStyle(
-    color: Colors.white,
-    fontWeight: FontWeight.bold,
-    fontSize: 32,
-    height: 1.2,
-  ),
-  headline5: TextStyle(
-    color: Colors.white,
-    fontWeight: FontWeight.bold,
-    fontSize: 24,
-    height: 1.2,
-  ),
-  headline6: TextStyle(
-    color: Colors.white,
-    fontSize: 20,
-    fontWeight: FontWeight.bold
-  ),
-  subtitle1: TextStyle(
-    color: Color(0xFF3456DD),
-    fontSize: 16,
-    fontWeight: FontWeight.bold,
-    height: 1.2,
-  ),
-  subtitle2: TextStyle(
-    color: Color(0xFF464646),
-    fontSize: 14,
-    fontWeight: FontWeight.bold,
-    height: 1.2,
-  ),
-  bodyText1: TextStyle(
-    color: Color(0xFF202020),
-    fontSize: 16,
-    fontWeight: FontWeight.bold,
-    height: 1.2,
-  ),
-  bodyText2: TextStyle(
-    color: Color(0xFF464646),
-    fontSize: 14,
-    fontWeight: FontWeight.normal,
-  ),
-  button: TextStyle(
-    color: Colors.white,
-    fontWeight: FontWeight.bold,
-  ),
-);
-
-const ColorScheme colorScheme = ColorScheme(
-  surface: Colors.white,
-  primary: Color(0xFF3456DD),
-  primaryVariant: Color(0xFF4BD6F3),
-  secondary: Color(0xFFF3EC00),
-  secondaryVariant: Color(0xFFF3EC00),
-  error: Colors.red,
-  background: Colors.white,
-  brightness: Brightness.light,
-  onSurface: Colors.white,
-  onError: Colors.red,
-  onBackground: Colors.white,
-  onPrimary: Color(0xFF3456DD),
-  onSecondary: Color(0xFFF3EC00),
-);

@@ -39,10 +39,10 @@ class HomePage extends Page<HomeBloc> {
                       onPressed: () {},
                       child: Row(
                         children: [
-                          Text('Hello, ', style: theme.textTheme.headline6.copyWith(
+                          Text('Hello, ', style: textTheme.headline6.copyWith(
                             fontWeight: FontWeight.normal
                           ),),
-                          Text('Username', style: theme.textTheme.headline6,),
+                          Text('Username', style: textTheme.headline6,),
                         ],
                       ),
                     )
@@ -80,9 +80,9 @@ class HomePage extends Page<HomeBloc> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Selamat Datang di', style: theme.textTheme.subtitle2,),
-                      Text('APLIKASI PERKREDITAN RAKYAT', style: theme.textTheme.subtitle1,),
-                      Text('Sebuah Aplikasi Kredit Untuk Produktif', style: theme.textTheme.subtitle2),
+                      Text('Selamat Datang di', style: textTheme.subtitle2,),
+                      Text('APLIKASI PERKREDITAN RAKYAT', style: textTheme.subtitle1,),
+                      Text('Sebuah Aplikasi Kredit Untuk Produktif', style: textTheme.subtitle2),
                     ],
                   ),
                 ),
@@ -95,7 +95,7 @@ class HomePage extends Page<HomeBloc> {
                     borderRadius: BorderRadius.circular(10)
                   ),
                   onPressed: () => showPengajuanSheet(context, theme),
-                  child: Text('AJUKAN', style: theme.textTheme.button),
+                  child: Text('AJUKAN', style: textTheme.button),
                 )
               ],
             ),
@@ -121,7 +121,7 @@ class HomePage extends Page<HomeBloc> {
           ),
           ListTile(
             contentPadding: EdgeInsets.zero,
-            title: Text('TERPOPULER', style: theme.textTheme.headline6.copyWith(
+            title: Text('TERPOPULER', style: textTheme.headline6.copyWith(
               color: theme.primaryColor
             )),
           ),

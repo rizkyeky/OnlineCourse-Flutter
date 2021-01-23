@@ -43,10 +43,10 @@ class ContainerImage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Spacer(),
-                  Text('Belajar', style: theme.textTheme.headline4.copyWith(
+                  Text('Belajar', style: textTheme.headline4.copyWith(
                     fontWeight: FontWeight.normal
                   ),),
-                  Text('Ide Bisnis', style: theme.textTheme.headline4,),
+                  Text('Ide Bisnis', style: textTheme.headline4,),
                 ],
               ),
             ),

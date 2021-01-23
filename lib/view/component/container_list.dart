@@ -43,7 +43,7 @@ class ContainerList extends StatelessWidget {
                       const Spacer(),
                       Chip(
                         backgroundColor: Colors.white,
-                        label: Text(list[indexList]['chip'] as String, style: theme.textTheme.subtitle2)
+                        label: Text(list[indexList]['chip'] as String, style: textTheme.subtitle2)
                       )
                     ],
                   ),
@@ -52,10 +52,10 @@ class ContainerList extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(list[indexList]['overline'] as String ?? '', style: theme.textTheme.headline4.copyWith(
+                      Text(list[indexList]['overline'] as String ?? '', style: textTheme.headline4.copyWith(
                         fontSize: 18
                       ),),
-                      Text(list[indexList]['title'] as String, style: theme.textTheme.headline4.copyWith(
+                      Text(list[indexList]['title'] as String, style: textTheme.headline4.copyWith(
                         fontSize: 20,
                         fontWeight: FontWeight.normal
                       )),
@@ -73,8 +73,8 @@ class ContainerList extends StatelessWidget {
               children: [
                 SizedBox(
                   width: 160,
-                  child: Text(list[indexList]['title'] as String, style: theme.textTheme.subtitle1)),
-                Text(list[indexList]['subtitle'] as String, style: theme.textTheme.subtitle2)
+                  child: Text(list[indexList]['title'] as String, style: textTheme.subtitle1)),
+                Text(list[indexList]['subtitle'] as String, style: textTheme.subtitle2)
               ],
             ) : null,
           )
@@ -90,10 +90,10 @@ class ContainerList extends StatelessWidget {
       children: [
         ListTile(
           contentPadding: EdgeInsets.zero,
-          title: title != null ? Text(title, style: theme.textTheme.headline6.copyWith(
+          title: title != null ? Text(title, style: textTheme.headline6.copyWith(
               color: theme.primaryColor
             )) : null,
-          subtitle: subtitle != null ? Text(subtitle, style: theme.textTheme.bodyText2,) : null,
+          subtitle: subtitle != null ? Text(subtitle, style: textTheme.bodyText2,) : null,
           trailing: haveTrailing ? TextButton(
             onPressed: () {},
             child: const Text('semua'),
