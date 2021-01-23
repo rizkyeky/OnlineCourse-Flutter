@@ -22,7 +22,7 @@ final TextTheme textTheme = TextTheme(
   subtitle1: TextStyle(
     color: colorScheme['text1'],
     fontSize: 16,
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.bold,
     height: 1.2,
   ),
   subtitle2: TextStyle(

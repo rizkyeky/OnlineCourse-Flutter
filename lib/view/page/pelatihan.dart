@@ -14,9 +14,7 @@ class PelatihanPage extends Page<PelatihanBloc> {
 
   @override
   Widget build(BuildContext context) {
-    
-    final theme = Theme.of(context);
-
+  
     int indexOfKategori1 = 0;
     int indexOfKategori2 = 0;
 
@@ -32,7 +30,43 @@ class PelatihanPage extends Page<PelatihanBloc> {
         padding: const EdgeInsets.all(24),
         children: [
           ContainerList(
-            containerCount: 4,
+            containerCount: 3,
+            padding: EdgeInsets.zero,
+            bottomBuilder: (context, index) => Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: 200,
+                  child: Text(bloc.listOfContainer2[index]['title'], style: textTheme.subtitle1.copyWith(
+                    height: 1.2,
+                    color: colorScheme['primary'],
+                    fontWeight: FontWeight.bold,
+                  ))
+                ),
+                const SizedBox(height: 6),
+                Text(bloc.listOfContainer2[index]['subtitle'], style: textTheme.subtitle2)
+              ],
+            ),
+            insideBuilder: (context, index) => Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    children:  [
+                      const Spacer(),
+                      Chip(
+                        backgroundColor: Colors.white,
+                        label: Text(bloc.listOfContainer2[index]['chip'], style: textTheme.subtitle2)
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ),
           const SizedBox(height: 24,),
           StatefulBuilder(
@@ -48,9 +82,9 @@ class PelatihanPage extends Page<PelatihanBloc> {
                       elevation: 0,
                       pressElevation: 2,
                       padding: const EdgeInsets.symmetric(horizontal: 6),
-                      backgroundColor: index == indexOfKategori1 ? theme.primaryColor : const Color(0xFFBCE0FD),
+                      backgroundColor: index == indexOfKategori1 ? colorScheme['primary'] : colorScheme['background3'],
                       label: Text(bloc.listOfKategori[index], style: textTheme.subtitle2.copyWith(
-                        color: index == indexOfKategori1 ? Colors.white : const Color(0xFF464646)
+                        color: index == indexOfKategori1 ? Colors.white : colorScheme['text1']
                       )),
                       onPressed: () => setState(() {
                         if (indexOfKategori1 != index) {
@@ -62,76 +96,40 @@ class PelatihanPage extends Page<PelatihanBloc> {
                 ),
                 ... List.generate(4, (index) => ContainerTile(
                   openWidget: PelatihanDetailPage(),
+                  padding: const EdgeInsets.only(top: 24)
                 ))
               ],
             )
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 24),
           StatefulBuilder(
             builder: (context, setState) => Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 12),
-                  child: Row(
-                    children: [
-                      OptionButton(
-                        label: 'JASA',
-                        icon: SvgPicture.asset('assets/logo/gem.svg',
-                          color: Colors.white,
-                          height: 24,
-                        ),
-                        color: (indexOfKategori2 == 0) ? theme.primaryColor : null,
-                        onTap: () => setState(() {
-                          indexOfKategori2 = 0;
-                        }),
+                Wrap(
+                  spacing: 12,
+                  runSpacing: 12,
+                  children: List.generate(bloc.listOfKategori2.length, (index) => SizedBox(
+                    width: injector.screenWidth/2 - 36,
+                    child: OptionButton(
+                      label: bloc.listOfKategori2[index]['label'],
+                      labelStyle: textTheme.subtitle1.copyWith(
+                        color: (indexOfKategori2 == index) ? Colors.white : colorScheme['text1']
                       ),
-                      const SizedBox(width: 12),
-                      OptionButton(
-                        label: 'MAKANAN',
-                        icon: SvgPicture.asset('assets/logo/makanan.svg',
-                          color: Colors.white,
-                          height: 24,
-                        ),
-                        color: (indexOfKategori2 == 1) ? theme.primaryColor : null,
-                        onTap: () => setState(() {
-                          indexOfKategori2 = 1;
-                        }),
-                      )
-                    ]
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 12),
-                  child: Row(
-                    children: [
-                      OptionButton(
-                        label: 'MUSIK',
-                        icon: SvgPicture.asset('assets/logo/musik.svg',
-                          color: Colors.white,
-                          height: 24,
-                        ),
-                        color: (indexOfKategori2 == 2) ? theme.primaryColor : null,
-                        onTap: () => setState(() {
-                          indexOfKategori2 = 2;
-                        }),
+                      icon: SvgPicture.asset(bloc.listOfKategori2[index]['icon'],
+                        color: (indexOfKategori2 == index) ? Colors.white : colorScheme['text1'],
+                        height: 24,
                       ),
-                      const SizedBox(width: 12),
-                      OptionButton(
-                        label: 'OLEHOLEH',
-                        icon: SvgPicture.asset('assets/logo/oleh.svg', 
-                          color: Colors.white,
-                          height: 24,
-                        ),
-                        color: (indexOfKategori2 == 3) ? theme.primaryColor : null,
-                        onTap: () => setState(() {
-                          indexOfKategori2 = 3;
-                        }),
-                      )
-                    ]
-                  ),
+                      color: (indexOfKategori2 == index) ? colorScheme['primary'] : null,
+                      onTap: () => setState(() {
+                        indexOfKategori2 = index;
+                      }),
+                    ),
+                  ))
                 ),
-                const SizedBox(height: 12),
-                ... List.generate(4, (index) => const ContainerTile())
+                ... List.generate(4, (index) => ContainerTile(
+                  openWidget: PelatihanDetailPage(),
+                  padding: const EdgeInsets.only(top: 24)
+                ))
               ],
             )
           )
@@ -144,12 +142,14 @@ class PelatihanPage extends Page<PelatihanBloc> {
 class OptionButton extends StatelessWidget {
 
   final String label;
+  final TextStyle labelStyle;
   final Widget icon;
   final void Function() onTap;
   final Color color;
 
   const OptionButton({
     this.label,
+    this.labelStyle,
     this.icon,
     this.onTap,
     this.color,
@@ -157,28 +157,25 @@ class OptionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Expanded(
-      child: Material(
-        color: color ?? const Color(0xFFBCE0FD),
+    return Material(
+      color: color ?? const Color(0xFFBCE0FD),
+      borderRadius: BorderRadius.circular(12),
+      child: InkWell(
         borderRadius: BorderRadius.circular(12),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(12),
-          splashColor: theme.primaryColor.withOpacity(0.48),
-          highlightColor: theme.primaryColor.withOpacity(0.24),
-          onTap: onTap ?? () {},
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 18),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                icon,
-                const SizedBox(width: 12,),
-                Text(label, style: textTheme.bodyText1.copyWith(
-                  color: Colors.white,
-                )),
-              ],
-            ),
+        splashColor: colorScheme['primary'].withOpacity(0.48),
+        highlightColor: colorScheme['primary'].withOpacity(0.24),
+        onTap: onTap ?? () {},
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 18),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              icon,
+              const SizedBox(width: 12,),
+              Text(label, style: labelStyle ?? textTheme.subtitle1.copyWith(
+                color: Colors.white,
+              )),
+            ],
           ),
         ),
       ),

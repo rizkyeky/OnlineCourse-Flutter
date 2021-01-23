@@ -83,7 +83,7 @@ class IdeBisnisPage extends Page<IdeBisnisBloc> {
                       padding: const EdgeInsets.symmetric(horizontal: 6),
                       backgroundColor: index == indexOfKategori ? colorScheme['primary'] : colorScheme['background3'],
                       label: Text(bloc.listOfKategori[index], style: textTheme.subtitle2.copyWith(
-                        color: index == indexOfKategori ? Colors.white : const Color(0xFF464646)
+                        color: index == indexOfKategori ? Colors.white : colorScheme['text1']
                       )),
                       onPressed: () => setState(() {
                         if (indexOfKategori != index) {

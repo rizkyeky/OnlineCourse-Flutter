@@ -18,22 +18,40 @@ class PelatihanBloc implements Bloc {
     '< 30 JUTA',
   ];
 
-  List<Map<String, dynamic>> listOfContainer1 = [
+  List<Map<String, String>> listOfContainer2 = [
     {
-      'overline': 'Bidang Jasa',
-      'title': 'Mencoba Usaha Furnitur',
-      'chip': '< 10 JUTA'
+      'title': 'Pelatihan Untuk Membuat Furniture',
+      'subtitle': 'Gratis',
+      'chip': 'GRATIS'
     },
     {
-      'overline': 'Bidang Jasa',
-      'title': 'Mencoba Usaha Furnitur',
-      'chip': '< 2 JUTA'
+      'title': 'Pelatihan Untuk Membuat Furniture',
+      'subtitle': 'Member',
+      'chip': 'MEMBER'
     },
     {
-      'overline': 'Bidang Jasa',
-      'title': 'Mencoba Usaha Keramik',
-      'chip': '< 5 JUTA'
-    }
+      'title': 'Pelatihan Untuk Membuat Furniture',
+      'subtitle': 'Member',
+      'chip': 'MEMBER'
+    },
   ];
-  
+
+  List<Map<String, String>> listOfKategori2 = [
+    {
+      'label': 'JASA',
+      'icon': 'assets/logo/gem.svg',
+    },
+    {
+      'label': 'MAKANAN',
+      'icon': 'assets/logo/makanan.svg',
+    },
+    {
+      'label': 'MUSIK',
+      'icon': 'assets/logo/musik.svg',
+    },
+    {
+      'label': 'OLEHOLEH',
+      'icon': 'assets/logo/oleh.svg',
+    },
+  ];
 }

@@ -191,7 +191,7 @@ class HomePage extends Page<HomeBloc> {
                       const Spacer(),
                       Chip(
                         backgroundColor: Colors.white,
-                        label: Text(bloc.listOfContainer1[index]['chip'], style: textTheme.subtitle2)
+                        label: Text(bloc.listOfContainer2[index]['chip'], style: textTheme.subtitle2)
                       )
                     ],
                   ),
