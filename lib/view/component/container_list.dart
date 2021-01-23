@@ -22,7 +22,7 @@ class ContainerList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SizedBox(
-    height: (bottomBuilder != null) ? 280+80.0 : 280,
+    height: (bottomBuilder != null) ? 280+55+6.0 : 280,
     child: ListView.separated(
       padding: padding,
       scrollDirection: Axis.horizontal,

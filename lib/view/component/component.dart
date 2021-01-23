@@ -1,4 +1,5 @@
 import 'package:animations/animations.dart';
+import 'package:business_course/injector.dart';
 import 'package:flutter/material.dart';
 import 'package:flash/flash.dart';
 // import 'package:flutter/rendering.dart';
@@ -41,9 +42,8 @@ Future<void> showPengajuanSheet(BuildContext context) async {
       valueListenable: keyboardShowup,
       builder: (context, isShowup, child) {
         final keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
-        final modalPadding = EdgeInsets.fromLTRB(24, 24, 24, keyboardHeight);
         return SizedBox(
-          height: isShowup ? 474 + keyboardHeight : 474,
+          height: isShowup ? 500 + keyboardHeight : 500,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             textBaseline: TextBaseline.alphabetic,
@@ -57,7 +57,7 @@ Future<void> showPengajuanSheet(BuildContext context) async {
                 )),
               ),
               Padding(
-                padding: modalPadding,
+                padding: const EdgeInsets.all(24),
                 child: child
               )
             ],
@@ -123,6 +123,7 @@ Future<void> showPengajuanSheet(BuildContext context) async {
   ).whenComplete(() {
     focusKeyboard1.dispose();
     focusKeyboard2.dispose();
+    keyboardShowup.dispose();
   });
 }
 

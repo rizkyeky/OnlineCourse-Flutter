@@ -15,9 +15,10 @@ class ContainerRow extends StatelessWidget {
     return Padding(
       padding: padding,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: List.generate(2, (index) => 
           Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.baseline,
             textBaseline: TextBaseline.alphabetic,
             children: [
@@ -47,15 +48,17 @@ class ContainerRow extends StatelessWidget {
                   )
                 ),
               ),
+              const SizedBox(height: 6),
               SizedBox(
-                height: 50,
+                width: (injector.screenWidth/2)-(12*4),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text('Ide Usaha Furnitur', style: textTheme.subtitle1.copyWith(
                       color: colorScheme['primary'],
-                      fontWeight: FontWeight.bold
+                      fontWeight: FontWeight.bold,
+                      height: 1
                     )),
                     Text('< 10 JUTA', style: textTheme.subtitle2.copyWith(
                       fontWeight: FontWeight.normal

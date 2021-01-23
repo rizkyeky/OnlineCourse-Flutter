@@ -44,11 +44,8 @@ class ContainerTile extends StatelessWidget {
                       color: Colors.white
                     )), 
                   ),
-                  ConstrainedBox(
-                    constraints: const BoxConstraints(
-                      minWidth: 150,
-                      maxWidth: 170,
-                    ),
+                  SizedBox(
+                    width: 170-injector.screenWidth*0.1,
                     child: Text('Pelatihan Untuk Membuat Furniture', 
                       style: textTheme.bodyText1.copyWith(
                         fontWeight: FontWeight.bold,

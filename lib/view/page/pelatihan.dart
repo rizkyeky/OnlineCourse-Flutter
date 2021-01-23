@@ -27,43 +27,36 @@ class PelatihanPage extends Page<PelatihanBloc> {
         elevation: 0,
       ),
       body: ListView(
-        padding: const EdgeInsets.all(24),
         children: [
+          const SizedBox(height: 24,),
           ContainerList(
             containerCount: 3,
-            padding: EdgeInsets.zero,
+            padding: const EdgeInsets.symmetric(horizontal: 24),
             bottomBuilder: (context, index) => Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  width: 200,
+                  width: 220-(injector.screenWidth*0.1),
                   child: Text(bloc.listOfContainer2[index]['title'], style: textTheme.subtitle1.copyWith(
                     height: 1.2,
                     color: colorScheme['primary'],
                     fontWeight: FontWeight.bold,
                   ))
                 ),
-                const SizedBox(height: 6),
-                Text(bloc.listOfContainer2[index]['subtitle'], style: textTheme.subtitle2)
+                Text(bloc.listOfContainer2[index]['subtitle'], style: textTheme.bodyText2)
               ],
             ),
             insideBuilder: (context, index) => Padding(
-              padding: const EdgeInsets.all(12),
+              padding: const EdgeInsets.only(right: 12, top: 6),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
-                    children:  [
-                      const Spacer(),
-                      Chip(
-                        backgroundColor: Colors.white,
-                        label: Text(bloc.listOfContainer2[index]['chip'], style: textTheme.subtitle2)
-                      )
-                    ],
+                  Chip(
+                    backgroundColor: Colors.white,
+                    label: Text(bloc.listOfContainer2[index]['chip'], style: textTheme.subtitle2)
                   ),
+                  const Spacer(),
                 ],
               ),
             ),
@@ -75,12 +68,12 @@ class PelatihanPage extends Page<PelatihanBloc> {
                 SizedBox(
                   height: 50,
                   child: ListView.separated(
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
                     scrollDirection: Axis.horizontal,
                     itemCount: bloc.listOfKategori.length,
                     separatorBuilder: (_, index) => const SizedBox(width: 12,),
                     itemBuilder: (_, index) => ActionChip(
                       elevation: 0,
-                      pressElevation: 2,
                       padding: const EdgeInsets.symmetric(horizontal: 6),
                       backgroundColor: index == indexOfKategori1 ? colorScheme['primary'] : colorScheme['background3'],
                       label: Text(bloc.listOfKategori[index], style: textTheme.subtitle2.copyWith(
@@ -96,7 +89,7 @@ class PelatihanPage extends Page<PelatihanBloc> {
                 ),
                 ... List.generate(4, (index) => ContainerTile(
                   openWidget: PelatihanDetailPage(),
-                  padding: const EdgeInsets.only(top: 24)
+                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 ))
               ],
             )
@@ -128,7 +121,7 @@ class PelatihanPage extends Page<PelatihanBloc> {
                 ),
                 ... List.generate(4, (index) => ContainerTile(
                   openWidget: PelatihanDetailPage(),
-                  padding: const EdgeInsets.only(top: 24)
+                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 ))
               ],
             )

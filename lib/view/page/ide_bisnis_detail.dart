@@ -74,66 +74,61 @@ class IdeBisnisDetailPage extends Page<IdeBisnisDetailBloc> {
                   color: colorScheme['primary']
                 )),
               ),
-              Padding(
+              SizedBox(
+                height: 160,
+                child: ListView.separated(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: SizedBox(
-                  height: 160,
-                  child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 3,
-                    separatorBuilder: (_, i) => const SizedBox(width: 24),
-                    itemBuilder: (_, i) => Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const ContainerImage(
-                          width: 120,
-                          height: 120,
-                          child: SizedBox()
-                        ),
-                        SizedBox(
-                          width: 120,
-                          child: Text('Ide Bisnis Usaha furniture', style: textTheme.subtitle2.copyWith(
-                            color: colorScheme['primary']
-                          ))
-                        )
-                      ],
-                    )
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 3,
+                  separatorBuilder: (_, i) => const SizedBox(width: 24),
+                  itemBuilder: (_, i) => Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const ContainerImage(
+                        width: 120,
+                        height: 120,
+                        child: SizedBox()
+                      ),
+                      SizedBox(
+                        width: 120,
+                        child: Text('Ide Bisnis Usaha furniture', style: textTheme.subtitle2.copyWith(
+                          color: colorScheme['primary']
+                        ))
+                      )
+                    ],
                   )
-                ),
+                )
               ),
               const SizedBox(height: 24),
-              Padding(
+              ContainerList(
+                containerCount: 3,
                 padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: ContainerList(
-                  containerCount: 3,
-                  padding: EdgeInsets.zero,
-                  insideBuilder: (context, index) => Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.baseline,
-                          children:  [
-                            const Spacer(),
-                            Chip(
-                              backgroundColor: Colors.white,
-                              label: Text(bloc.listOfContainer1[index]['chip'], style: textTheme.subtitle2)
-                            )
-                          ],
-                        ),
-                        const Spacer(),
-                        Text(bloc.listOfContainer1[index]['overline'], style: textTheme.headline5.copyWith(
-                          color: Colors.white
-                        )),
-                        Text(bloc.listOfContainer1[index]['title'], style: textTheme.headline6.copyWith(
-                          color: Colors.white,
-                          fontWeight: FontWeight.normal,
-                        )),
-                      ],
-                    ),
+                insideBuilder: (context, index) => Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.baseline,
+                        children:  [
+                          const Spacer(),
+                          Chip(
+                            backgroundColor: Colors.white,
+                            label: Text(bloc.listOfContainer1[index]['chip'], style: textTheme.subtitle2)
+                          )
+                        ],
+                      ),
+                      const Spacer(),
+                      Text(bloc.listOfContainer1[index]['overline'], style: textTheme.headline5.copyWith(
+                        color: Colors.white
+                      )),
+                      Text(bloc.listOfContainer1[index]['title'], style: textTheme.headline6.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.normal,
+                      )),
+                    ],
                   ),
                 ),
               ),

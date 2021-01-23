@@ -10,7 +10,6 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await injector.init();
   injector.setup();
-  injector.setStatusBarColor(colorScheme['primary']);
   runApp(MyApp());
 }
 
@@ -37,7 +36,7 @@ class MyApp extends StatelessWidget {
         hintColor: colorScheme['text2'],
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: TabPage(),
+      home: EntryPage(),
     );
   }
 }

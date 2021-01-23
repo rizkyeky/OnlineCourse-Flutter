@@ -26,13 +26,13 @@ class IdeBisnisPage extends Page<IdeBisnisBloc> {
         elevation: 0,
       ),
       body: ListView(
-        padding: const EdgeInsets.all(24),
         children: [
+          const SizedBox(height: 24,),
           ContainerList(
             containerCount: 3,
-            padding: EdgeInsets.zero,
+            padding: const EdgeInsets.symmetric(horizontal: 24),
             insideBuilder: (context, index) => Padding(
-              padding: const EdgeInsets.all(12),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,9 +60,10 @@ class IdeBisnisPage extends Page<IdeBisnisBloc> {
               ),
             ),
           ),
-          const SizedBox(height: 24,),
+          const SizedBox(height: 12),
           ListTile(
-            contentPadding: EdgeInsets.zero,
+            dense: true,
+            contentPadding: const EdgeInsets.symmetric(horizontal: 24),
             title: Text('Kategori Ide', style: textTheme.headline6.copyWith(
               color: colorScheme['primary']
             )),
@@ -74,13 +75,12 @@ class IdeBisnisPage extends Page<IdeBisnisBloc> {
                 SizedBox(
                   height: 50,
                   child: ListView.separated(
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
                     scrollDirection: Axis.horizontal,
                     itemCount: bloc.listOfKategori.length,
                     separatorBuilder: (_, index) => const SizedBox(width: 12,),
                     itemBuilder: (_, index) => ActionChip(
                       elevation: 0,
-                      pressElevation: 2,
-                      padding: const EdgeInsets.symmetric(horizontal: 6),
                       backgroundColor: index == indexOfKategori ? colorScheme['primary'] : colorScheme['background3'],
                       label: Text(bloc.listOfKategori[index], style: textTheme.subtitle2.copyWith(
                         color: index == indexOfKategori ? Colors.white : colorScheme['text1']
@@ -90,26 +90,25 @@ class IdeBisnisPage extends Page<IdeBisnisBloc> {
                           indexOfKategori = index;
                         }
                       }),
-                      materialTapTargetSize: MaterialTapTargetSize.padded,
                     )
                   ),
                 ),
-                ... List.generate(2, (index) => ContainerRow(
-                  openWidget: IdeBisnisDetailPage(),
-                  padding: const EdgeInsets.only(top: 12)
-                ))
+                ...List.generate(2, (index) => ContainerRow(
+                  padding: const EdgeInsets.fromLTRB(24, 12, 24, 0),
+                  openWidget: IdeBisnisDetailPage()
+                )),
               ],
             )
           ),
           ListTile(
-            contentPadding: EdgeInsets.zero,
+            contentPadding: const EdgeInsets.fromLTRB(24, 12, 24, 0),
             title: Text('Usaha Bidang Makanan', style: textTheme.headline6.copyWith(
               color: colorScheme['primary']
             ))
           ),
           ... List.generate(2, (index) => ContainerRow(
             openWidget: IdeBisnisDetailPage(),
-            padding: const EdgeInsets.only(bottom: 12)
+            padding: const EdgeInsets.fromLTRB(24, 0, 24, 12),
           ))
         ],
       ),

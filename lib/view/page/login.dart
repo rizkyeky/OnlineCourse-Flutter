@@ -17,9 +17,8 @@ class LoginPage extends Page<EntryBloc> {
   @override
   Widget build(BuildContext context) => Scaffold(
       backgroundColor: colorScheme['primary'],
-      resizeToAvoidBottomPadding: true,
       body: Stack(
-        alignment: Alignment.center,
+        alignment: AlignmentDirectional.center,
         fit: StackFit.expand,
         children: [
           CustomPaint(
@@ -28,43 +27,45 @@ class LoginPage extends Page<EntryBloc> {
           CustomPaint(
             painter: LoginPainter2(),
           ),
-          Padding(
-            padding: const EdgeInsets.all(24),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              textBaseline: TextBaseline.alphabetic,
-              children: [
-                Image.asset('assets/logo/logo.png', height: 84, width: 110),
-                const SizedBox(height: 32,),
-                LoginTextField(
-                  hitText: 'Email',
-                  keyboardType: TextInputType.emailAddress,
-                  onChanged: (val) {},
-                ),
-                const SizedBox(height: 24,),
-                LoginTextField(
-                  hitText: 'Password',
-                  keyboardType: TextInputType.visiblePassword,
-                  obscureText: true,
-                  onChanged: (val) {},
-                ),
-                const SizedBox(height: 24,),
-                TextButton(
-                  onPressed: () {}, 
-                  child: Text('FORGET PASSWORD', style: textTheme.subtitle1.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: colorScheme['background2']
-                  ))
-                ),
-                const SizedBox(height: 24,),
-                MainButton(
-                  label: 'MASUK',
-                  onPressed: () => Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (_) => TabPage())
+          Center(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(24),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                textBaseline: TextBaseline.alphabetic,
+                children: [
+                  Image.asset('assets/logo/logo.png', height: 84, width: 110),
+                  const SizedBox(height: 32,),
+                  LoginTextField(
+                    hitText: 'Email',
+                    keyboardType: TextInputType.emailAddress,
+                    onChanged: (val) {},
                   ),
-                ),
-              ],
+                  const SizedBox(height: 24,),
+                  LoginTextField(
+                    hitText: 'Password',
+                    keyboardType: TextInputType.visiblePassword,
+                    obscureText: true,
+                    onChanged: (val) {},
+                  ),
+                  const SizedBox(height: 24,),
+                  TextButton(
+                    onPressed: () {}, 
+                    child: Text('FORGET PASSWORD', style: textTheme.subtitle1.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: colorScheme['background2']
+                    ))
+                  ),
+                  const SizedBox(height: 24,),
+                  MainButton(
+                    label: 'MASUK',
+                    onPressed: () => Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (_) => TabPage())
+                    ),
+                  ),
+                ],
+              ),
             ),
           )
         ],
