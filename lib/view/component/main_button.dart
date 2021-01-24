@@ -7,6 +7,7 @@ class MainButton extends StatelessWidget {
   final Color color;
   final void Function() onPressed;
   final Widget icon;
+  final ShapeBorder shape;
 
   const MainButton({
     this.label,
@@ -14,6 +15,7 @@ class MainButton extends StatelessWidget {
     this.color,
     this.icon,
     this.onPressed,
+    this.shape,
   });
 
   @override
@@ -23,7 +25,7 @@ class MainButton extends StatelessWidget {
       vertical: 14, horizontal: 32 
     ),
     onPressed: onPressed ?? () {},
-    shape: RoundedRectangleBorder(
+    shape: shape ?? RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(10)
     ),
     child: (icon == null) ? Text(label, style: labelStyle ?? textTheme.button.copyWith(

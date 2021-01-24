@@ -17,33 +17,24 @@ class IdeBisnisDetailPage extends Page<IdeBisnisDetailBloc> {
     return Scaffold(
       bottomSheet: Material(
         color: colorScheme['background2'],
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
-        clipBehavior: Clip.antiAlias,
         child: SizedBox(
-          height: 100,
+          height: 60,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('Ide Bisnis Laundry di Era Pademi', style: textTheme.bodyText1),
-                  Wrap(
-                    spacing: 12,
-                    children: ['JASA', '<10 JUTA'].map((e) => Chip(
-                      padding: EdgeInsets.zero,
-                      labelPadding: const EdgeInsets.symmetric(horizontal: 12),
-                      elevation: 0,
-                      label: Text(e, style: textTheme.subtitle2,),
-                    )).toList(),
-                  )
-                ],
+              const Spacer(),
+              Center(
+                child: SizedBox(
+                  width: injector.screenWidth-(200*0.8),
+                  child: Text('Ide Bisnis Laundry di Era Pademi', style: textTheme.bodyText1)
+                ),
               ),
+              const Spacer(),
               FlatButton(
                 color: colorScheme['primary'],
-                onPressed: () {}, 
+                onPressed: () {},
+                shape: const ContinuousRectangleBorder(),
                 child: Text('WUJUDKAN', style: textTheme.bodyText1.copyWith(
                   color: Colors.white
                 ),)
@@ -141,7 +132,7 @@ class IdeBisnisDetailPage extends Page<IdeBisnisDetailBloc> {
                 containerCount: 3,
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 insideBuilder: (context, index) => Padding(
-                  padding: const EdgeInsets.all(12),
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -169,7 +160,7 @@ class IdeBisnisDetailPage extends Page<IdeBisnisDetailBloc> {
                   ),
                 ),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 24+60.0),
             ])
           )
         ],

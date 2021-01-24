@@ -15,6 +15,38 @@ class PelatihanDetailPage extends Page<PelatihanDetailBloc> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomSheet: Material(
+        color: colorScheme['background2'],
+        child: SizedBox(
+          height: 60,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const SizedBox(width: 24),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Investasi', style: textTheme.bodyText1),
+                  Text('Rp. 30.000', style: textTheme.headline6.copyWith(
+                    color: colorScheme['primary']
+                  ))
+                ],
+              ),
+              const Spacer(),
+              FlatButton(
+                color: colorScheme['primary'],
+                onPressed: () {},
+                shape: const ContinuousRectangleBorder(),
+                child: Text('Daftar', style: textTheme.bodyText1.copyWith(
+                  color: Colors.white
+                ),)
+              )
+            ],
+          ),
+        ),
+      ),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -70,7 +102,7 @@ class PelatihanDetailPage extends Page<PelatihanDetailBloc> {
                     child: Icon(Icons.play_circle_outline, color: colorScheme['primary'], size: 50),
                   ),
                   const SizedBox(height: 24),
-                  Text(bloc.str1, style: textTheme.bodyText1),
+                  Text(bloc.str1, style: textTheme.bodyText1.copyWith()),
                 ],
               ),),
               Padding(
@@ -92,7 +124,6 @@ class PelatihanDetailPage extends Page<PelatihanDetailBloc> {
                       const ContainerImage(
                         width: 120,
                         height: 120,
-                        child: SizedBox()
                       ),
                       SizedBox(
                         width: 120,
@@ -123,7 +154,7 @@ class PelatihanDetailPage extends Page<PelatihanDetailBloc> {
                   ],
                 ),
                 insideBuilder: (context, index) => Padding(
-                  padding: const EdgeInsets.all(12),
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -143,7 +174,7 @@ class PelatihanDetailPage extends Page<PelatihanDetailBloc> {
                   ),
                 ),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 60+24.0),
             ])
           )
         ],
@@ -174,7 +205,9 @@ class ExpansionTahapan extends StatelessWidget {
             color: colorScheme['background3'],
             borderRadius: BorderRadius.circular(12)
           ),
-          child: Text(title, style: textTheme.subtitle1),
+          child: Text(title, style: textTheme.subtitle1.copyWith(
+            color: colorScheme['primary']
+          )),
         ),
         childrenPadding: const EdgeInsets.all(24),
         children: children,

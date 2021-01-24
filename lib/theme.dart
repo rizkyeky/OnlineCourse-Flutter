@@ -54,7 +54,7 @@ const Map<String, Color> colorScheme = {
   'primary': Color(0xFF3456DD), 
   'accent1': Color(0xFF4BD6F3), 
   'accent2': Color(0xFFF3EC00),
-  'background1': Color(0xFFF5F5F5), 
+  'background1': Color(0xFFF4F4F4), 
   'background2': Color(0xFFEAF2F9), 
   'background3': Color(0xFFBCE0FD),
   'text1': Color(0xFF464646), 

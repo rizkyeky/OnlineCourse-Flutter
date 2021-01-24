@@ -203,7 +203,7 @@ class HomePage extends Page<HomeBloc> {
         ),
         ...List.generate(3, (index) => ContainerTile(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-          openWidget: IdeBisnisDetailPage(),
+          openWidget: PelatihanDetailPage(),
         )),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
