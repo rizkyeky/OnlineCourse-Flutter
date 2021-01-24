@@ -15,6 +15,43 @@ class IdeBisnisDetailPage extends Page<IdeBisnisDetailBloc> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomSheet: Material(
+        color: colorScheme['background2'],
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+        clipBehavior: Clip.antiAlias,
+        child: SizedBox(
+          height: 100,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Ide Bisnis Laundry di Era Pademi', style: textTheme.bodyText1),
+                  Wrap(
+                    spacing: 12,
+                    children: ['JASA', '<10 JUTA'].map((e) => Chip(
+                      padding: EdgeInsets.zero,
+                      labelPadding: const EdgeInsets.symmetric(horizontal: 12),
+                      elevation: 0,
+                      label: Text(e, style: textTheme.subtitle2,),
+                    )).toList(),
+                  )
+                ],
+              ),
+              FlatButton(
+                color: colorScheme['primary'],
+                onPressed: () {}, 
+                child: Text('WUJUDKAN', style: textTheme.bodyText1.copyWith(
+                  color: Colors.white
+                ),)
+              )
+            ],
+          ),
+        ),
+      ),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(

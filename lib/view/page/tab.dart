@@ -49,7 +49,7 @@ class TabPage extends StatelessWidget {
           selectedLabelStyle: const TextStyle(
             fontWeight: FontWeight.bold
           ),
-          backgroundColor: const Color(0xFFEAF2F9),
+          backgroundColor: colorScheme['background2'],
           items: [
             BottomNavigationBarItem(
               icon: Image.asset('assets/logo/bee.png',

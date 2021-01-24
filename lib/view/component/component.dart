@@ -120,10 +120,12 @@ Future<void> showPengajuanSheet(BuildContext context) async {
         ]
       ),
     )
-  ).whenComplete(() {
-    focusKeyboard1.dispose();
-    focusKeyboard2.dispose();
-    keyboardShowup.dispose();
+  ).whenComplete(() async {
+    await Future.delayed(const Duration(seconds: 1)).whenComplete(() {
+      focusKeyboard1.dispose();
+      focusKeyboard2.dispose();
+      keyboardShowup.dispose();
+    });
   });
 }
 

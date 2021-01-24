@@ -28,7 +28,7 @@ class LoginPage extends Page<EntryBloc> {
             painter: LoginPainter2(),
           ),
           Center(
-            child: SingleChildScrollView(
+            child: Padding(
               padding: const EdgeInsets.all(24),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
