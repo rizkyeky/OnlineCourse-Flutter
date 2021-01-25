@@ -34,7 +34,7 @@ class ContainerTile extends StatelessWidget {
               ),
               const Spacer(),
               Flexible(
-                flex: 6,
+                flex: 8,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.baseline,
