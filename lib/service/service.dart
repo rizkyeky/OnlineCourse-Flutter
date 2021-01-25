@@ -1,9 +1,14 @@
+import 'dart:convert' show json;
 
+import 'package:business_course/model/model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:connectivity/connectivity.dart';
+import 'package:http/http.dart' as http;
 import '../injector.dart';
 
 part 'connection.dart';
+part 'api.dart';
+part 'kategori.dart';
 
 enum ConnectionStatus { online, offline }
 

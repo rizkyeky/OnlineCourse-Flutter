@@ -9,8 +9,14 @@
 // import 'package:flutter_test/flutter_test.dart';
 
 // import 'package:business_course/main.dart';
+import 'package:business_course/service/service.dart';
+import 'package:flutter/foundation.dart';
 
-void main() {}
+Future<void> main() async {
+  final KategoriService _service = KategoriService();
+  final result = await _service.getKategori();
+  debugPrint(result.massage);
+}
 
 abstract class Model<T> {
   final String id;

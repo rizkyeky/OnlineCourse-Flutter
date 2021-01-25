@@ -43,8 +43,7 @@ class ContainerRow extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          InkWell(
-                            borderRadius: BorderRadius.circular(12),
+                          GestureDetector(
                             onTap: () {},
                             child: const Icon(Icons.more_vert, color: Colors.white,)),
                         ],
