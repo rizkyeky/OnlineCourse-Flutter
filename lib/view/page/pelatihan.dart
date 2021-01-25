@@ -117,6 +117,7 @@ class PelatihanPage extends Page<PelatihanBloc> {
                     ),
                   ))
                 ),
+                const SizedBox(height: 24,),
                 ... List.generate(4, (index) => ContainerTile(
                   openWidget: PelatihanDetailPage(),
                   padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),

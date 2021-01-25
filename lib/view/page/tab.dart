@@ -23,22 +23,22 @@ class TabPage extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    var prevTab = setTab.value;
+    // var prevTab = setTab.value;
     return Scaffold(
       body: ValueListenableBuilder<int>(
         valueListenable: setTab, 
-        builder: (context, value, _) => 
-        PageTransitionSwitcher(
-          reverse: value > prevTab,
-          transitionBuilder: (child, primary, secondary) => 
-            SharedAxisTransition(
-              animation: primary,
-              secondaryAnimation: secondary,
-              transitionType: SharedAxisTransitionType.horizontal,
-              child: child,
-            ),
-          child: pages[value]
-        )
+        builder: (context, value, _) => pages[value]
+        // PageTransitionSwitcher(
+        //   reverse: value > prevTab,
+        //   transitionBuilder: (child, primary, secondary) => 
+        //     SharedAxisTransition(
+        //       animation: primary,
+        //       secondaryAnimation: secondary,
+        //       transitionType: SharedAxisTransitionType.horizontal,
+        //       child: child,
+        //     ),
+        //   child: pages[value]
+        // )
       ),
       bottomNavigationBar: ValueListenableBuilder<int>(
         valueListenable: setTab,
@@ -85,7 +85,7 @@ class TabPage extends StatelessWidget {
           ],
           onTap: (index) {
             if (setTab.value != index) {
-              prevTab = setTab.value;
+              // prevTab = setTab.value;
               setTab.value = index;
             }
           },
