@@ -213,6 +213,9 @@ class HomePage extends Page<HomeBloc> {
             onPressed: () {},
           ),
         ),
+        SimpleChip(
+          child: Text('Text1', style: textTheme.subtitle2),
+        ),
       ],
     ),
   );

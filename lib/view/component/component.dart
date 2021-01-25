@@ -17,6 +17,7 @@ part 'container_listtile.dart';
 part 'main_textfield.dart';
 part 'pengajuan_sheet.dart';
 part 'pinjaman_sheet.dart';
+part 'simple_chip.dart';
 
 
 
