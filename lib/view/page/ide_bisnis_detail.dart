@@ -76,9 +76,10 @@ class IdeBisnisDetailPage extends Page<IdeBisnisDetailBloc> {
                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 child: Wrap(
                   spacing: 12,
-                  children: ['JASA', 'SERTIFIKAT', '123 MENIT', 'KONSULTASI', 'EXCLUSIVE'].map((label) => Chip(
-                    backgroundColor: colorScheme['background3'],
-                    label: Text(label, style: textTheme.subtitle2.copyWith(
+                  runSpacing: 12,
+                  children: ['JASA', 'SERTIFIKAT', '123 MENIT', 'KONSULTASI', 'EXCLUSIVE'].map((label) => SimpleChip(
+                    color: colorScheme['background3'],
+                    child: Text(label, style: textTheme.subtitle2.copyWith(
                       color: colorScheme['primary'],
                     ))
                   )).toList()
@@ -142,9 +143,9 @@ class IdeBisnisDetailPage extends Page<IdeBisnisDetailBloc> {
                         crossAxisAlignment: CrossAxisAlignment.baseline,
                         children:  [
                           const Spacer(),
-                          Chip(
-                            backgroundColor: Colors.white,
-                            label: Text(bloc.listOfContainer1[index]['chip'], style: textTheme.subtitle2)
+                          SimpleChip(
+                            color: Colors.white,
+                            child: Text(bloc.listOfContainer1[index]['chip'], style: textTheme.subtitle2)
                           )
                         ],
                       ),

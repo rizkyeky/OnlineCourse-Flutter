@@ -40,9 +40,10 @@ class ContainerTile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.baseline,
                   textBaseline: TextBaseline.alphabetic,
                   children: [
-                    Chip(
-                      backgroundColor: colorScheme['primary'],
-                      label: Text('Rp. 150.000',style: textTheme.subtitle2.copyWith(
+                    SimpleChip(
+                      padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
+                      color: colorScheme['primary'],
+                      child: Text('Rp. 150.000',style: textTheme.subtitle2.copyWith(
                         color: Colors.white
                       )), 
                     ),

@@ -52,9 +52,9 @@ class PelatihanPage extends Page<PelatihanBloc> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Chip(
-                    backgroundColor: Colors.white,
-                    label: Text(bloc.listOfContainer2[index]['chip'], style: textTheme.subtitle2)
+                  SimpleChip(
+                    color: Colors.white,
+                    child: Text(bloc.listOfContainer2[index]['chip'], style: textTheme.subtitle2)
                   ),
                   const Spacer(),
                 ],

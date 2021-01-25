@@ -76,9 +76,10 @@ class PelatihanDetailPage extends Page<PelatihanDetailBloc> {
                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 child: Wrap(
                   spacing: 12,
-                  children: ['JASA', 'SERTIFIKAT', '123 MENIT', 'KONSULTASI', 'EXCLUSIVE'].map((label) => Chip(
-                    backgroundColor: colorScheme['background3'],
-                    label: Text(label, style: textTheme.subtitle2.copyWith(
+                  runSpacing: 12,
+                  children: ['JASA', 'SERTIFIKAT', '123 MENIT', 'KONSULTASI', 'EXCLUSIVE'].map((label) => SimpleChip(
+                    color: colorScheme['background3'],
+                    child: Text(label, style: textTheme.subtitle2.copyWith(
                       color: colorScheme['primary'],
                     ))
                   )).toList()
@@ -164,9 +165,9 @@ class PelatihanDetailPage extends Page<PelatihanDetailBloc> {
                         crossAxisAlignment: CrossAxisAlignment.baseline,
                         children:  [
                           const Spacer(),
-                          Chip(
-                            backgroundColor: Colors.white,
-                            label: Text(bloc.listOfContainer2[index]['chip'], style: textTheme.subtitle2)
+                          SimpleChip(
+                            color: Colors.white,
+                            child: Text(bloc.listOfContainer2[index]['chip'], style: textTheme.subtitle2)
                           )
                         ],
                       ),

@@ -126,9 +126,9 @@ class HomePage extends Page<HomeBloc> {
                   crossAxisAlignment: CrossAxisAlignment.baseline,
                   children:  [
                     const Spacer(),
-                    Chip(
-                      backgroundColor: Colors.white,
-                      label: Text(bloc.listOfContainer1[index]['chip'], style: textTheme.subtitle2)
+                    SimpleChip(
+                      color: Colors.white,
+                      child: Text(bloc.listOfContainer1[index]['chip'], style: textTheme.subtitle2)
                     )
                   ],
                 ),
@@ -185,9 +185,9 @@ class HomePage extends Page<HomeBloc> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Chip(
-                  backgroundColor: Colors.white,
-                  label: Text(bloc.listOfContainer2[index]['chip'], style: textTheme.subtitle2)
+                SimpleChip(
+                  color: Colors.white,
+                  child: Text(bloc.listOfContainer2[index]['chip'], style: textTheme.subtitle2)
                 ),
                 const Spacer(),
               ],
@@ -212,9 +212,6 @@ class HomePage extends Page<HomeBloc> {
             color: colorScheme['accent2'],
             onPressed: () {},
           ),
-        ),
-        SimpleChip(
-          child: Text('Text1', style: textTheme.subtitle2),
         ),
       ],
     ),

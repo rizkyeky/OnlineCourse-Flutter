@@ -42,9 +42,9 @@ class IdeBisnisPage extends Page<IdeBisnisBloc> {
                     crossAxisAlignment: CrossAxisAlignment.baseline,
                     children:  [
                       const Spacer(),
-                      Chip(
-                        backgroundColor: Colors.white,
-                        label: Text(bloc.listOfContainer1[index]['chip'], style: textTheme.subtitle2)
+                      SimpleChip(
+                        color: Colors.white,
+                        child: Text(bloc.listOfContainer1[index]['chip'], style: textTheme.subtitle2)
                       )
                     ],
                   ),
