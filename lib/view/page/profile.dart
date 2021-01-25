@@ -66,51 +66,46 @@ class ProfilePage extends Page<ProfileBloc> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              child: Material(
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 24),
+              decoration: BoxDecoration(
                 color: colorScheme['primary'],
                 borderRadius: BorderRadius.circular(12),
-                clipBehavior: Clip.antiAlias,
-                child: InkWell(
-                  onTap: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: Column(
-                      children: [
-                        Text('anda memiliki', style: textTheme.subtitle1.copyWith(
-                          color: Colors.white,
-                        )),
-                        const SizedBox(height: 6),
-                        Text('Rp 200.000', style: textTheme.headline4.copyWith(
-                          color: Colors.white
-                        )),
-                        const SizedBox(height: 6),
-                        Text('hanya dari program referral code', style: textTheme.subtitle2.copyWith(
-                          color: Colors.white,
-                        )),
-                        const SizedBox(height: 12),
-                        Divider(
-                          thickness: 1,
-                          color: colorScheme['background2']
-                        ),
-                        const SizedBox(height: 12),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('USRENS123', style: textTheme.subtitle1.copyWith(
-                              color: colorScheme['accent1'],
-                            )),
-                            SvgPicture.asset('assets/logo/more.svg',
-                              color: Colors.white,
-                              width: 24,
-                            )
-                          ],
-                        )
-                      ],
-                    ),
+              ),
+              clipBehavior: Clip.antiAlias,
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                children: [
+                  Text('anda memiliki', style: textTheme.subtitle1.copyWith(
+                    color: Colors.white,
+                  )),
+                  const SizedBox(height: 6),
+                  Text('Rp 200.000', style: textTheme.headline4.copyWith(
+                    color: Colors.white
+                  )),
+                  const SizedBox(height: 6),
+                  Text('hanya dari program referral code', style: textTheme.subtitle2.copyWith(
+                    color: Colors.white,
+                  )),
+                  const SizedBox(height: 12),
+                  Divider(
+                    thickness: 1,
+                    color: colorScheme['background2']
                   ),
-                ),
+                  const SizedBox(height: 12),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('USRENS123', style: textTheme.subtitle1.copyWith(
+                        color: colorScheme['accent1'],
+                      )),
+                      SvgPicture.asset('assets/logo/more.svg',
+                        color: Colors.white,
+                        width: 24,
+                      )
+                    ],
+                  )
+                ],
               ),
             ),
             Padding(
@@ -199,7 +194,7 @@ class ProfilePage extends Page<ProfileBloc> {
                   width: 120,
                   child: Material(
                     clipBehavior: Clip.antiAlias,
-                    color: const Color(0xFF4BD6F3),
+                    color: colorScheme['accent1'],
                     borderRadius: BorderRadius.circular(12),
                     child: InkWell(
                       borderRadius: BorderRadius.circular(12),

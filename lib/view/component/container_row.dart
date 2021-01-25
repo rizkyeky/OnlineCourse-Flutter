@@ -28,8 +28,13 @@ class ContainerRow extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12)
                 ),
                 openBuilder: (context, action) => openWidget,
-                closedBuilder: (context, action) => Ink.image(
-                  image: MemoryImage(injector.imagePlaceHolder),
+                closedBuilder: (context, action) => Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: MemoryImage(injector.imagePlaceHolder),
+                    )
+                  ),
                   height: 150,
                   width: 150,
                   child: Padding(

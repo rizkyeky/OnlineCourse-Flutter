@@ -47,9 +47,13 @@ class IdeBisnisDetailPage extends Page<IdeBisnisDetailBloc> {
         slivers: [
           SliverAppBar(
             pinned: true,
-            flexibleSpace: Ink.image(
-              fit: BoxFit.cover,
-              image: MemoryImage(injector.imagePlaceHolder),
+            flexibleSpace: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: MemoryImage(injector.imagePlaceHolder),
+                )
+              ),
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 24, left: 24),
                 child: Column(
@@ -133,7 +137,7 @@ class IdeBisnisDetailPage extends Page<IdeBisnisDetailBloc> {
                 containerCount: 3,
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 insideBuilder: (context, index) => Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  padding: const EdgeInsets.all(12),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,

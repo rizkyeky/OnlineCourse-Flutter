@@ -47,7 +47,7 @@ class PelatihanPage extends Page<PelatihanBloc> {
               ],
             ),
             insideBuilder: (context, index) => Padding(
-              padding: const EdgeInsets.only(right: 12, top: 6),
+              padding: const EdgeInsets.only(right: 12, top: 12),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -72,18 +72,16 @@ class PelatihanPage extends Page<PelatihanBloc> {
                     scrollDirection: Axis.horizontal,
                     itemCount: bloc.listOfKategori.length,
                     separatorBuilder: (_, index) => const SizedBox(width: 12,),
-                    itemBuilder: (_, index) => ActionChip(
-                      elevation: 0,
-                      padding: const EdgeInsets.symmetric(horizontal: 6),
-                      backgroundColor: index == indexOfKategori1 ? colorScheme['primary'] : colorScheme['background3'],
-                      label: Text(bloc.listOfKategori[index], style: textTheme.subtitle2.copyWith(
-                        color: index == indexOfKategori1 ? Colors.white : colorScheme['text1']
-                      )),
-                      onPressed: () => setState(() {
+                    itemBuilder: (_, index) => SimpleChip(
+                      color: index == indexOfKategori1 ? colorScheme['primary'] : colorScheme['background3'],
+                      onTap: () => setState(() {
                         if (indexOfKategori1 != index) {
                           indexOfKategori1 = index;
                         }
                       }),
+                      child: Text(bloc.listOfKategori[index], style: textTheme.subtitle2.copyWith(
+                        color: index == indexOfKategori1 ? Colors.white : colorScheme['text1']
+                      )),
                     )
                   ),
                 ),
@@ -155,8 +153,6 @@ class OptionButton extends StatelessWidget {
       borderRadius: BorderRadius.circular(12),
       child: InkWell(
         borderRadius: BorderRadius.circular(12),
-        splashColor: colorScheme['primary'].withOpacity(0.48),
-        highlightColor: colorScheme['primary'].withOpacity(0.24),
         onTap: onTap ?? () {},
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 18),

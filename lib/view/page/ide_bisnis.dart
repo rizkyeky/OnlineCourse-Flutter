@@ -32,7 +32,7 @@ class IdeBisnisPage extends Page<IdeBisnisBloc> {
             containerCount: 3,
             padding: const EdgeInsets.symmetric(horizontal: 24),
             insideBuilder: (context, index) => Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              padding: const EdgeInsets.all(12),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,17 +79,16 @@ class IdeBisnisPage extends Page<IdeBisnisBloc> {
                     scrollDirection: Axis.horizontal,
                     itemCount: bloc.listOfKategori.length,
                     separatorBuilder: (_, index) => const SizedBox(width: 12,),
-                    itemBuilder: (_, index) => ActionChip(
-                      elevation: 0,
-                      backgroundColor: index == indexOfKategori ? colorScheme['primary'] : colorScheme['background3'],
-                      label: Text(bloc.listOfKategori[index], style: textTheme.subtitle2.copyWith(
-                        color: index == indexOfKategori ? Colors.white : colorScheme['text1']
-                      )),
-                      onPressed: () => setState(() {
+                    itemBuilder: (_, index) => SimpleChip(
+                      color: index == indexOfKategori ? colorScheme['primary'] : colorScheme['background3'],
+                      onTap: () => setState(() {
                         if (indexOfKategori != index) {
                           indexOfKategori = index;
                         }
                       }),
+                      child: Text(bloc.listOfKategori[index], style: textTheme.subtitle2.copyWith(
+                        color: index == indexOfKategori ? Colors.white : colorScheme['text1']
+                      )),
                     )
                   ),
                 ),

@@ -116,7 +116,7 @@ class HomePage extends Page<HomeBloc> {
           containerCount: 3,
           padding: const EdgeInsets.symmetric(horizontal: 24),
           insideBuilder: (context, index) => Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            padding: const EdgeInsets.all(12),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -180,7 +180,7 @@ class HomePage extends Page<HomeBloc> {
             ],
           ),
           insideBuilder: (context, index) => Padding(
-            padding: const EdgeInsets.only(right: 12, top: 6),
+            padding: const EdgeInsets.only(right: 12, top: 12),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.end,
