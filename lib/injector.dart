@@ -1,9 +1,10 @@
 
 import 'package:get_it/get_it.dart';
-import 'package:simple_logger/simple_logger.dart';
 
 import 'bloc/bloc.dart';
 import 'service/service.dart';
+
+export 'dart:developer' show log;
 
 class Injector {
   
@@ -27,7 +28,7 @@ class Injector {
   }
 
   void setup() {
-    getService<ConnectionService>().init();
+    // getService<ConnectionService>().init();
   }
 
   T getBloc<T extends Bloc>() => _getIt.get<T>();
@@ -38,4 +39,3 @@ class Injector {
 }
 
 final Injector injector = Injector.instance;
-final SimpleLogger logger = SimpleLogger();

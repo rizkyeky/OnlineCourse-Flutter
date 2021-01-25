@@ -15,62 +15,62 @@ class LoginPage extends Page<EntryBloc> {
   }
   
   @override
-  Widget build(BuildContext context) => Scaffold(
-      backgroundColor: colorScheme['primary'],
-      body: Stack(
-        alignment: AlignmentDirectional.center,
-        fit: StackFit.expand,
-        children: [
-          CustomPaint(
-            painter: LoginPainter1(),
-          ),
-          CustomPaint(
-            painter: LoginPainter2(),
-          ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(24),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                textBaseline: TextBaseline.alphabetic,
-                children: [
-                  Image.asset('assets/logo/logo.png', height: 84, width: 110),
-                  const SizedBox(height: 32,),
-                  LoginTextField(
-                    hitText: 'Email',
-                    keyboardType: TextInputType.emailAddress,
-                    onChanged: (val) {},
+  Widget build(BuildContext context) => Container(
+    color: colorScheme['primary'],
+    child: Stack(
+      alignment: AlignmentDirectional.center,
+      fit: StackFit.expand,
+      children: [
+        CustomPaint(
+          painter: LoginPainter1(),
+        ),
+        CustomPaint(
+          painter: LoginPainter2(),
+        ),
+        Center(
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              textBaseline: TextBaseline.alphabetic,
+              children: [
+                Image.asset('assets/logo/logo.png', height: 84, width: 110),
+                const SizedBox(height: 32,),
+                LoginTextField(
+                  hitText: 'Email',
+                  keyboardType: TextInputType.emailAddress,
+                  onChanged: (val) {},
+                ),
+                const SizedBox(height: 24,),
+                LoginTextField(
+                  hitText: 'Password',
+                  keyboardType: TextInputType.visiblePassword,
+                  obscureText: true,
+                  onChanged: (val) {},
+                ),
+                const SizedBox(height: 24,),
+                TextButton(
+                  onPressed: () {}, 
+                  child: Text('FORGET PASSWORD', style: textTheme.subtitle1.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: colorScheme['background2']
+                  ))
+                ),
+                const SizedBox(height: 24,),
+                MainButton(
+                  label: 'MASUK',
+                  onPressed: () => Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (_) => TabPage())
                   ),
-                  const SizedBox(height: 24,),
-                  LoginTextField(
-                    hitText: 'Password',
-                    keyboardType: TextInputType.visiblePassword,
-                    obscureText: true,
-                    onChanged: (val) {},
-                  ),
-                  const SizedBox(height: 24,),
-                  TextButton(
-                    onPressed: () {}, 
-                    child: Text('FORGET PASSWORD', style: textTheme.subtitle1.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: colorScheme['background2']
-                    ))
-                  ),
-                  const SizedBox(height: 24,),
-                  MainButton(
-                    label: 'MASUK',
-                    onPressed: () => Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (_) => TabPage())
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          )
-        ],
-      ),
-    );
+          ),
+        )
+      ],
+    ),
+  );
 }
 
 class LoginPainter1 extends CustomPainter {

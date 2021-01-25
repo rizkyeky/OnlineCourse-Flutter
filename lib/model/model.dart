@@ -1,6 +1,6 @@
 library model;
 
-// part '.dart';
+part 'ide_bisnis.dart';
 
 abstract class Model {
   String id;

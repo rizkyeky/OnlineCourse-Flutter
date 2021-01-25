@@ -12,7 +12,7 @@ class ConnectionService implements Service {
       final curStatus = _getNetworkStatus(value);
       if (status != curStatus) {
         status = curStatus;
-        logger.info(status);
+        log(status.toString());
         if (networkStatusNotifier.value != status) {
           networkStatusNotifier.value = status;
         }
@@ -26,7 +26,7 @@ class ConnectionService implements Service {
       final curStatus = _getNetworkStatus(value);
       if (status != curStatus) {
         status = curStatus;
-        logger.info(status);
+        log(status.toString());
         if (networkStatusNotifier.value != status) {
           networkStatusNotifier.value = status;
         }

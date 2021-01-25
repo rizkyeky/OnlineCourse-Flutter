@@ -37,27 +37,31 @@ class ProfilePage extends Page<ProfileBloc> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  FlatButton(
-                    color: colorScheme['primary'],
-                    onPressed: () async => showPinjamanSheet(context),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6),
+                  Expanded(
+                    child: FlatButton(
+                      color: colorScheme['primary'],
+                      onPressed: () async => showPinjamanSheet(context),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      child: Text('PINJAMAN', style: textTheme.button.copyWith(
+                        color: Colors.white
+                      )),
                     ),
-                    child: Text('PINJAMAN', style: textTheme.button.copyWith(
-                      color: Colors.white
-                    )),
                   ),
                   const SizedBox(width: 24,),
-                  FlatButton(
-                    color: colorScheme['background2'],
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6),
-                      side: BorderSide(color: colorScheme['primary'])
+                  Expanded(
+                    child: FlatButton(
+                      color: colorScheme['background2'],
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(6),
+                        side: BorderSide(color: colorScheme['primary'])
+                      ),
+                      onPressed: () {},
+                      child: Text('TABUNGAN', style: textTheme.button.copyWith(
+                        color: colorScheme['primary']
+                      )),
                     ),
-                    onPressed: () {},
-                    child: Text('TABUNGAN', style: textTheme.button.copyWith(
-                      color: colorScheme['primary']
-                    )),
                   ),
                 ],
               ),
