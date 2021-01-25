@@ -49,18 +49,20 @@ class _PageState extends State<Page> {
   bool hasOffline = false;
   bool hasOnline = false;
 
+  Image placeHolder;
+
   @override
   void initState() {
-    super.initState();
     widget.init();
     widget.bloc.init();
+    super.initState();
   }
 
   @override
   void dispose() {
-    super.dispose();
     widget.dispose();
     widget.bloc.dispose();
+    super.dispose();
   }
 
   @override

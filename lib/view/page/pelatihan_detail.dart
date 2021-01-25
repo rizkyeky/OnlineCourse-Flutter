@@ -53,7 +53,7 @@ class PelatihanDetailPage extends Page<PelatihanDetailBloc> {
             pinned: true,
             flexibleSpace: Ink.image(
               fit: BoxFit.cover,
-              image: const AssetImage('assets/background/content.jpg'),
+              image: MemoryImage(injector.imagePlaceHolder),
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 24, left: 24),
                 child: Column(

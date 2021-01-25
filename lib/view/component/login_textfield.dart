@@ -31,7 +31,8 @@ class LoginTextField extends StatelessWidget {
         hintText: hitText,
         fillColor: Colors.white,
         filled: true,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 12),
+        isDense: true,
+        contentPadding: const EdgeInsets.fromLTRB(12, 12, 12, 24),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12)
         ),

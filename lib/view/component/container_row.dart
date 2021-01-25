@@ -29,7 +29,7 @@ class ContainerRow extends StatelessWidget {
                 ),
                 openBuilder: (context, action) => openWidget,
                 closedBuilder: (context, action) => Ink.image(
-                  image: const AssetImage('assets/background/content.jpg'),
+                  image: MemoryImage(injector.imagePlaceHolder),
                   height: 150,
                   width: 150,
                   child: Padding(

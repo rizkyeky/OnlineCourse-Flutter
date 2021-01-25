@@ -15,7 +15,7 @@ class LoginPage extends Page<EntryBloc> {
   }
   
   @override
-  Widget build(BuildContext context) => Container(
+  Widget build(BuildContext context) => Material(
     color: colorScheme['primary'],
     child: Stack(
       alignment: AlignmentDirectional.center,

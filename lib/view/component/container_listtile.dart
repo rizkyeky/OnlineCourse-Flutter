@@ -27,8 +27,8 @@ class ContainerTile extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Ink.image(
-                image: const AssetImage('assets/background/content.jpg'),
+              Image.memory(
+                injector.imagePlaceHolder,
                 width: 150,
                 height: 150,
               ),

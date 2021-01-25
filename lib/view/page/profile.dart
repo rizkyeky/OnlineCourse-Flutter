@@ -217,7 +217,11 @@ class ProfilePage extends Page<ProfileBloc> {
             Padding(
               padding: const EdgeInsets.all(24),
               child: FlatButton(
-                onPressed: () {},
+                onPressed: () => Navigator.pushAndRemoveUntil(
+                  context, 
+                  MaterialPageRoute(builder: (_) => EntryPage()), 
+                  (_) => false
+                ),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(6),
                 ),

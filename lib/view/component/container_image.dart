@@ -35,7 +35,7 @@ class ContainerImage extends StatelessWidget {
           onTap: onTap ?? () {},
           child: Ink.image(
             fit: BoxFit.cover,
-            image: image ?? const AssetImage('assets/background/content.jpg'),
+            image: image ?? MemoryImage(injector.imagePlaceHolder),
             child: child
           ),
         ),

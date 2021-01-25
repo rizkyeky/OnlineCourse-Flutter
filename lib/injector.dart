@@ -1,5 +1,13 @@
 
+import 'dart:io';
+import 'dart:typed_data';
+import 'dart:ui';
+
+// import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
+
 import 'package:get_it/get_it.dart';
+// import 'package:path_provider/path_provider.dart';
 
 import 'bloc/bloc.dart';
 import 'service/service.dart';
@@ -14,7 +22,7 @@ class Injector {
   final GetIt _getIt = GetIt.instance;
 
   Future<void> init() async {
-    _getIt.registerLazySingleton(() => ConnectionService());
+    // _getIt.registerLazySingleton(() => ConnectionService());
 
     _getIt.registerFactory(() => HomeBloc());
     _getIt.registerFactory(() => EntryBloc());
@@ -27,8 +35,9 @@ class Injector {
     await _getIt.allReady();
   }
 
-  void setup() {
+  Future<void> setup() async {
     // getService<ConnectionService>().init();
+    await cacheImagePlaceHolder('assets/background/content.jpg');
   }
 
   T getBloc<T extends Bloc>() => _getIt.get<T>();
@@ -36,6 +45,12 @@ class Injector {
 
   double screenHeight;
   double screenWidth;
+
+  Uint8List imagePlaceHolder;
+  Future<void> cacheImagePlaceHolder(String path) async {
+    final bytes = await rootBundle.load(path);
+    imagePlaceHolder = bytes.buffer.asUint8List();
+  }
 }
 
 final Injector injector = Injector.instance;

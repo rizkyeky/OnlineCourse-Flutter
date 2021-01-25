@@ -9,7 +9,7 @@ import 'view/page/page.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await injector.init();
-  injector.setup();
+  await injector.setup();
   runApp(MyApp());
 }
 
