@@ -1,13 +1,15 @@
 
-// import 'package:flutter/material.dart';
-import 'dart:ui';
-
-import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
+import 'package:simple_logger/simple_logger.dart';
+
 import 'bloc/bloc.dart';
 import 'service/service.dart';
 
 class Injector {
+  
+  Injector._();
+  static Injector instance = Injector._();
+
   final GetIt _getIt = GetIt.instance;
 
   Future<void> init() async {
@@ -33,12 +35,7 @@ class Injector {
 
   double screenHeight;
   double screenWidth;
+}
 
-  void setStatusBarColor(Color color) => SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle(
-      statusBarColor: color
-    )
-  );
-} 
-
-Injector injector = Injector();
+final Injector injector = Injector.instance;
+final SimpleLogger logger = SimpleLogger();

@@ -33,27 +33,27 @@ class ContainerTile extends StatelessWidget {
                 height: 150,
               ),
               const Spacer(),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.baseline,
-                textBaseline: TextBaseline.alphabetic,
-                children: [
-                  Chip(
-                    backgroundColor: colorScheme['primary'],
-                    label: Text('Rp. 150.000',style: textTheme.subtitle2.copyWith(
-                      color: Colors.white
-                    )), 
-                  ),
-                  SizedBox(
-                    width: 170-injector.screenWidth*0.1,
-                    child: Text('Pelatihan Untuk Membuat Furniture', 
+              Flexible(
+                flex: 6,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
+                  children: [
+                    Chip(
+                      backgroundColor: colorScheme['primary'],
+                      label: Text('Rp. 150.000',style: textTheme.subtitle2.copyWith(
+                        color: Colors.white
+                      )), 
+                    ),
+                    Text('Pelatihan Untuk Membuat Furniture', 
                       style: textTheme.bodyText1.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),
-                  Text('Member', style: textTheme.bodyText2),
-                ],
+                    Text('Member', style: textTheme.bodyText2),
+                  ],
+                ),
               ),
               const Spacer(),
             ],

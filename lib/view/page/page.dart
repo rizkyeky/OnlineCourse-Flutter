@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:simple_logger/simple_logger.dart';
 
 import '../../bloc/bloc.dart';
 import '../../injector.dart';

@@ -1,6 +1,7 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:connectivity/connectivity.dart';
+import '../injector.dart';
 
 part 'connection.dart';
 
