@@ -15,7 +15,7 @@ class KategoriService implements Service {
   final http.Client _client = http.Client();
   final API _api = API();
 
-  Future<ServiceResult<Map<String, List>>> getKategori() async {
+  Future<ServiceResult<List<Kategori>>> getKategori() async {
     try {
       final http.Response response = await _client.get(_api.kategori)
         .timeout(const Duration(seconds: 20));
@@ -23,24 +23,17 @@ class KategoriService implements Service {
       final data = json.decode(response.body) as List;
 
       if (response.statusCode != 200) {
-        return ServiceResult(massage: 'not success');
+        return ServiceResult(massage: 'not success', isSucess: false);
       } else {
-        final listOfPelatihan = [];
-        final listOfIdeBisnis = [];
-        for (final e in data) {
-          if (e['JENIS'] == 'PELATIHAN') {
-            listOfPelatihan.add(e);
-          } else {
-            listOfIdeBisnis.add(e);
-          }
-        }
-        return ServiceResult(value: {
-          'PELATIHAN': listOfPelatihan,
-          'IDE BISNIS': listOfIdeBisnis,
-        });
+        return ServiceResult(
+          value: data.map(
+            (e) => Kategori.fromJson(e as Map)
+          ).toList(),
+          isSucess: true,
+        );
       }
     } catch (e) {
-      return ServiceResult(massage: 'not success');
+      return ServiceResult(massage: 'not success $e', isSucess: false);
     }
   }
 

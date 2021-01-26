@@ -1,6 +1,6 @@
 library model;
 
-part 'ide_bisnis.dart';
+part 'kategori.dart';
 part 'pelatihan.dart';
 
 abstract class Model {

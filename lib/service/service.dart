@@ -1,5 +1,6 @@
 import 'dart:convert' show json;
 
+// import 'package:business_course/model/model.dart';
 import 'package:business_course/model/model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:connectivity/connectivity.dart';

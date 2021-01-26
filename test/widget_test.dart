@@ -15,23 +15,8 @@ import 'package:flutter/foundation.dart';
 Future<void> main() async {
   final KategoriService _service = KategoriService();
   final result = await _service.getKategori();
+  debugPrint(result.isSucess.toString());
   debugPrint(result.massage);
-}
-
-abstract class Model<T> {
-  final String id;
-  T message;
-  Model(this.id);
-}
-
-class User<T> implements Model<T> {
-  @override
-  final String id;
-  @override
-  T message;
-
-  String name;
-  String email;
-
-  User(this.id);
+  // int nilai = int.parse('20000');
+  // debugPrint(nilai.toString());
 }
