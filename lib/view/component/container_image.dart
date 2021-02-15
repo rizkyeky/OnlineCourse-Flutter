@@ -19,25 +19,18 @@ class ContainerImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    final theme = Theme.of(context);
-
-    return SizedBox(
-      height: height ?? 300,
-      width: width,
-      child: Material(
-        clipBehavior: Clip.antiAlias,
+    return Material(
+      clipBehavior: Clip.antiAlias,
+      borderRadius: BorderRadius.circular(12),
+      child: InkWell(
         borderRadius: BorderRadius.circular(12),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(12),
-          splashColor: theme.primaryColor.withOpacity(0.48),
-          highlightColor: theme.primaryColor.withOpacity(0.24),
-          onTap: onTap ?? () {},
-          child: Ink.image(
-            fit: BoxFit.cover,
-            image: image ?? MemoryImage(injector.imagePlaceHolder),
-            child: child
-          ),
+        splashColor: colorScheme['primary'].withOpacity(0.48),
+        highlightColor: colorScheme['primary'].withOpacity(0.24),
+        onTap: onTap ?? () {},
+        child: Ink.image(
+          fit: BoxFit.cover,
+          image: image ?? MemoryImage(injector.imagePlaceHolder),
+          child: child
         ),
       ),
     );

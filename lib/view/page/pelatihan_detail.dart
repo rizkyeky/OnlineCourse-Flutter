@@ -126,9 +126,10 @@ class PelatihanDetailPage extends Page<PelatihanDetailBloc> {
                   itemBuilder: (_, i) => Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const ContainerImage(
+                      const SizedBox(
                         width: 120,
                         height: 120,
+                        child: ContainerImage(),
                       ),
                       SizedBox(
                         width: 120,

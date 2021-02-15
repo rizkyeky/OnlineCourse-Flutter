@@ -55,28 +55,30 @@ class HomePage extends Page<HomeBloc> {
         CarouselSlider.builder(
           itemCount: 4, 
           options: CarouselOptions(
-            aspectRatio: 1,
             viewportFraction: 1,
-            autoPlay: true,
             height: 300,
           ),
-          itemBuilder: (ctx, index) => ContainerImage(
-            width: injector.screenWidth-(24*2),
-            child: Padding(
-              padding: const EdgeInsets.all(24),
-              child:  Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Spacer(),
-                  Text('Belajar', style: textTheme.headline4.copyWith(
-                    fontWeight: FontWeight.normal,
-                    color: Colors.white
-                  ),),
-                  Text('Ide Bisnis', style: textTheme.headline4.copyWith(
-                    color: Colors.white
-                  )),
-                ],
+          itemBuilder: (ctx, index) => Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: SizedBox.expand(
+              child: ContainerImage(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 24, bottom: 24),
+                  child:  Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Spacer(),
+                      Text('Belajar', style: textTheme.headline4.copyWith(
+                        fontWeight: FontWeight.normal,
+                        color: Colors.white
+                      ),),
+                      Text('Ide Bisnis', style: textTheme.headline4.copyWith(
+                        color: Colors.white
+                      )),
+                    ],
+                  ),
+                ),
               ),
             ),
           )
@@ -114,7 +116,6 @@ class HomePage extends Page<HomeBloc> {
         ),
         ContainerList(
           containerCount: 3,
-          padding: const EdgeInsets.symmetric(horizontal: 24),
           insideBuilder: (context, index) => Padding(
             padding: const EdgeInsets.all(12),
             child: Column(
@@ -164,33 +165,25 @@ class HomePage extends Page<HomeBloc> {
         ),
         ContainerList(
           containerCount: 3,
-          padding: const EdgeInsets.symmetric(horizontal: 24),
           bottomBuilder: (context, index) => Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                width: 220-(injector.screenWidth*0.1),
-                child: Text(bloc.listOfContainer2[index]['title'], style: textTheme.subtitle1.copyWith(
-                  height: 1.2,
-                  color: colorScheme['primary'],
-                  fontWeight: FontWeight.bold,
-                ))
-              ),
+              Text(bloc.listOfContainer2[index]['title'], style: textTheme.subtitle1.copyWith(
+                height: 1.2,
+                color: colorScheme['primary'],
+                fontWeight: FontWeight.bold,
+              )),
               Text(bloc.listOfContainer2[index]['subtitle'], style: textTheme.bodyText2)
             ],
           ),
           insideBuilder: (context, index) => Padding(
             padding: const EdgeInsets.only(right: 12, top: 12),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                SimpleChip(
-                  color: Colors.white,
-                  child: Text(bloc.listOfContainer2[index]['chip'], style: textTheme.subtitle2)
-                ),
-                const Spacer(),
-              ],
+            child: Align(
+              alignment: Alignment.topRight,
+              child: SimpleChip(
+                color: Colors.white,
+                child: Text(bloc.listOfContainer2[index]['chip'], style: textTheme.subtitle2)
+              ),
             ),
           ),
         ),

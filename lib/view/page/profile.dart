@@ -181,13 +181,11 @@ class ProfilePage extends Page<ProfileBloc> {
                   width: 120,
                   child: Padding(
                     padding: const EdgeInsets.all(12),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text('Bingkisan Daerah', style: textTheme.subtitle2.copyWith(
-                          color: Colors.white
-                        )),
-                      ],
+                    child: Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Text('Bingkisan Daerah', style: textTheme.subtitle2.copyWith(
+                        color: Colors.white
+                      )),
                     ),
                   )
                 ) : SizedBox(

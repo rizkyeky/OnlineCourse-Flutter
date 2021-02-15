@@ -31,33 +31,25 @@ class PelatihanPage extends Page<PelatihanBloc> {
           const SizedBox(height: 24,),
           ContainerList(
             containerCount: 3,
-            padding: const EdgeInsets.symmetric(horizontal: 24),
             bottomBuilder: (context, index) => Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  width: 220-(injector.screenWidth*0.1),
-                  child: Text(bloc.listOfContainer2[index]['title'], style: textTheme.subtitle1.copyWith(
-                    height: 1.2,
-                    color: colorScheme['primary'],
-                    fontWeight: FontWeight.bold,
-                  ))
-                ),
+                Text(bloc.listOfContainer2[index]['title'], style: textTheme.subtitle1.copyWith(
+                  height: 1.2,
+                  color: colorScheme['primary'],
+                  fontWeight: FontWeight.bold,
+                )),
                 Text(bloc.listOfContainer2[index]['subtitle'], style: textTheme.bodyText2)
               ],
             ),
             insideBuilder: (context, index) => Padding(
               padding: const EdgeInsets.only(right: 12, top: 12),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  SimpleChip(
-                    color: Colors.white,
-                    child: Text(bloc.listOfContainer2[index]['chip'], style: textTheme.subtitle2)
-                  ),
-                  const Spacer(),
-                ],
+              child: Align(
+                alignment: Alignment.topRight,
+                child: SimpleChip(
+                  color: Colors.white,
+                  child: Text(bloc.listOfContainer2[index]['chip'], style: textTheme.subtitle2)
+                ),
               ),
             ),
           ),

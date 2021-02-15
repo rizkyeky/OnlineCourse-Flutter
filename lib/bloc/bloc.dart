@@ -3,6 +3,7 @@ library bloc;
 import 'package:flutter/foundation.dart';
 
 import '../injector.dart';
+import '../model/model.dart';
 import '../service/service.dart';
 
 part 'home.dart';

@@ -117,10 +117,10 @@ class IdeBisnisDetailPage extends Page<IdeBisnisDetailBloc> {
                   itemBuilder: (_, i) => Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const ContainerImage(
+                      const SizedBox(
                         width: 120,
                         height: 120,
-                        child: SizedBox()
+                        child: ContainerImage(),
                       ),
                       SizedBox(
                         width: 120,

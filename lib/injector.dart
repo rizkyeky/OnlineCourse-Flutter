@@ -23,6 +23,7 @@ class Injector {
 
   Future<void> init() async {
     // _getIt.registerLazySingleton(() => ConnectionService());
+    _getIt.registerLazySingleton(() => KategoriService());
 
     _getIt.registerFactory(() => HomeBloc());
     _getIt.registerFactory(() => EntryBloc());

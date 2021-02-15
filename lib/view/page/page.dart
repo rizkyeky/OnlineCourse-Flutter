@@ -1,13 +1,12 @@
 library page;
 
 import 'package:flutter/material.dart';
-import 'package:animations/animations.dart';
+// import 'package:animations/animations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 import '../../bloc/bloc.dart';
 import '../../injector.dart';
-import '../../service/service.dart';
 
 import '../../theme.dart';
 import '../component/component.dart';
