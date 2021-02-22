@@ -8,32 +8,68 @@ class KategoriService implements Service {
   }
 
   @override
-  void init() {
-    // TODO: implement init
+  Future<void> init() async {
+    // final data = await getKategori();
   }
 
+  // List<>
+
   final http.Client _client = http.Client();
-  final API _api = API();
+  
+  Future<ServiceResult<List>> getIdeAll() async {
+    try {      
+      // debugPrint(_api.ideAll.toString());
+      
+      final http.Response response = await _client.post(_api.ideAll, body: {
+        'id_ide': ''
+      })
+        .timeout(const Duration(seconds: 10));
 
-  Future<ServiceResult<List<Kategori>>> getKategori() async {
-    try {
-      final http.Response response = await _client.get(_api.kategori)
-        .timeout(const Duration(seconds: 20));
+      final data = json.decode(response.body) as Map;
+      final results = data['results'] as List;
 
-      final data = json.decode(response.body) as List;
+      // debugPrint(data.toString());
 
       if (response.statusCode != 200) {
         return ServiceResult(massage: 'not success', isSucess: false);
       } else {
         return ServiceResult(
-          value: data.map(
-            (e) => Kategori.fromJson(e as Map)
-          ).toList(),
+          value: results.map(
+            (json) => Ide.fromJson(json as Map)
+          )
+            .toList(),
           isSucess: true,
         );
       }
     } catch (e) {
-      return ServiceResult(massage: 'not success $e', isSucess: false);
+      final error = e.toString().substring(0, e.toString().indexOf(':'));
+      return ServiceResult(massage: 'not success $error', isSucess: false);
+    }
+  }
+
+  Future<ServiceResult<List>> getPelatihanAll() async {
+    try {
+      // debugPrint(_api.pelatihanAll.toString());
+
+      final http.Response response = await _client.post(_api.pelatihanAll, body: {
+        'id_ide': ''
+      })
+        .timeout(const Duration(seconds: 10));
+
+      final data = json.decode(response.body) as Map;
+      final items = data['results'] as List;
+
+      if (response.statusCode != 200) {
+        return ServiceResult(massage: 'not success StatusCode', isSucess: false);
+      } else {
+        return ServiceResult(
+          value: items,
+          isSucess: true,
+        );
+      }
+    } catch (e) {
+      final error = e.toString().substring(0, e.toString().indexOf(':'));
+      return ServiceResult(massage: 'not success $error', isSucess: false);
     }
   }
 

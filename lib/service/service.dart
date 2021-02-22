@@ -13,6 +13,8 @@ part 'kategori.dart';
 
 enum ConnectionStatus { online, offline }
 
+final API _api = API();
+
 abstract class Service {
   void init();
   void dispose();

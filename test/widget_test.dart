@@ -6,17 +6,50 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 // import 'package:flutter/material.dart';
-// import 'package:flutter_test/flutter_test.dart';
+import 'package:business_course/model/model.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 // import 'package:business_course/main.dart';
 import 'package:business_course/service/service.dart';
 import 'package:flutter/foundation.dart';
 
-Future<void> main() async {
-  final KategoriService _service = KategoriService();
-  final result = await _service.getKategori();
-  debugPrint(result.isSucess.toString());
-  debugPrint(result.massage);
-  // int nilai = int.parse('20000');
-  // debugPrint(nilai.toString());
+void main() {
+
+  group('Services', () {
+    test('Get Ide All', () async {
+      final KategoriService _service = KategoriService();
+      final result = await _service.getIdeAll();
+      
+      if (result.isSucess) {
+
+        debugPrint(result.value[0].keys.toString());
+        debugPrint(result.value[0].keys.length.toString());
+
+      } else {
+        debugPrint(result.massage);
+      }
+
+    });
+
+    test('Get Pelatihan All', () async {
+      final KategoriService _service = KategoriService();
+      final result = await _service.getPelatihanAll();
+      
+      if (result.isSucess) {
+
+        debugPrint(result.value[0].keys.toString());
+        debugPrint(result.value[0].keys.length.toString());
+
+      } else {
+        debugPrint(result.massage);
+      }
+
+    });
+  });
+
+  group('Model', () {
+    final Pelatihan pelatihan = Pelatihan();
+    final Ide ide = Ide();
+
+  });
 }

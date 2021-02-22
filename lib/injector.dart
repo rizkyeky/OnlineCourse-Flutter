@@ -1,19 +1,12 @@
 
-import 'dart:io';
 import 'dart:typed_data';
-import 'dart:ui';
 
-// import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 
 import 'package:get_it/get_it.dart';
-// import 'package:path_provider/path_provider.dart';
 
 import 'bloc/bloc.dart';
 import 'service/service.dart';
-
-export 'dart:developer' show log;
-
 class Injector {
   
   Injector._();
